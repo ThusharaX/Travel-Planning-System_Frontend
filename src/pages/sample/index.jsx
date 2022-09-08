@@ -10,6 +10,9 @@ const Sample = () => {
 				<div>
 					<div className="block p-8 rounded-3xl shadow-lg bg-white max-w-screen-md max-h-full">
 						<form>
+							<div className="heading">Add Tour Package</div>
+							<br></br>
+
 							<div className="grid grid-cols-2 gap-x-10">
 								<div className="form-group mb-6">
 									<label className="labelClass" for="fname">
