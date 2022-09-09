@@ -9,6 +9,22 @@ class TourPackageAPI {
 	static getTourPackages() {
 		return axios.get(`${BASE_URL}/tour-package/`, requestConfig);
 	}
+
+	static createTourPacakge(newTourPackage) {
+		return axios.get(`${BASE_URL}/tour-package/`, newTourPackage, requestConfig);
+	}
+
+	static editTourPackage(id, newTourPackage) {
+		return axios.get(`${BASE_URL}/tour-package/${id}`, newTourPackage, requestConfig);
+	}
+
+	static deleteTourPackage(id, newTourPackage) {
+		return axios.get(`${BASE_URL}/tour-package/${id}`, requestConfig);
+	}
+
+	static searchTourPackage(search) {
+		return axios.get(`${BASE_URL}/tour-package/searcch/${search}`, requestConfig);
+	}
 }
 
 export default TourPackageAPI;

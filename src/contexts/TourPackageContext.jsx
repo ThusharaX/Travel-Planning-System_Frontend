@@ -7,6 +7,22 @@ export function TourPackageProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [tourPackages, setTourPackages] = useState([]);
 
+	//Hotel Package
+
+	const [tourPackage, setTourPackage] = useState({
+		tourPackageName: "",
+		guideName: "",
+		email: "",
+		contactNumber: "",
+		price: "",
+		NumberOfDays: "",
+		location: "",
+		description: "",
+		images: [],
+	});
+
+	//Get all Tour Packages
+
 	useEffect(() => {
 		setIsLoading(true);
 		TourPackageAPI.getTourPackages().then((response) => {
@@ -15,11 +31,25 @@ export function TourPackageProvider({ children }) {
 		});
 	}, []);
 
+	// Add Tour Package
+	const addTourPackage = async (newTourPackage) => {
+		try {
+			setIsLoading(true);
+			const response = await TourPackageAPI.createTourPacakge(newTourPackage);
+			setTourPackages([...tourPackages, response.data]);
+			setIsLoading(false);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	return (
 		<TourPackageContext.Provider
 			value={{
 				isLoading,
 				tourPackages,
+				addTourPackage,
+				tourPackage,
 			}}
 		>
 			{children}
