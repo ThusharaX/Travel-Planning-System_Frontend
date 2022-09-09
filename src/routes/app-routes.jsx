@@ -15,8 +15,6 @@ import {
 	TourPackageList,
 	TourPackageCreate,
 	CampingPackageList,
-	HotelPackageCreate,
-	TourPackageList,
 } from "../pages";
 
 const AppRoutes = () => {
