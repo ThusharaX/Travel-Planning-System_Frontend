@@ -6,7 +6,7 @@ const HotelPackageList = () => {
 
 	return (
 		<>
-			<h1 className="mt-5 text-4xl text-center">Hotel Package List</h1>
+			<h1 className="mt-5 text-4xl text-center">H Package List</h1>
 
 			{isLoading ? (
 				<h1 className="text-center">Loading...</h1>
