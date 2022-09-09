@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "../components/Header";
 
 // Pages
-import { Sample, HotelOwnerLogin, Home, HotelPackageList } from "../pages";
+import { Sample, HotelOwnerLogin, Home, HotelPackageList, TourPackageList } from "../pages";
 
 const AppRoutes = () => {
 	return (
@@ -17,6 +17,7 @@ const AppRoutes = () => {
 					<Route path="/sample" element={<Sample />} />
 					<Route path="/hotel-login" element={<HotelOwnerLogin />} />
 					<Route path="/hotel-package" element={<HotelPackageList />} />
+					<Route path="/tour-package" element={<TourPackageList />} />
 				</Routes>
 			</Router>
 		</>
