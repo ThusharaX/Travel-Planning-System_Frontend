@@ -11,7 +11,7 @@ class TourPackageAPI {
 	}
 
 	static createTourPacakge(newTourPackage) {
-		return axios.get(`${BASE_URL}/tour-package/`, newTourPackage, requestConfig);
+		return axios.post(`${BASE_URL}/tour-package/`, newTourPackage, requestConfigJson);
 	}
 
 	static editTourPackage(id, newTourPackage) {

@@ -45,6 +45,7 @@ const TourPackageCreate = () => {
 								placeholder="Tour Package Name"
 							/>
 						</div>
+
 						<div className="mb-4">
 							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="location">
 								Guide Name
@@ -103,6 +104,7 @@ const TourPackageCreate = () => {
 								placeholder="Number Of Days"
 							/>
 						</div>
+
 						<div className="mb-4">
 							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="room_no">
 								Location
@@ -114,6 +116,7 @@ const TourPackageCreate = () => {
 								placeholder="Location"
 							/>
 						</div>
+
 						<div className="mb-4">
 							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="description">
 								Description

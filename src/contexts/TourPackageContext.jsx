@@ -7,7 +7,7 @@ export function TourPackageProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [tourPackages, setTourPackages] = useState([]);
 
-	//Hotel Package
+	//Tour Package
 
 	const [tourPackage, setTourPackage] = useState({
 		tourPackageName: "",
@@ -39,6 +39,7 @@ export function TourPackageProvider({ children }) {
 			setTourPackages([...tourPackages, response.data]);
 			setIsLoading(false);
 		} catch (error) {
+			// eslint-disable-next-line no-console
 			console.log(error);
 		}
 	};
