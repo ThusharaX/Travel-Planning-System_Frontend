@@ -9,6 +9,11 @@ class HotelPackageAPI {
 	static getHotelPackages() {
 		return axios.get(`${BASE_URL}/hotel-package/`, requestConfig);
 	}
+
+	// Add a new hotel package
+	static createHotelPackage(newHotelPackage) {
+		return axios.post(`${BASE_URL}/hotel-package/`, newHotelPackage, requestConfigJson);
+	}
 }
 
 export default HotelPackageAPI;
