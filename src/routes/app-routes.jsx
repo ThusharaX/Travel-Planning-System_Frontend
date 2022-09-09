@@ -6,10 +6,15 @@ import Header from "../components/Header";
 
 // Pages
 
-import { Sample, HotelOwnerLogin, Home, HotelPackageList, CampingPackageList } from "../pages";
-
-import { Sample, HotelOwnerLogin, Home, HotelPackageList, HotelPackageCreate, TourPackageList } from "../pages";
-
+import {
+	Sample,
+	HotelOwnerLogin,
+	Home,
+	HotelPackageList,
+	CampingPackageList,
+	HotelPackageCreate,
+	TourPackageList,
+} from "../pages";
 
 const AppRoutes = () => {
 	return (
@@ -26,7 +31,6 @@ const AppRoutes = () => {
 
 					<Route path="/tour-package" element={<TourPackageList />} />
 					<Route path="/hotel-package-create" element={<HotelPackageCreate />} />
-
 				</Routes>
 			</Router>
 		</>

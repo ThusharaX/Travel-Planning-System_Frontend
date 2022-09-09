@@ -3,11 +3,7 @@ import Home from "./home";
 import HotelOwnerLogin from "./hotel-owner";
 import HotelPackageList from "./hotel-package-list";
 import CampingPackageList from "./camping-package-list";
-
-export { Sample, HotelOwnerLogin, Home, HotelPackageList, CampingPackageList };
-
 import TourPackageList from "./tour-package-list";
 import HotelPackageCreate from "./hotel-package-create";
 
-export { Sample, HotelOwnerLogin, Home, HotelPackageList, HotelPackageCreate, TourPackageList };
-
+export { Sample, HotelOwnerLogin, Home, HotelPackageList, CampingPackageList, HotelPackageCreate, TourPackageList };
