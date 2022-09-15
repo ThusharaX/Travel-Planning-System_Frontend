@@ -11,9 +11,10 @@ import {
 	HotelOwnerLogin,
 	Home,
 	HotelPackageList,
-	CampingPackageList,
 	HotelPackageCreate,
 	TourPackageList,
+	TourPackageCreate,
+	CampingPackageList,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -31,6 +32,7 @@ const AppRoutes = () => {
 
 					<Route path="/tour-package" element={<TourPackageList />} />
 					<Route path="/hotel-package-create" element={<HotelPackageCreate />} />
+					<Route path="/tour-package-create" element={<TourPackageCreate />} />
 				</Routes>
 			</Router>
 		</>
