@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import CampingPackageContext from "../../contexts/CampingPackageContext";
+import "../camping-package-create/camping.css";
 
 const CampingPackageCreate = () => {
 	const { isLoading, addCampingPackage } = useContext(CampingPackageContext);
