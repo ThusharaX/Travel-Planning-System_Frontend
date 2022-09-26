@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import "../vehicle-create/vehicle.css";
 import VehicleTourContext from "../../contexts/VehicleTourContext";
 
 const VehicleCreate = () => {
