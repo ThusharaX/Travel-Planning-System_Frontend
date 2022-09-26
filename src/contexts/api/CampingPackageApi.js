@@ -9,6 +9,11 @@ class CampingPackageAPI {
 	static getCampingPackages() {
 		return axios.get(`${BASE_URL}/camping-package/`, requestConfig);
 	}
+
+	// Add a new hotel package
+	static createCampingPackage(newCampingPackage) {
+		return axios.post(`${BASE_URL}/camping-package/`, newCampingPackage, requestConfigJson);
+	}
 }
 
 export default CampingPackageAPI;
