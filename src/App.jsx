@@ -4,7 +4,7 @@ import AppRoutes from "./routes/app-routes";
 
 function App() {
 	return (
-		<div>
+		<div className="font-ubuntu">
 			<AppRoutes />
 		</div>
 	);
