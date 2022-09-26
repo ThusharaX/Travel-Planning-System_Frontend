@@ -8,9 +8,6 @@ import HotelPackageCreate from "./hotel-package-create";
 import VehicleList from "./vehicle-owner";
 import VehicleCreate from "./vehicle-create";
 
-
-
-
 export {
 	Sample,
 	HotelOwnerLogin,
@@ -20,6 +17,5 @@ export {
 	TourPackageList,
 	VehicleList,
 	VehicleCreate,
-	
-
+	CampingPackageList,
 };
