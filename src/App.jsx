@@ -1,5 +1,5 @@
 import "./App.css";
-
+import "./pages/vehicle-create/vehicle.css";
 import AppRoutes from "./routes/app-routes";
 
 function App() {
