@@ -12,13 +12,16 @@ import {
 	Home,
 	HotelPackageList,
 	HotelPackageCreate,
-	TourPackageList,
 	CampingPackageCreate,
 	CampingPackageList,
 	VehicleList,
 	VehicleCreate,
+	/* Tour Guide */
 	TourGuideRegister,
+
+	/* Tour Package */
 	TourPackageCreate,
+	TourPackageList,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -41,10 +44,13 @@ const AppRoutes = () => {
 
 					<Route path="/vehicle-create" element={<VehicleCreate />} />
 					<Route path="/vehicle" element={<VehicleList />} />
-					<Route path="/tour-package-create" element={<TourPackageCreate />} />
 
 					{/* Tour Guide */}
 					<Route path="/tour-guide-register" element={<TourGuideRegister />} />
+
+					{/*Tour Package */}
+					<Route path="/tour-package-create" element={<TourPackageCreate />} />
+					<Route path="/tour-package-list" element={<TourPackageList />} />
 				</Routes>
 			</Router>
 		</>
