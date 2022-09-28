@@ -21,7 +21,7 @@ const TourGuideRegister = () => {
 
 	return (
 		<>
-			<h1 className="mt-5 text-4xl text-center">Tour Owner Register</h1>
+			<h1 className="mt-5 text-4xl text-center">Tour Guide Register</h1>
 
 			<div className="flex justify-center">
 				<div className="w-1/2">
