@@ -7,6 +7,7 @@ import TourPackageList from "./tour-package-list";
 import HotelPackageCreate from "./hotel-package-create";
 import VehicleList from "./vehicle-owner";
 import VehicleCreate from "./vehicle-create";
+import Userprofile from "./vehicle-owner";
 
 export {
 	Sample,
@@ -18,4 +19,5 @@ export {
 	VehicleList,
 	VehicleCreate,
 	CampingPackageList,
+	Userprofile,
 };
