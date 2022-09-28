@@ -17,6 +17,8 @@ import {
 	CampingPackageList,
 	VehicleList,
 	VehicleCreate,
+	TourGuideRegister,
+	TourPackageCreate,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -39,6 +41,10 @@ const AppRoutes = () => {
 
 					<Route path="/vehicle-create" element={<VehicleCreate />} />
 					<Route path="/vehicle" element={<VehicleList />} />
+					<Route path="/tour-package-create" element={<TourPackageCreate />} />
+
+					{/* Tour Guide */}
+					<Route path="/tour-guide-register" element={<TourGuideRegister />} />
 				</Routes>
 			</Router>
 		</>

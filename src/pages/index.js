@@ -10,6 +10,8 @@ import CampingPackageCreate from "./camping-package-create";
 
 import VehicleList from "./vehicle-owner";
 import VehicleCreate from "./vehicle-create";
+import TourPackageCreate from "./tour-package-create";
+import TourGuideRegister from "./tour-guide-register";
 
 export {
 	Sample,
@@ -22,4 +24,6 @@ export {
 	CampingPackageCreate,
 	VehicleList,
 	VehicleCreate,
+	TourPackageCreate,
+	TourGuideRegister,
 };
