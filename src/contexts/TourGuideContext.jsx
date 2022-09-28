@@ -30,19 +30,20 @@ export function TourGuideProvider({ children }) {
 
 	// Add Tour Guide
 
-	const addTourGuide = async (newTourGuide) => {
+	/*	const addTourGuide = async (values) => {
 		try {
 			setIsLoading(true);
-			const response = await TourGuideAPI.tourGuideRegister(newTourGuide);
+			const response = await TourGuideAPI.tourGuideRegister(values);
 			setTourGuides([...tourGuides, response.data]);
 			setIsLoading(false);
+			alert("Tour Guide Added Successfully");
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error);
 		}
-	};
+	};  */
 
-	/*const addTourGuide = (values) => {
+	const addTourGuide = (values) => {
 		setIsLoading(true);
 		const newTourGuide = {
 			tourGuideName: values.tourGuideName,
@@ -69,7 +70,7 @@ export function TourGuideProvider({ children }) {
 					setUserNameError(err.response.data.details);
 				}
 			});
-	}; */
+	};
 
 	return (
 		<TourGuideContext.Provider

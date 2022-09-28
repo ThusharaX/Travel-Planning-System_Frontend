@@ -1,8 +1,20 @@
 import React, { useContext } from "react";
 import TourPackageContext from "../../contexts/TourPackageContext";
+import Joi from "joi";
 
 const TourPackageCreate = () => {
 	const { isLoading, addTourPackage } = useContext(TourPackageContext);
+
+	/*const schema = Joi.object({
+		tourPackageName : Joi.string().min(5).max(50).message("Tour Package Name should be between 4 and 50 characters"), 
+		guideName : Joi.string().min(5).max(50).message("Guide Name should be between 4 and 50 characters"),
+		email : Joi.string().email().message("Email is not valid"),
+		contactNumber: Joi.string().min(10).max(10).message("Contact Number should be 10 digits"),
+		price : Joi.number().min(1).max(100000).message("Price should be between 1 and 100000"),
+		numberOfDays : Joi.number().min(1).max(100).message("Number of Days should be between 1 and 100"),
+		location : Joi.string().min(5).max(50).message("Location should be between 4 and 50 characters"),
+		description : Joi.string().min(5).max(500).message("Description should be between 4 and 500 characters"),
+	}); */
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -13,6 +25,7 @@ const TourPackageCreate = () => {
 		}
 
 		const newTourPackage = {
+			//schema : joiResolver(schema),
 			tourPackageName: e.target.tourPackageName.value,
 			guideName: e.target.guideName.value,
 			email: e.target.email.value,

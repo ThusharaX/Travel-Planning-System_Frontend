@@ -16,6 +16,7 @@ import TourPackageList from "./tour-package-list";
 
 /*Tour Guide*/
 import TourGuideRegister from "./tour-guide-register";
+import TourGuideLogin from "./tour-guide-login";
 
 export {
 	Sample,
@@ -32,4 +33,5 @@ export {
 	TourPackageList,
 	/*Tour Guide*/
 	TourGuideRegister,
+	TourGuideLogin,
 };

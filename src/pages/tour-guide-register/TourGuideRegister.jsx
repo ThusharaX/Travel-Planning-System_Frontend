@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import TourGuideContext from "../../contexts/TourGuideContext";
 
 const TourGuideRegister = () => {
@@ -8,12 +9,12 @@ const TourGuideRegister = () => {
 		e.preventDefault();
 
 		const newTourGuide = {
-			tourGuideName: values.tourGuideName,
-			email: values.email,
-			nic: values.nic,
-			contactNumber: values.contactNumber,
-			profilePicture: values.profilePicture,
-			password: values.password,
+			tourGuideName: e.target.tourGuideName.value,
+			email: e.target.email.value,
+			nic: e.target.nic.value,
+			contactNumber: e.target.contactNumber.value,
+			profilePicture: e.target.profilePicture.value,
+			password: e.target.password.value,
 		};
 
 		addTourGuide(newTourGuide);
@@ -28,13 +29,13 @@ const TourGuideRegister = () => {
 					<form className="mt-5" onSubmit={handleSubmit}>
 						<div className="mb-4">
 							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="ownerName">
-								Owner Name
+								Tour Guide Name
 							</label>
 							<input
 								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-								id="ownerName"
+								id="tourGuideName"
 								type="text"
-								placeholder="Owner Name"
+								placeholder="Tour Guide Name"
 							/>
 						</div>
 						<div className="mb-4">
@@ -81,50 +82,7 @@ const TourGuideRegister = () => {
 								placeholder="Password"
 							/>
 						</div>
-						<div className="mb-4">
-							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="hotelName">
-								Hotel Name
-							</label>
-							<input
-								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-								id="hotelName"
-								type="text"
-								placeholder="Hotel Name"
-							/>
-						</div>
-						<div className="mb-4">
-							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="hotelAddress">
-								Hotel Address
-							</label>
-							<input
-								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-								id="hotelAddress"
-								type="text"
-								placeholder="Hotel Address"
-							/>
-						</div>
-						<div className="mb-4">
-							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="companyPhoneNumber">
-								Company Phone Number
-							</label>
-							<input
-								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-								id="companyPhoneNumber"
-								type="text"
-								placeholder="Company Phone Number"
-							/>
-						</div>
-						<div className="mb-4">
-							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="companyRegNo">
-								Company Registration Number
-							</label>
-							<input
-								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-								id="companyRegNo"
-								type="text"
-								placeholder="Company Registration Number"
-							/>
-						</div>
+
 						<div className="mb-4">
 							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="profilePicture">
 								Profile Picture
@@ -145,14 +103,10 @@ const TourGuideRegister = () => {
 							</button>
 						</div>
 						<hr className="mb-6 border-t" />
+
 						<div className="text-center">
 							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
-								Forgot Password?
-							</a>
-						</div>
-						<div className="text-center">
-							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
-								Already have an account? Login!
+								<Link to="/tour-guide-login">Already have an account? Login!</Link>
 							</a>
 						</div>
 					</form>

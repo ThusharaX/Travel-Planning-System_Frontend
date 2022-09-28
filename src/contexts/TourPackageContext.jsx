@@ -26,7 +26,6 @@ export function TourPackageProvider({ children }) {
 	useEffect(() => {
 		setIsLoading(true);
 		TourPackageAPI.getTourPackages().then((response) => {
-			console.log("data1");
 			setTourPackages(response.data);
 			setIsLoading(false);
 		});

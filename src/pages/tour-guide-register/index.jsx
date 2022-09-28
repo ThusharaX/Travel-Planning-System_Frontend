@@ -1,7 +1,7 @@
 import React from "react";
 import TourGuideRegister from "./TourGuideRegister";
 
-// TourGuideProvider
+// Tour Guide Provider
 import { TourGuideProvider } from "../../contexts/TourGuideContext";
 
 const index = () => {
