@@ -17,6 +17,7 @@ import {
 	CampingPackageList,
 	VehicleList,
 	VehicleCreate,
+	Userprofile,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -39,6 +40,7 @@ const AppRoutes = () => {
 
 					<Route path="/vehicle-create" element={<VehicleCreate />} />
 					<Route path="/vehicle" element={<VehicleList />} />
+					<Route path="/vehicle-profile" element={<Userprofile />} />
 				</Routes>
 			</Router>
 		</>
