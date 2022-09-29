@@ -9,6 +9,7 @@ import CampingPackageCreate from "./camping-package-create";
 
 import VehicleList from "./vehicle-owner";
 import VehicleCreate from "./vehicle-create";
+import Userprofile from "./vehicleOwner-profile/Userprofile";
 
 /* Tour Package */
 import TourPackageCreate from "./tour-package-create";
@@ -28,10 +29,14 @@ export {
 	CampingPackageCreate,
 	VehicleList,
 	VehicleCreate,
+
 	/*Tour Package*/
 	TourPackageCreate,
 	TourPackageList,
 	/*Tour Guide*/
 	TourGuideRegister,
 	TourGuideLogin,
+
+	Userprofile,
+
 };

@@ -16,6 +16,7 @@ import {
 	CampingPackageList,
 	VehicleList,
 	VehicleCreate,
+
 	/* Tour Guide */
 	TourGuideRegister,
 	TourGuideLogin,
@@ -23,6 +24,8 @@ import {
 	/* Tour Package */
 	TourPackageCreate,
 	TourPackageList,
+
+Userprofile,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -46,6 +49,7 @@ const AppRoutes = () => {
 					<Route path="/vehicle-create" element={<VehicleCreate />} />
 					<Route path="/vehicle" element={<VehicleList />} />
 
+
 					{/* Tour Guide */}
 					<Route path="/tour-guide-register" element={<TourGuideRegister />} />
 					<Route path="/tour-guide-login" element={<TourGuideLogin />} />
@@ -53,6 +57,8 @@ const AppRoutes = () => {
 					{/*Tour Package */}
 					<Route path="/tour-package-create" element={<TourPackageCreate />} />
 					<Route path="/tour-package-list" element={<TourPackageList />} />
+
+					<Route path="/vehicle-profile" element={<Userprofile />} />
 				</Routes>
 			</Router>
 		</>
