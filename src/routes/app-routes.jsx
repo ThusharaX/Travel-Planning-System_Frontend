@@ -13,6 +13,7 @@ import {
 	HotelPackageList,
 	HotelPackageCreate,
 	TourPackageList,
+	CampingPackageCreate,
 	CampingPackageList,
 	VehicleList,
 	VehicleCreate,
@@ -35,9 +36,11 @@ const AppRoutes = () => {
 					<Route path="/tour-package" element={<TourPackageList />} />
 					<Route path="/hotel-package-create" element={<HotelPackageCreate />} />
 
+					<Route path="/camping-package-create" element={<CampingPackageCreate />} />
+
 					<Route path="/vehicle-create" element={<VehicleCreate />} />
 					<Route path="/vehicle" element={<VehicleList />} />
-					<Route path="/vehicleuser" element={<Userprofile />} />
+					<Route path="/vehicle-profile" element={<Userprofile />} />
 				</Routes>
 			</Router>
 		</>
