@@ -36,7 +36,5 @@ export {
 	/*Tour Guide*/
 	TourGuideRegister,
 	TourGuideLogin,
-
 	Userprofile,
-
 };

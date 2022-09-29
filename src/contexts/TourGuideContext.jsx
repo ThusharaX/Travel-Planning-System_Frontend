@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import TourGuideAPI from "./api/TourGuideAPI";
 import Joi from "joi";
 
@@ -6,6 +6,7 @@ const TourGuideContext = createContext();
 
 export function TourGuideProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [tourGuides, setTourGuides] = useState([]);
 
 	//Form Validation
@@ -72,6 +73,29 @@ export function TourGuideProvider({ children }) {
 			});
 	};
 
+	const TourGuideLogin = (values) => {
+		setIsLoading(true);
+		TourGuideAPI.tourGuideLogin(values)
+			.then((response) => {
+				if (response.data.permissionLevel !== "TOUR_GUIDE") {
+					setIsLoading(false);
+					return alert("You are not a Tour Guide");
+				} else {
+					localStorage.setItem("uID", response.data._id);
+					localStorage.setItem("username", response.data.tourGuideName);
+					localStorage.setItem("Email", response.data.email);
+					localStorage.setItem("authToken", response.data.token);
+					localStorage.setItem("permissionLevel", response.data.permissionLevel);
+					setIsLoggedIn(true);
+					setIsLoggedIn(false);
+				}
+			})
+			.catch((err) => {
+				setIsLoading(false);
+				return alert(err.response.data.details.message);
+			});
+	};
+
 	return (
 		<TourGuideContext.Provider
 			value={{
@@ -79,6 +103,7 @@ export function TourGuideProvider({ children }) {
 				tourGuides,
 				addTourGuide,
 				tourGuide,
+				TourGuideLogin,
 			}}
 		>
 			{children}
