@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
-const HotelOwnerLogin = () => {
+const TourGuideLogin = () => {
 	return (
 		<>
-			<h1 className="mt-5 text-4xl text-center">Hotel Owner Login</h1>
+			<h1 className="mt-5 text-4xl text-center">Tour Guide Login</h1>
 
 			<div className="flex justify-center">
 				<div className="w-1/2">
@@ -46,7 +47,7 @@ const HotelOwnerLogin = () => {
 						</div>
 						<div className="text-center">
 							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
-								Create an Account.
+								<Link to="/tour-guide-register">Create an Account.</Link>
 							</a>
 						</div>
 					</form>
@@ -56,4 +57,4 @@ const HotelOwnerLogin = () => {
 	);
 };
 
-export default HotelOwnerLogin;
+export default TourGuideLogin;
