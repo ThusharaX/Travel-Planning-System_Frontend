@@ -25,26 +25,30 @@ export function TourGuideProvider({ children }) {
 		email: "",
 		nic: "",
 		contactNumber: "",
+		guideArea: "",
+		guideCity: "",
+		spokenLanguages: "",
+		motherTongue: "",
 		profilePicture: "null",
 		password: "",
 	});
 
 	// Add Tour Guide
 
-	/*	const addTourGuide = async (values) => {
+	const TourGuideRegister = async (values) => {
 		try {
 			setIsLoading(true);
 			const response = await TourGuideAPI.tourGuideRegister(values);
 			setTourGuides([...tourGuides, response.data]);
 			setIsLoading(false);
-			alert("Tour Guide Added Successfully");
+			alert("Tour Guide Registered Successfully");
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error);
 		}
-	};  */
+	};
 
-	const addTourGuide = (values) => {
+	/*	const addTourGuide = (values) => {
 		setIsLoading(true);
 		const newTourGuide = {
 			tourGuideName: values.tourGuideName,
@@ -71,7 +75,7 @@ export function TourGuideProvider({ children }) {
 					setUserNameError(err.response.data.details);
 				}
 			});
-	};
+	}; */
 
 	const TourGuideLogin = (values) => {
 		setIsLoading(true);
@@ -101,7 +105,7 @@ export function TourGuideProvider({ children }) {
 			value={{
 				isLoading,
 				tourGuides,
-				addTourGuide,
+				TourGuideRegister,
 				tourGuide,
 				TourGuideLogin,
 			}}

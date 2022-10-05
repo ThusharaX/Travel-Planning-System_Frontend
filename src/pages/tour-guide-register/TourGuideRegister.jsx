@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import TourGuideContext from "../../contexts/TourGuideContext";
 
 const TourGuideRegister = () => {
-	/*const { isLoading, addTourGuide } = useContext(TourGuideContext);
+	const { isLoading, TourGuideRegister } = useContext(TourGuideContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -13,14 +13,16 @@ const TourGuideRegister = () => {
 			email: e.target.email.value,
 			nic: e.target.nic.value,
 			contactNumber: e.target.contactNumber.value,
+			guideArea: e.target.guideArea.value,
+			guideCity: e.target.guideCity.value,
+			spokenLanguages: e.target.spokenLanguages.value,
+			motherTongue: e.target.motherTongue.value,
 			profilePicture: e.target.profilePicture.value,
-			password: e.target.password.value, 
+			password: e.target.password.value,
+		};
 
-			
-		}; 
-
-		addTourGuide(newTourGuide); 
-	}; */
+		TourGuideRegister(newTourGuide);
+	};
 
 	return (
 		<>
@@ -28,7 +30,7 @@ const TourGuideRegister = () => {
 
 			<div className="flex justify-center">
 				<div className="w-1/2">
-					<form className="mt-5">
+					<form className="mt-5" onSubmit={handleSubmit}>
 						<div className="mb-4">
 							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="ownerName">
 								Tour Guide Name
@@ -69,7 +71,7 @@ const TourGuideRegister = () => {
 							<input
 								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 								id="contactNumber"
-								type="nummber"
+								type="Number"
 								placeholder="Contact Number"
 							/>
 						</div>
@@ -104,7 +106,7 @@ const TourGuideRegister = () => {
 							</label>
 							<input
 								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-								id="languages"
+								id="spokenLanguages"
 								type="text"
 								placeholder="example : English"
 							/>
@@ -148,7 +150,7 @@ const TourGuideRegister = () => {
 						<div className="mb-6 text-center">
 							<button
 								className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-								type="button"
+								type="submit"
 							>
 								Register
 							</button>
