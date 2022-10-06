@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import TourGuideAPI from "./api/TourGuideAPI";
 import Joi from "joi";
 
@@ -6,6 +6,7 @@ const TourGuideContext = createContext();
 
 export function TourGuideProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [tourGuides, setTourGuides] = useState([]);
 
 	//Form Validation
@@ -24,26 +25,30 @@ export function TourGuideProvider({ children }) {
 		email: "",
 		nic: "",
 		contactNumber: "",
+		guideArea: "",
+		guideCity: "",
+		spokenLanguages: "",
+		motherTongue: "",
 		profilePicture: "null",
 		password: "",
 	});
 
 	// Add Tour Guide
 
-	/*	const addTourGuide = async (values) => {
+	const TourGuideRegister = async (values) => {
 		try {
 			setIsLoading(true);
 			const response = await TourGuideAPI.tourGuideRegister(values);
 			setTourGuides([...tourGuides, response.data]);
 			setIsLoading(false);
-			alert("Tour Guide Added Successfully");
+			alert("Tour Guide Registered Successfully");
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error);
 		}
-	};  */
+	};
 
-	const addTourGuide = (values) => {
+	/*	const addTourGuide = (values) => {
 		setIsLoading(true);
 		const newTourGuide = {
 			tourGuideName: values.tourGuideName,
@@ -70,6 +75,29 @@ export function TourGuideProvider({ children }) {
 					setUserNameError(err.response.data.details);
 				}
 			});
+	}; */
+
+	const TourGuideLogin = (values) => {
+		setIsLoading(true);
+		TourGuideAPI.tourGuideLogin(values)
+			.then((response) => {
+				if (response.data.permissionLevel !== "TOUR_GUIDE") {
+					setIsLoading(false);
+					return alert("You are not a Tour Guide");
+				} else {
+					localStorage.setItem("uID", response.data._id);
+					localStorage.setItem("username", response.data.tourGuideName);
+					localStorage.setItem("Email", response.data.email);
+					localStorage.setItem("authToken", response.data.token);
+					localStorage.setItem("permissionLevel", response.data.permissionLevel);
+					setIsLoggedIn(true);
+					setIsLoggedIn(false);
+				}
+			})
+			.catch((err) => {
+				setIsLoading(false);
+				return alert(err.response.data.details.message);
+			});
 	};
 
 	return (
@@ -77,8 +105,9 @@ export function TourGuideProvider({ children }) {
 			value={{
 				isLoading,
 				tourGuides,
-				addTourGuide,
+				TourGuideRegister,
 				tourGuide,
+				TourGuideLogin,
 			}}
 		>
 			{children}

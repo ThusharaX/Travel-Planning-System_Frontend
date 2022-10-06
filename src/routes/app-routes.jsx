@@ -24,8 +24,7 @@ import {
 	/* Tour Package */
 	TourPackageCreate,
 	TourPackageList,
-
-Userprofile,
+	Userprofile,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -48,7 +47,6 @@ const AppRoutes = () => {
 
 					<Route path="/vehicle-create" element={<VehicleCreate />} />
 					<Route path="/vehicle" element={<VehicleList />} />
-
 
 					{/* Tour Guide */}
 					<Route path="/tour-guide-register" element={<TourGuideRegister />} />
