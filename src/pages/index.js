@@ -3,16 +3,26 @@ import Home from "./home";
 import HotelOwnerLogin from "./hotel-owner";
 import HotelPackageList from "./hotel-package-list";
 import CampingPackageList from "./camping-package-list";
-import TourPackageList from "./tour-package-list";
 import HotelPackageCreate from "./hotel-package-create";
 
 import CampingPackageCreate from "./camping-package-create";
 
 import VehicleList from "./vehicle-owner";
 import VehicleCreate from "./vehicle-create";
+
+import CampingPackageEdit from "./camping-package-edit";
+
 import Userprofile from "./vehicleOwner-profile/Userprofile";
 
 import CustomerSignup from "./cutomerSignup";
+
+/* Tour Package */
+import TourPackageCreate from "./tour-package-create";
+import TourPackageList from "./tour-package-list";
+
+/*Tour Guide*/
+import TourGuideRegister from "./tour-guide-register";
+import TourGuideLogin from "./tour-guide-login";
 
 export {
 	Sample,
@@ -21,10 +31,17 @@ export {
 	HotelPackageList,
 	CampingPackageList,
 	HotelPackageCreate,
-	TourPackageList,
 	CampingPackageCreate,
 	VehicleList,
 	VehicleCreate,
+	CampingPackageEdit,
+
+	/*Tour Package*/
+	TourPackageCreate,
+	TourPackageList,
+	/*Tour Guide*/
+	TourGuideRegister,
+	TourGuideLogin,
 	Userprofile,
 	CustomerSignup,
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import TourPackageList from "./TourPackageCreate";
+import TourPackageCreate from "./TourPackageCreate";
 
 // Tour Package Provider
 import { TourPackageProvider } from "../../contexts/TourPackageContext";
@@ -8,7 +8,7 @@ const index = () => {
 	return (
 		<>
 			<TourPackageProvider>
-				<TourPackageList />
+				<TourPackageCreate />
 			</TourPackageProvider>
 		</>
 	);

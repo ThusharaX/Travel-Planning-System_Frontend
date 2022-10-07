@@ -14,6 +14,24 @@ class CampingPackageAPI {
 	static createCampingPackage(newCampingPackage) {
 		return axios.post(`${BASE_URL}/camping-package/`, newCampingPackage, requestConfigJson);
 	}
+
+	//Get one Camping Package
+
+	static getOnePackageData(id) {
+		return axios.get(`${BASE_URL}/camping-Package/${id}`, requestConfigJson);
+	}
+
+	//Edit Camping Package
+
+	static editCampingPackage(id, newCampingPackage) {
+		return axios.put(`${BASE_URL}/camping-package/${id}`, newCampingPackage, requestConfigJson);
+	}
+
+	//Delete Camping Package
+
+	static deleteCampingPackage(id) {
+		return axios.delete(`${BASE_URL}/camping-package/${id}`, requestConfig);
+	}
 }
 
 export default CampingPackageAPI;
