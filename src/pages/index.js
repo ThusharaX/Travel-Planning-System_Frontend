@@ -14,8 +14,6 @@ import CampingPackageEdit from "./camping-package-edit";
 
 import Userprofile from "./vehicleOwner-profile/Userprofile";
 
-import CustomerSignup from "./cutomerSignup";
-
 /* Tour Package */
 import TourPackageCreate from "./tour-package-create";
 import TourPackageList from "./tour-package-list";
@@ -23,6 +21,8 @@ import TourPackageList from "./tour-package-list";
 /*Tour Guide*/
 import TourGuideRegister from "./tour-guide-register";
 import TourGuideLogin from "./tour-guide-login";
+
+import CustomerSignup from "./cutomerSignup";
 
 export {
 	Sample,
