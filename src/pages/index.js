@@ -10,6 +10,7 @@ import CampingPackageCreate from "./camping-package-create";
 
 import VehicleList from "./vehicle-owner";
 import VehicleCreate from "./vehicle-create";
+import CampingPackageEdit from "./camping-package-edit";
 
 export {
 	Sample,
@@ -22,4 +23,5 @@ export {
 	CampingPackageCreate,
 	VehicleList,
 	VehicleCreate,
+	CampingPackageEdit,
 };
