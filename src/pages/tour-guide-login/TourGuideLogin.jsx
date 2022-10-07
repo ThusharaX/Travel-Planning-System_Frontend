@@ -3,13 +3,26 @@ import { Link } from "react-router-dom";
 import TourGuideContext from "../../contexts/TourGuideContext";
 
 const TourGuideLogin = () => {
+	const { isLoading, TourGuideLogin, isLoggedIn } = useContext(TourGuideContext);
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		const newTourGuide = {
+			email: e.target.email.value,
+			password: e.target.password.value,
+		};
+
+		TourGuideLogin(newTourGuide);
+	};
+
 	return (
 		<>
 			<h1 className="mt-5 text-4xl text-center">Tour Guide Login</h1>
 
 			<div className="flex justify-center">
 				<div className="w-1/2">
-					<form className="mt-5">
+					<form className="mt-5" onSubmit={handleSubmit}>
 						<div className="mb-4">
 							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email">
 								Email
