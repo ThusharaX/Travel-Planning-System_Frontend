@@ -18,6 +18,7 @@ import {
 	VehicleList,
 	VehicleCreate,
 	Userprofile,
+	CustomerSignup,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -41,6 +42,8 @@ const AppRoutes = () => {
 					<Route path="/vehicle-create" element={<VehicleCreate />} />
 					<Route path="/vehicle" element={<VehicleList />} />
 					<Route path="/vehicle-profile" element={<Userprofile />} />
+
+					<Route path="/customersignup" element={<CustomerSignup />} />
 				</Routes>
 			</Router>
 		</>

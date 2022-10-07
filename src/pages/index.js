@@ -12,6 +12,8 @@ import VehicleList from "./vehicle-owner";
 import VehicleCreate from "./vehicle-create";
 import Userprofile from "./vehicleOwner-profile/Userprofile";
 
+import CustomerSignup from "./cutomerSignup";
+
 export {
 	Sample,
 	HotelOwnerLogin,
@@ -24,4 +26,5 @@ export {
 	VehicleList,
 	VehicleCreate,
 	Userprofile,
+	CustomerSignup,
 };
