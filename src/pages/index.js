@@ -22,6 +22,7 @@ import TourPackageList from "./tour-package-list";
 import TourGuideRegister from "./tour-guide-register";
 import TourGuideLogin from "./tour-guide-login";
 
+import CustomerSignup from "./cutomerSignup";
 
 export {
 	Sample,
@@ -33,9 +34,7 @@ export {
 	CampingPackageCreate,
 	VehicleList,
 	VehicleCreate,
-
 	CampingPackageEdit,
-
 
 	/*Tour Package*/
 	TourPackageCreate,
@@ -44,5 +43,5 @@ export {
 	TourGuideRegister,
 	TourGuideLogin,
 	Userprofile,
-
+	CustomerSignup,
 };

@@ -26,6 +26,7 @@ import {
 	TourPackageCreate,
 	TourPackageList,
 	Userprofile,
+	CustomerSignup,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -59,6 +60,8 @@ const AppRoutes = () => {
 					<Route path="/tour-package-list" element={<TourPackageList />} />
 
 					<Route path="/vehicle-profile" element={<Userprofile />} />
+
+					<Route path="/customersignup" element={<CustomerSignup />} />
 				</Routes>
 			</Router>
 		</>
