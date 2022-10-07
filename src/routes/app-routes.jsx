@@ -16,6 +16,7 @@ import {
 	CampingPackageList,
 	VehicleList,
 	VehicleCreate,
+	CampingPackageEdit,
 
 	/* Tour Guide */
 	TourGuideRegister,
@@ -47,6 +48,7 @@ const AppRoutes = () => {
 
 					<Route path="/vehicle-create" element={<VehicleCreate />} />
 					<Route path="/vehicle" element={<VehicleList />} />
+					<Route path="/camping-package-edit/:id" element={<CampingPackageEdit />} />
 
 					{/* Tour Guide */}
 					<Route path="/tour-guide-register" element={<TourGuideRegister />} />
