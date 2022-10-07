@@ -14,7 +14,7 @@ const VehicleList = () => {
 					<div class="rounded-lg">
 						<br></br>
 						<br></br>
-						<div class="flex flex-col justify-auto h-full ">
+						<div class="flex flex-col justify-center h-full ">
 							<div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
 								<div class="p-3 rounded-lg">
 									<div class="overflow-x-auto  rounded-sm">
