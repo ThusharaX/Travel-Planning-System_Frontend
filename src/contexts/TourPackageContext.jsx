@@ -1,3 +1,4 @@
+import Joi from "joi";
 import { createContext, useState, useEffect } from "react";
 import TourPackageAPI from "./api/TourPackageAPI";
 
@@ -6,6 +7,10 @@ const TourPackageContext = createContext();
 export function TourPackageProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [tourPackages, setTourPackages] = useState([]);
+
+	const schemaProfile = Joi.object({
+		tourPackageName: Joi.string().required(),
+	});
 
 	//Tour Package
 
@@ -51,6 +56,7 @@ export function TourPackageProvider({ children }) {
 				tourPackages,
 				addTourPackage,
 				tourPackage,
+				schemaProfile,
 			}}
 		>
 			{children}

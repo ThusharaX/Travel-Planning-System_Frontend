@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import TourPackageContext from "../../contexts/TourPackageContext";
 
 const TourPackageCreate = () => {
-	const { isLoading, addTourPackage } = useContext(TourPackageContext);
+	const { isLoading, addTourPackage, schemaProfile } = useContext(TourPackageContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -13,6 +13,7 @@ const TourPackageCreate = () => {
 		}
 
 		const newTourPackage = {
+			schema: joiResolver(schemaProfile),
 			tourPackageName: e.target.tourPackageName.value,
 			guideName: e.target.guideName.value,
 			email: e.target.email.value,
