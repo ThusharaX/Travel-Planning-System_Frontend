@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import CampingPackageContext from "../../contexts/CampingPackageContext";
+import { Link } from "react-router-dom";
 
 const CampingPackageList = () => {
-	const { isLoading, campingPackages } = useContext(CampingPackageContext);
+	const { isLoading, campingPackages, deleteCampingPackage } = useContext(CampingPackageContext);
 
 	return (
 		<>
@@ -69,17 +70,17 @@ const CampingPackageList = () => {
 														</td>
 
 														<td class="p-2 whitespace-nowrap">
-															<button class="">
+															<Link to={`/camping-package-edit/${campingPackage._id}`} class="">
 																<img
 																	src="../public/pen-to-square-regular.svg"
 																	width="18"
 																	height="18"
 																	alt="Alex Shatov"
 																></img>
-															</button>
+															</Link>
 														</td>
 														<td class="p-2 whitespace-nowrap">
-															<button class="">
+															<button class="" onClick={() => deleteCampingPackage(campingPackage._id)}>
 																<svg
 																	xmlns="http://www.w3.org/2000/svg"
 																	class="h-5 w-5 mr-2"

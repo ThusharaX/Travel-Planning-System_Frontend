@@ -9,6 +9,9 @@ import CampingPackageCreate from "./camping-package-create";
 
 import VehicleList from "./vehicle-owner";
 import VehicleCreate from "./vehicle-create";
+
+import CampingPackageEdit from "./camping-package-edit";
+
 import Userprofile from "./vehicleOwner-profile/Userprofile";
 
 /* Tour Package */
@@ -18,6 +21,8 @@ import TourPackageList from "./tour-package-list";
 /*Tour Guide*/
 import TourGuideRegister from "./tour-guide-register";
 import TourGuideLogin from "./tour-guide-login";
+
+import CustomerSignup from "./cutomerSignup";
 
 export {
 	Sample,
@@ -29,6 +34,7 @@ export {
 	CampingPackageCreate,
 	VehicleList,
 	VehicleCreate,
+	CampingPackageEdit,
 
 	/*Tour Package*/
 	TourPackageCreate,
@@ -37,4 +43,5 @@ export {
 	TourGuideRegister,
 	TourGuideLogin,
 	Userprofile,
+	CustomerSignup,
 };
