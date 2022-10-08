@@ -37,14 +37,14 @@ const CampingPackageCreate = () => {
 						<form onSubmit={handleSubmit}>
 							<div className="grid grid-cols-2 gap-x-10">
 								<div className="form-group mb-6">
-									<label className="labelClass" for="fname">
+									<label className="labelClass" htmlFor="fname">
 										Package Name
 									</label>
 
 									<div className="flex ...">
 										<input
 											type="text"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -66,12 +66,12 @@ const CampingPackageCreate = () => {
 										></input>
 									</div>
 								</div>
-								<div class="form-group mb-6">
-									<label for="fname">Persons</label>
+								<div className="form-group mb-6">
+									<label htmlFor="fname">Persons</label>
 									<div className="flex ...">
 										<input
 											type="text"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -94,13 +94,13 @@ const CampingPackageCreate = () => {
 									</div>
 								</div>
 							</div>
-							<div class="grid grid-cols-2 gap-x-10">
-								<div class="form-group mb-10">
-									<label for="fname">Location</label>
+							<div className="grid grid-cols-2 gap-x-10">
+								<div className="form-group mb-10">
+									<label htmlFor="fname">Location</label>
 									<div className="flex ...">
 										<input
 											type="text"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -123,12 +123,12 @@ const CampingPackageCreate = () => {
 									</div>
 								</div>
 
-								<div class="form-group mb-6">
-									<label for="fname">Duration</label>
+								<div className="form-group mb-6">
+									<label htmlFor="fname">Duration</label>
 									<div className="flex ...">
 										<input
 											type="text"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -152,12 +152,12 @@ const CampingPackageCreate = () => {
 								</div>
 							</div>
 							<div className="singleInput">
-								<label for="fname">Price</label>
-								<div class="flex ...">
-									<div class="form-group mb-4">
+								<label htmlFor="fname">Price</label>
+								<div className="flex ...">
+									<div className="form-group mb-4">
 										<input
 											type="text"
-											class="form-control
+											className="form-control
 		  singleInput
           block
 		  w-80
@@ -181,16 +181,16 @@ const CampingPackageCreate = () => {
 									</div>
 								</div>
 							</div>
-							<label for="fname">Description</label>
+							<label htmlFor="fname">Description</label>
 
 							<textarea
 								id="packageDescription"
 								rows="4"
-								class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+								className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
 								placeholder="Your message..."
 							></textarea>
 							<br></br>
-							<label for="fname">Upload File</label>
+							<label htmlFor="fname">Upload File</label>
 
 							<div className="mb-4">
 								<input
@@ -201,10 +201,10 @@ const CampingPackageCreate = () => {
 								/>
 							</div>
 
-							<div class="form-group form-check text-center mb-6"></div>
+							<div className="form-group form-check text-center mb-6"></div>
 							<button
 								type="submit"
-								class="
+								className="
       w-full
       px-6
       py-2.5

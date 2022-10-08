@@ -19,7 +19,7 @@ const CustomerSignup = () => {
 
 							<div className="grid grid-cols-2 gap-x-10">
 								<div className="form-group mb-6">
-									<label className="labelClass" for="fname">
+									<label className="labelClass" htmlFor="fname">
 										Name
 									</label>
 
@@ -27,7 +27,7 @@ const CustomerSignup = () => {
 										<input
 											type="text"
 											id="vehicleType"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -48,12 +48,12 @@ const CustomerSignup = () => {
 										></input>
 									</div>
 								</div>
-								<div class="form-group mb-6">
-									<label for="fname">Email</label>
+								<div className="form-group mb-6">
+									<label htmlFor="fname">Email</label>
 									<div className="flex ...">
 										<input
 											type="text"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -76,13 +76,13 @@ const CustomerSignup = () => {
 									</div>
 								</div>
 							</div>
-							<div class="grid grid-cols-2 gap-x-10">
-								<div class="form-group mb-10">
-									<label for="fname">Nic/Passport Number</label>
+							<div className="grid grid-cols-2 gap-x-10">
+								<div className="form-group mb-10">
+									<label htmlFor="fname">Nic/Passport Number</label>
 									<div className="flex ...">
 										<input
 											type="text"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -105,12 +105,12 @@ const CustomerSignup = () => {
 									</div>
 								</div>
 
-								<div class="form-group mb-6">
-									<label for="fname">Contact Number</label>
+								<div className="form-group mb-6">
+									<label htmlFor="fname">Contact Number</label>
 									<div className="flex ...">
 										<input
 											type="text"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -136,7 +136,7 @@ const CustomerSignup = () => {
 
 							<div className="grid grid-cols-2 gap-x-10">
 								<div className="form-group mb-6">
-									<label className="labelClass" for="fname">
+									<label className="labelClass" htmlFor="fname">
 										Which area you guide
 									</label>
 
@@ -144,7 +144,7 @@ const CustomerSignup = () => {
 										<input
 											type="text"
 											id="vehicleType"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -165,12 +165,12 @@ const CustomerSignup = () => {
 										></input>
 									</div>
 								</div>
-								<div class="form-group mb-6">
-									<label for="fname">Region or city where you give guide tours</label>
+								<div className="form-group mb-6">
+									<label htmlFor="fname">Region or city where you give guide tours</label>
 									<div className="flex ...">
 										<input
 											type="text"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -193,13 +193,13 @@ const CustomerSignup = () => {
 									</div>
 								</div>
 							</div>
-							<div class="grid grid-cols-2 gap-x-10">
-								<div class="form-group mb-10">
-									<label for="fname">Tour language</label>
+							<div className="grid grid-cols-2 gap-x-10">
+								<div className="form-group mb-10">
+									<label htmlFor="fname">Tour language</label>
 									<div className="flex ...">
 										<input
 											type="text"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -222,12 +222,12 @@ const CustomerSignup = () => {
 									</div>
 								</div>
 
-								<div class="form-group mb-6">
-									<label for="fname">Mother touge</label>
+								<div className="form-group mb-6">
+									<label htmlFor="fname">Mother touge</label>
 									<div className="flex ...">
 										<input
 											type="text"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -252,7 +252,7 @@ const CustomerSignup = () => {
 							</div>
 
 							<br></br>
-							<label for="fname">Upload the tour guide photo</label>
+							<label htmlFor="fname">Upload the tour guide photo</label>
 
 							<div className="mb-4">
 								<input
@@ -263,10 +263,10 @@ const CustomerSignup = () => {
 								/>
 							</div>
 
-							<div class="form-group form-check text-center mb-6"></div>
+							<div className="form-group form-check text-center mb-6"></div>
 							<button
 								type="submit"
-								class="
+								className="
       w-full
       px-6
       py-2.5
