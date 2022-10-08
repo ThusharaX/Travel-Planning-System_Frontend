@@ -62,6 +62,7 @@ export function TourGuideProvider({ children }) {
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
 					alert("Logged In Successfully");
+					window.location.href = "/tour-guide-dashboard";
 					setIsLoggedIn(true);
 					setIsLoggedIn(false);
 				}
