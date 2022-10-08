@@ -35,13 +35,13 @@ const VehicleCreate = () => {
 				<div>
 					<div className="block p-8 rounded-3xl shadow-lg bg-white max-w-screen-md max-h-full">
 						<form onSubmit={handleSubmit}>
-							<h1 class="text-base">Add Vehicle</h1>
+							<h1 className="text-base">Add Vehicle</h1>
 
 							<br></br>
 
 							<div className="grid grid-cols-2 gap-x-10">
 								<div className="form-group mb-6">
-									<label className="labelClass" for="fname">
+									<label className="labelClass" htmlFor="fname">
 										Vehicle type
 									</label>
 
@@ -49,7 +49,7 @@ const VehicleCreate = () => {
 										<input
 											type="text"
 											id="vehicleType"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -70,12 +70,12 @@ const VehicleCreate = () => {
 										></input>
 									</div>
 								</div>
-								<div class="form-group mb-6">
-									<label for="fname">Reg. Number</label>
+								<div className="form-group mb-6">
+									<label htmlFor="fname">Reg. Number</label>
 									<div className="flex ...">
 										<input
 											type="text"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -98,13 +98,13 @@ const VehicleCreate = () => {
 									</div>
 								</div>
 							</div>
-							<div class="grid grid-cols-2 gap-x-10">
-								<div class="form-group mb-10">
-									<label for="fname">Owner's Name</label>
+							<div className="grid grid-cols-2 gap-x-10">
+								<div className="form-group mb-10">
+									<label htmlFor="fname">Owners Name</label>
 									<div className="flex ...">
 										<input
 											type="text"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -127,12 +127,12 @@ const VehicleCreate = () => {
 									</div>
 								</div>
 
-								<div class="form-group mb-6">
-									<label for="fname">Year</label>
+								<div className="form-group mb-6">
+									<label htmlFor="fname">Year</label>
 									<div className="flex ...">
 										<input
 											type="text"
-											class="form-control
+											className="form-control
           block
           w-80
           px-3
@@ -156,16 +156,16 @@ const VehicleCreate = () => {
 								</div>
 							</div>
 
-							<label for="fname">Description</label>
+							<label htmlFor="fname">Description</label>
 
 							<textarea
 								id="discription"
 								rows="4"
-								class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+								className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
 								placeholder="Your message..."
 							></textarea>
 							<br></br>
-							<label for="fname">Vehicle Image</label>
+							<label htmlFor="fname">Vehicle Image</label>
 
 							<div className="mb-4">
 								<input
@@ -176,10 +176,10 @@ const VehicleCreate = () => {
 								/>
 							</div>
 
-							<div class="form-group form-check text-center mb-6"></div>
+							<div className="form-group form-check text-center mb-6"></div>
 							<button
 								type="submit"
-								class="
+								className="
       w-full
       px-6
       py-2.5
