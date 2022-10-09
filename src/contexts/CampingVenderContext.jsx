@@ -36,6 +36,30 @@ export function CampingVenderProvider({ children }) {
 		}
 	};
 
+	const CampingVendorLogin = (values) => {
+		setIsLoading(true);
+		CampingVendorAPI.campingVendorLogin(values)
+			.then((response) => {
+				if (response.data.permissionLevel !== "CAMPING_VENDOR") {
+					setIsLoading(false);
+					return alert("You are not a Camping Vendor");
+				} else {
+					localStorage.setItem("uID", response.data._id);
+					localStorage.setItem("username", response.data.companyOwnerName);
+					localStorage.setItem("Email", response.data.email);
+					localStorage.setItem("authToken", response.data.token);
+					localStorage.setItem("permissionLevel", response.data.permissionLevel);
+					alert("Logged In Successful...!!!");
+					setIsLoggedIn(true);
+					setIsLoggedIn(false);
+				}
+			})
+			.catch((err) => {
+				setIsLoading(false);
+				return alert(err.response.data.details.message);
+			});
+	};
+
 	return (
 		<CampingVenderContext.Provider
 			value={{
@@ -43,6 +67,7 @@ export function CampingVenderProvider({ children }) {
 				campingVenders,
 				CampingVendorRegister,
 				campingVender,
+				CampingVendorLogin,
 			}}
 		>
 			{children}

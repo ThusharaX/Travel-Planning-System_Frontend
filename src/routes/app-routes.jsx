@@ -30,6 +30,8 @@ import {
 
 	/*Camping Vendor */
 	CampingVendorRegister,
+	CampingVendorLogin,
+	CampingVendorDashboard,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -68,6 +70,8 @@ const AppRoutes = () => {
 
 					{/*Camping Vendor*/}
 					<Route path="/camping-vendor-register" element={<CampingVendorRegister />} />
+					<Route path="/camping-vendor-login" element={<CampingVendorLogin />} />
+					<Route path="/camping-vendor-dashboard" element={<CampingVendorDashboard />} />
 				</Routes>
 			</Router>
 		</>

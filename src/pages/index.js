@@ -26,6 +26,8 @@ import CustomerSignup from "./cutomerSignup";
 
 /*Camping Vendor */
 import CampingVendorRegister from "./camping-vendor-register";
+import CampingVendorLogin from "./camping-vendor-login";
+import CampingVendorDashboard from "./camping-vendor-dashboard";
 
 export {
 	Sample,
@@ -50,4 +52,6 @@ export {
 
 	/*Camping Vendor */
 	CampingVendorRegister,
+	CampingVendorLogin,
+	CampingVendorDashboard,
 };
