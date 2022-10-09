@@ -12,7 +12,7 @@ const CampingVendorRegister = () => {
 			companyOwnerName: e.target.companyOwnerName.value,
 			email: e.target.email.value,
 			nic: e.target.nic.value,
-			contactNummber: e.target.contactNummber.value,
+			contactNumber: e.target.contactNumber.value,
 			companyName: e.target.companyName.value,
 			companyAddress: e.target.companyAddress.value,
 			companyPhone: e.target.companyPhone.value,
@@ -20,6 +20,7 @@ const CampingVendorRegister = () => {
 			profilePicture: e.target.profilePicture.value,
 			password: e.target.password.value,
 		};
+
 		CampingVendorRegister(newCampingVendor);
 	};
 
@@ -31,14 +32,14 @@ const CampingVendorRegister = () => {
 				<div className="w-1/2">
 					<form className="mt-5" onSubmit={handleSubmit}>
 						<div className="mb-4">
-							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="ownerName">
+							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="companyOwnerName">
 								Company Owner Name
 							</label>
 							<input
 								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 								id="companyOwnerName"
 								type="text"
-								placeholder="Company Owner Name"
+								placeholder="Enter Company Owner Name"
 							/>
 						</div>
 						<div className="mb-4">
@@ -49,18 +50,18 @@ const CampingVendorRegister = () => {
 								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 								id="email"
 								type="email"
-								placeholder="Email Address"
+								placeholder="Enter Email Address"
 							/>
 						</div>
 						<div className="mb-4">
 							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="nic">
-								NIC / Passport Number
+								NIC
 							</label>
 							<input
 								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 								id="nic"
 								type="text"
-								placeholder="NIC / Passport Number"
+								placeholder="Enter NIC Number"
 							/>
 						</div>
 						<div className="mb-4">
@@ -71,55 +72,55 @@ const CampingVendorRegister = () => {
 								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 								id="contactNumber"
 								type="Number"
-								placeholder="Contact Number"
+								placeholder="Enter Contact Number"
+							/>
+						</div>
+
+						<div className="mb-4">
+							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="companyName">
+								Company Name
+							</label>
+							<input
+								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+								id="companyName"
+								type="text"
+								placeholder="Enter Company Name"
+							/>
+						</div>
+
+						<div className="mb-4">
+							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="companyAddress">
+								Company Address
+							</label>
+							<input
+								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+								id="companyAddress"
+								type="text"
+								placeholder="Enter Company Address"
+							/>
+						</div>
+
+						<div className="mb-4">
+							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="companyPhone">
+								Company Phone
+							</label>
+							<input
+								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+								id="companyPhone"
+								type="number"
+								placeholder="Enter Company Number"
 							/>
 						</div>
 
 						<div className="mb-4">
 							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="contactNumber">
-								Which area you Guide
+								Company Register Number
 							</label>
 							<input
 								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-								id="guideArea"
+								id="companyRegisterNumber"
 								type="text"
-								placeholder="example : Colombo"
-							/>
-						</div>
-
-						<div className="mb-4">
-							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="contactNumber">
-								Region or City where you give guide tours
-							</label>
-							<input
-								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-								id="guideCity"
-								type="text"
-								placeholder="example : Colombo City"
-							/>
-						</div>
-
-						<div className="mb-4">
-							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="contactNumber">
-								Spoken Languages
-							</label>
-							<input
-								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-								id="spokenLanguages"
-								type="text"
-								placeholder="example : English"
-							/>
-						</div>
-
-						<div className="mb-4">
-							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="contactNumber">
-								Mother Tongue
-							</label>
-							<input
-								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-								id="motherTongue"
-								type="text"
-								placeholder="example : Sinhala"
+								placeholder="Enter Company Register Number"
 							/>
 						</div>
 

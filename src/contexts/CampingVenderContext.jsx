@@ -12,7 +12,7 @@ export function CampingVenderProvider({ children }) {
 		companyOwnerName: "",
 		email: "",
 		nic: "",
-		contactNummber: "",
+		contactNumber: "",
 		companyName: "",
 		companyAddress: "",
 		companyPhone: "",
@@ -42,8 +42,11 @@ export function CampingVenderProvider({ children }) {
 				isLoading,
 				campingVenders,
 				CampingVendorRegister,
+				campingVender,
 			}}
-		></CampingVenderContext.Provider>
+		>
+			{children}
+		</CampingVenderContext.Provider>
 	);
 }
 

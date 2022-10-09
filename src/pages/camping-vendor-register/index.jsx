@@ -8,7 +8,7 @@ const index = () => {
 	return (
 		<>
 			<CampingVenderProvider>
-				<CampingVendorRegister />
+				<CampingVendorRegister />*{" "}
 			</CampingVenderProvider>
 		</>
 	);
