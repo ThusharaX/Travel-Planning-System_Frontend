@@ -1,10 +1,15 @@
 import React from "react";
 import CampingVendorRegister from "./CampingVendorRegister";
 
+//Camping Vendor Provider
+import { CampingVenderProvider } from "../../contexts/CampingVenderContext";
+
 const index = () => {
 	return (
 		<>
-			<CampingVendorRegister />
+			<CampingVenderProvider>
+				<CampingVendorRegister />
+			</CampingVenderProvider>
 		</>
 	);
 };
