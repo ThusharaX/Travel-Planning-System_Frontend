@@ -27,6 +27,9 @@ import {
 	TourPackageList,
 	Userprofile,
 	CustomerSignup,
+
+	/*Camping Vendor */
+	CampingVendorRegister,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -62,6 +65,9 @@ const AppRoutes = () => {
 					<Route path="/vehicle-profile" element={<Userprofile />} />
 
 					<Route path="/customersignup" element={<CustomerSignup />} />
+
+					{/*Camping Vendor*/}
+					<Route path="/camping-vendor-register" element={<CampingVendorRegister />} />
 				</Routes>
 			</Router>
 		</>
