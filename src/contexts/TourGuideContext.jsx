@@ -42,6 +42,7 @@ export function TourGuideProvider({ children }) {
 			setTourGuides([...tourGuides, response.data]);
 			setIsLoading(false);
 			alert("Tour Guide Registered Successfully");
+			window.location.href = "/tour-guide-login";
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error);
