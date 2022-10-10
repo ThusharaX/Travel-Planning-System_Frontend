@@ -4,6 +4,7 @@ import "../camping-package-create/camping.css";
 
 const CampingPackageCreate = () => {
 	const { isLoading, addCampingPackage } = useContext(CampingPackageContext);
+	const id = localStorage.getItem("uID");
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -15,6 +16,7 @@ const CampingPackageCreate = () => {
 		}
 
 		const newCampingPackage = {
+			vendorId: id,
 			packageName: e.target.packageName.value,
 			persons: e.target.persons.value,
 			location: e.target.location.value,
