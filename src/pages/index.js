@@ -21,6 +21,7 @@ import TourPackageList from "./tour-package-list";
 /*Tour Guide*/
 import TourGuideRegister from "./tour-guide-register";
 import TourGuideLogin from "./tour-guide-login";
+import TourGuideDashboard from "./tour-guide-dashboard";
 
 import CustomerSignup from "./cutomerSignup";
 
@@ -47,6 +48,7 @@ export {
 	/*Tour Guide*/
 	TourGuideRegister,
 	TourGuideLogin,
+	TourGuideDashboard,
 	Userprofile,
 	CustomerSignup,
 

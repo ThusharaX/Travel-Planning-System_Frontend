@@ -25,6 +25,7 @@ import {
 	/* Tour Package */
 	TourPackageCreate,
 	TourPackageList,
+	TourGuideDashboard,
 	Userprofile,
 	CustomerSignup,
 
@@ -59,6 +60,7 @@ const AppRoutes = () => {
 					{/* Tour Guide */}
 					<Route path="/tour-guide-register" element={<TourGuideRegister />} />
 					<Route path="/tour-guide-login" element={<TourGuideLogin />} />
+					<Route path="/tour-guide-dashboard" element={<TourGuideDashboard />} />
 
 					{/*Tour Package */}
 					<Route path="/tour-package-create" element={<TourPackageCreate />} />
