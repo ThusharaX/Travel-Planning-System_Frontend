@@ -1,33 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import CampingPackageContext from "../../contexts/CampingPackageContext";
-import "../camping-package-create/camping.css";
+import { useParams } from "react-router-dom";
+import "../camping-package-edit/camping.css";
 
-const CampingPackageCreate = () => {
-	const { isLoading, addCampingPackage } = useContext(CampingPackageContext);
+const CampingPackageEdit = () => {
+	const { getCampingPackage, editCampingPackage, campingPackage, setCampingPackage } =
+		useContext(CampingPackageContext);
+
+	const handleChange = (e) => {
+		setCampingPackage(e.target.value);
+	};
+
+	const { id } = useParams();
+
+	getCampingPackage(id);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		// Convert image to array
-		var imageArray = [];
-		for (var i = 0; i < e.target.images.files.length; i++) {
-			imageArray.push(e.target.images.files[i].name);
-		}
-
 		const newCampingPackage = {
+			id: id,
 			packageName: e.target.packageName.value,
 			persons: e.target.persons.value,
 			location: e.target.location.value,
 			duration: e.target.duration.value,
 			price: e.target.price.value,
 			packageDescription: e.target.packageDescription.value,
-			images: imageArray,
 		};
-		addCampingPackage(newCampingPackage);
+
+		editCampingPackage(newCampingPackage);
 	};
 
 	return (
 		<>
+			<h1>Edit</h1>
 			<br></br>
 			<br></br>
 			<br></br>
@@ -44,6 +50,7 @@ const CampingPackageCreate = () => {
 									<div className="flex ...">
 										<input
 											type="text"
+											value={campingPackage.packageName}
 											className="form-control
           block
           w-80
@@ -63,14 +70,16 @@ const CampingPackageCreate = () => {
 											id="packageName"
 											aria-describedby="emailHelp123"
 											placeholder=""
+											onChange={handleChange}
 										></input>
 									</div>
 								</div>
-								<div className="form-group mb-6">
+								<div naclassName="form-group mb-6">
 									<label htmlFor="fname">Persons</label>
-									<div className="flex ...">
+									<div naclassNameName="flex ...">
 										<input
 											type="text"
+											value={campingPackage.persons}
 											className="form-control
           block
           w-80
@@ -90,6 +99,7 @@ const CampingPackageCreate = () => {
 											id="persons"
 											aria-describedby="emailHelp124"
 											placeholder=""
+											onChange={handleChange}
 										></input>
 									</div>
 								</div>
@@ -97,9 +107,10 @@ const CampingPackageCreate = () => {
 							<div className="grid grid-cols-2 gap-x-10">
 								<div className="form-group mb-10">
 									<label htmlFor="fname">Location</label>
-									<div className="flex ...">
+									<div classNameName="flex ...">
 										<input
 											type="text"
+											value={campingPackage.location}
 											className="form-control
           block
           w-80
@@ -119,6 +130,7 @@ const CampingPackageCreate = () => {
 											id="location"
 											aria-describedby="emailHelp123"
 											placeholder=""
+											onChange={handleChange}
 										></input>
 									</div>
 								</div>
@@ -128,6 +140,7 @@ const CampingPackageCreate = () => {
 									<div className="flex ...">
 										<input
 											type="text"
+											value={campingPackage.duration}
 											className="form-control
           block
           w-80
@@ -147,6 +160,7 @@ const CampingPackageCreate = () => {
 											id="duration"
 											aria-describedby="emailHelp124"
 											placeholder=""
+											onChange={handleChange}
 										></input>
 									</div>
 								</div>
@@ -157,6 +171,7 @@ const CampingPackageCreate = () => {
 									<div className="form-group mb-4">
 										<input
 											type="text"
+											value={campingPackage.price}
 											className="form-control
 		  singleInput
           block
@@ -177,6 +192,7 @@ const CampingPackageCreate = () => {
 											id="price"
 											aria-describedby="emailHelp124"
 											placeholder=""
+											onChange={handleChange}
 										></input>
 									</div>
 								</div>
@@ -188,6 +204,8 @@ const CampingPackageCreate = () => {
 								rows="4"
 								className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
 								placeholder="Your message..."
+								value={campingPackage.packageDescription}
+								onChange={handleChange}
 							></textarea>
 							<br></br>
 							<label htmlFor="fname">Upload File</label>
@@ -223,7 +241,7 @@ const CampingPackageCreate = () => {
       duration-150
       ease-in-out"
 							>
-								ADD
+								UPDATE
 							</button>
 						</form>
 					</div>
@@ -233,4 +251,4 @@ const CampingPackageCreate = () => {
 	);
 };
 
-export default CampingPackageCreate;
+export default CampingPackageEdit;

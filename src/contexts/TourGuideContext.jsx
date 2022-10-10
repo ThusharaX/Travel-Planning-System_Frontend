@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import TourGuideAPI from "./api/TourGuideAPI";
 import Joi from "joi";
 
@@ -6,6 +6,7 @@ const TourGuideContext = createContext();
 
 export function TourGuideProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [tourGuides, setTourGuides] = useState([]);
 
 	//Form Validation
@@ -24,51 +25,52 @@ export function TourGuideProvider({ children }) {
 		email: "",
 		nic: "",
 		contactNumber: "",
+		guideArea: "",
+		guideCity: "",
+		spokenLanguages: "",
+		motherTongue: "",
 		profilePicture: "null",
 		password: "",
 	});
 
 	// Add Tour Guide
 
-	/*	const addTourGuide = async (values) => {
+	const TourGuideRegister = async (values) => {
 		try {
 			setIsLoading(true);
 			const response = await TourGuideAPI.tourGuideRegister(values);
 			setTourGuides([...tourGuides, response.data]);
 			setIsLoading(false);
-			alert("Tour Guide Added Successfully");
+			alert("Tour Guide Registered Successfully");
+			window.location.href = "/tour-guide-login";
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error);
 		}
-	};  */
+	};
 
-	const addTourGuide = (values) => {
+	const TourGuideLogin = (values) => {
 		setIsLoading(true);
-		const newTourGuide = {
-			tourGuideName: values.tourGuideName,
-			email: values.email,
-			nic: values.nic,
-			contactNumber: values.contactNumber,
-			profilePicture: values.profilePicture,
-			password: values.password,
-		};
-		TourGuideAPI.tourGuideRegister(newTourGuide)
+		TourGuideAPI.tourGuideLogin(values)
 			.then((response) => {
-				// setIsLoading(false);
+				if (response.data.permissionLevel !== "TOUR_GUIDE") {
+					setIsLoading(false);
+					return alert("You are not a Tour Guide");
+				} else {
+					localStorage.setItem("uID", response.data._id);
+					localStorage.setItem("username", response.data.tourGuideName);
+					localStorage.setItem("Email", response.data.email);
+					localStorage.setItem("authToken", response.data.token);
+					localStorage.setItem("permissionLevel", response.data.permissionLevel);
+					alert("Logged In Successfully");
+					window.location.href = "/tour-guide-dashboard";
+					setIsLoggedIn(true);
+					setIsLoggedIn(false);
+				}
 			})
 			.catch((err) => {
-				//eslint-disable-next-line no-console
-				console.log(err.response.data);
-				if (err.response.data.details == "Email Already Exists") {
-					setMailError(err.response.data.details);
-				}
-				if (err.response.data.details == "NIC Already Exists") {
-					setNicError(err.response.data.details);
-				}
-				if (err.response.data.details == "Username Already Exists") {
-					setUserNameError(err.response.data.details);
-				}
+				setIsLoading(false);
+				return alert(err.response.data.details.message);
 			});
 	};
 
@@ -77,8 +79,10 @@ export function TourGuideProvider({ children }) {
 			value={{
 				isLoading,
 				tourGuides,
-				addTourGuide,
+				TourGuideRegister,
 				tourGuide,
+				TourGuideLogin,
+				isLoggedIn,
 			}}
 		>
 			{children}

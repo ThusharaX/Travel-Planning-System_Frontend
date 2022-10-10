@@ -1,49 +1,32 @@
-import React, { useContext } from "react";
-import CampingPackageContext from "../../contexts/CampingPackageContext";
-import "../camping-package-create/camping.css";
+import React from "react";
 
-const CampingPackageCreate = () => {
-	const { isLoading, addCampingPackage } = useContext(CampingPackageContext);
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-
-		// Convert image to array
-		var imageArray = [];
-		for (var i = 0; i < e.target.images.files.length; i++) {
-			imageArray.push(e.target.images.files[i].name);
-		}
-
-		const newCampingPackage = {
-			packageName: e.target.packageName.value,
-			persons: e.target.persons.value,
-			location: e.target.location.value,
-			duration: e.target.duration.value,
-			price: e.target.price.value,
-			packageDescription: e.target.packageDescription.value,
-			images: imageArray,
-		};
-		addCampingPackage(newCampingPackage);
-	};
-
+const CustomerSignup = () => {
 	return (
 		<>
+			<center>
+				<h2>Sign Up Page</h2>
+			</center>
+
 			<br></br>
 			<br></br>
 			<br></br>
+
 			<center>
 				<div>
 					<div className="block p-8 rounded-3xl shadow-lg bg-white max-w-screen-md max-h-full">
-						<form onSubmit={handleSubmit}>
+						<form onSubmit="">
+							<br></br>
+
 							<div className="grid grid-cols-2 gap-x-10">
 								<div className="form-group mb-6">
 									<label className="labelClass" htmlFor="fname">
-										Package Name
+										Name
 									</label>
 
 									<div className="flex ...">
 										<input
 											type="text"
+											id="vehicleType"
 											className="form-control
           block
           w-80
@@ -60,14 +43,13 @@ const CampingPackageCreate = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-											id="packageName"
 											aria-describedby="emailHelp123"
 											placeholder=""
 										></input>
 									</div>
 								</div>
 								<div className="form-group mb-6">
-									<label htmlFor="fname">Persons</label>
+									<label htmlFor="fname">Email</label>
 									<div className="flex ...">
 										<input
 											type="text"
@@ -87,7 +69,7 @@ const CampingPackageCreate = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-											id="persons"
+											id="regNo"
 											aria-describedby="emailHelp124"
 											placeholder=""
 										></input>
@@ -96,7 +78,7 @@ const CampingPackageCreate = () => {
 							</div>
 							<div className="grid grid-cols-2 gap-x-10">
 								<div className="form-group mb-10">
-									<label htmlFor="fname">Location</label>
+									<label htmlFor="fname">Nic/Passport Number</label>
 									<div className="flex ...">
 										<input
 											type="text"
@@ -116,7 +98,7 @@ const CampingPackageCreate = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-											id="location"
+											id="ownersName"
 											aria-describedby="emailHelp123"
 											placeholder=""
 										></input>
@@ -124,7 +106,7 @@ const CampingPackageCreate = () => {
 								</div>
 
 								<div className="form-group mb-6">
-									<label htmlFor="fname">Duration</label>
+									<label htmlFor="fname">Contact Number</label>
 									<div className="flex ...">
 										<input
 											type="text"
@@ -144,23 +126,27 @@ const CampingPackageCreate = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-											id="duration"
+											id="year"
 											aria-describedby="emailHelp124"
 											placeholder=""
 										></input>
 									</div>
 								</div>
 							</div>
-							<div className="singleInput">
-								<label htmlFor="fname">Price</label>
-								<div className="flex ...">
-									<div className="form-group mb-4">
+
+							<div className="grid grid-cols-2 gap-x-10">
+								<div className="form-group mb-6">
+									<label className="labelClass" htmlFor="fname">
+										Which area you guide
+									</label>
+
+									<div className="flex ...">
 										<input
 											type="text"
+											id="vehicleType"
 											className="form-control
-		  singleInput
           block
-		  w-80
+          w-80
           px-3
           py-1.5
           text-base
@@ -174,23 +160,99 @@ const CampingPackageCreate = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-											id="price"
+											aria-describedby="emailHelp123"
+											placeholder=""
+										></input>
+									</div>
+								</div>
+								<div className="form-group mb-6">
+									<label htmlFor="fname">Region or city where you give guide tours</label>
+									<div className="flex ...">
+										<input
+											type="text"
+											className="form-control
+          block
+          w-80
+          px-3
+          py-1.5
+          text-base
+		  border-indigo-500
+          font-normal
+          text-gray-700
+          bg-white bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+											id="regNo"
 											aria-describedby="emailHelp124"
 											placeholder=""
 										></input>
 									</div>
 								</div>
 							</div>
-							<label htmlFor="fname">Description</label>
+							<div className="grid grid-cols-2 gap-x-10">
+								<div className="form-group mb-10">
+									<label htmlFor="fname">Tour language</label>
+									<div className="flex ...">
+										<input
+											type="text"
+											className="form-control
+          block
+          w-80
+          px-3
+          py-1.5
+          text-base
+		  border-indigo-500
+          font-normal
+          text-gray-700
+          bg-white bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+											id="ownersName"
+											aria-describedby="emailHelp123"
+											placeholder=""
+										></input>
+									</div>
+								</div>
 
-							<textarea
-								id="packageDescription"
-								rows="4"
-								className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-								placeholder="Your message..."
-							></textarea>
+								<div className="form-group mb-6">
+									<label htmlFor="fname">Mother touge</label>
+									<div className="flex ...">
+										<input
+											type="text"
+											className="form-control
+          block
+          w-80
+          px-3
+          py-1.5
+          text-base
+		  border-indigo-500
+          font-normal
+          text-gray-700
+          bg-white bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+											id="year"
+											aria-describedby="emailHelp124"
+											placeholder=""
+										></input>
+									</div>
+								</div>
+							</div>
+
 							<br></br>
-							<label htmlFor="fname">Upload File</label>
+							<label htmlFor="fname">Upload the tour guide photo</label>
 
 							<div className="mb-4">
 								<input
@@ -223,7 +285,7 @@ const CampingPackageCreate = () => {
       duration-150
       ease-in-out"
 							>
-								ADD
+								Sign Up
 							</button>
 						</form>
 					</div>
@@ -233,4 +295,4 @@ const CampingPackageCreate = () => {
 	);
 };
 
-export default CampingPackageCreate;
+export default CustomerSignup;
