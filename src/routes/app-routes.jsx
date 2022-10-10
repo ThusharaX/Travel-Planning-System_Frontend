@@ -33,6 +33,10 @@ import {
 	CampingVendorRegister,
 	CampingVendorLogin,
 	CampingVendorDashboard,
+
+	/*Vehicle Owner */
+	VehicleOwnerRegister,
+	VehicleOwnerLogin,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -74,6 +78,10 @@ const AppRoutes = () => {
 					<Route path="/camping-vendor-register" element={<CampingVendorRegister />} />
 					<Route path="/camping-vendor-login" element={<CampingVendorLogin />} />
 					<Route path="/camping-vendor-dashboard" element={<CampingVendorDashboard />} />
+
+					{/*Vehicle Owner*/}
+					<Route path="/vehicle-owner-register" element={<VehicleOwnerRegister />} />
+					<Route path="/vehicle-owner-login" element={<VehicleOwnerLogin />} />
 				</Routes>
 			</Router>
 		</>
