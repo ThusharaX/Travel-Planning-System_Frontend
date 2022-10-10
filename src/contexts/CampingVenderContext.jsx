@@ -30,6 +30,7 @@ export function CampingVenderProvider({ children }) {
 			setCampingVenders([...campingVenders, response.data]);
 			setIsLoading(false);
 			alert("Camping Vendor Registration Successful...!!!");
+			window.localStorage.href = "/camping-vendor-login";
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error);
@@ -50,6 +51,7 @@ export function CampingVenderProvider({ children }) {
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
 					alert("Logged In Successful...!!!");
+					window.location.href = "/camping-vendor-dashboard";
 					setIsLoggedIn(true);
 					setIsLoggedIn(false);
 				}
