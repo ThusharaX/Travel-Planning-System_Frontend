@@ -25,9 +25,15 @@ import {
 	/* Tour Package */
 	TourPackageCreate,
 	TourPackageList,
+	TourGuideDashboard,
 	Userprofile,
 	CustomerSignup,
 	VehicleEdit,
+
+	/*Camping Vendor */
+	CampingVendorRegister,
+	CampingVendorLogin,
+	CampingVendorDashboard,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -56,6 +62,7 @@ const AppRoutes = () => {
 					{/* Tour Guide */}
 					<Route path="/tour-guide-register" element={<TourGuideRegister />} />
 					<Route path="/tour-guide-login" element={<TourGuideLogin />} />
+					<Route path="/tour-guide-dashboard" element={<TourGuideDashboard />} />
 
 					{/*Tour Package */}
 					<Route path="/tour-package-create" element={<TourPackageCreate />} />
@@ -64,6 +71,11 @@ const AppRoutes = () => {
 					<Route path="/vehicle-profile" element={<Userprofile />} />
 
 					<Route path="/customersignup" element={<CustomerSignup />} />
+
+					{/*Camping Vendor*/}
+					<Route path="/camping-vendor-register" element={<CampingVendorRegister />} />
+					<Route path="/camping-vendor-login" element={<CampingVendorLogin />} />
+					<Route path="/camping-vendor-dashboard" element={<CampingVendorDashboard />} />
 				</Routes>
 			</Router>
 		</>

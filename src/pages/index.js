@@ -17,6 +17,7 @@ import TourPackageList from "./tour-package-list";
 /*Tour Guide*/
 import TourGuideRegister from "./tour-guide-register";
 import TourGuideLogin from "./tour-guide-login";
+import TourGuideDashboard from "./tour-guide-dashboard";
 
 import CustomerSignup from "./cutomerSignup";
 
@@ -25,6 +26,11 @@ import CustomerSignup from "./cutomerSignup";
 import CampingPackageList from "./camping-package-list";
 import CampingPackageCreate from "./camping-package-create";
 import CampingPackageEdit from "./camping-package-edit";
+
+/*Camping Vendor */
+import CampingVendorRegister from "./camping-vendor-register";
+import CampingVendorLogin from "./camping-vendor-login";
+import CampingVendorDashboard from "./camping-vendor-dashboard";
 
 export {
 	Sample,
@@ -45,6 +51,7 @@ export {
 	/*Tour Guide*/
 	TourGuideRegister,
 	TourGuideLogin,
+	TourGuideDashboard,
 	Userprofile,
 	CustomerSignup,
 
@@ -52,4 +59,9 @@ export {
 	VehicleList,
 	VehicleCreate,
 	VehicleEdit,
+
+	/*Camping Vendor */
+	CampingVendorRegister,
+	CampingVendorLogin,
+	CampingVendorDashboard,
 };

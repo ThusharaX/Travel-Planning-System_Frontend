@@ -1,24 +1,24 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import TourGuideContext from "../../contexts/TourGuideContext";
+import CampingVendorContext from "../../contexts/CampingVenderContext";
 
-const TourGuideLogin = () => {
-	const { isLoading, TourGuideLogin, isLoggedIn } = useContext(TourGuideContext);
+const CampingVendorLogin = () => {
+	const { isLoading, CampingVendorLogin, isLoggedIn } = useContext(CampingVendorContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		const newTourGuide = {
+		const newCampingVendor = {
 			email: e.target.email.value,
 			password: e.target.password.value,
 		};
 
-		TourGuideLogin(newTourGuide);
+		CampingVendorLogin(newCampingVendor);
 	};
 
 	return (
 		<>
-			<h1 className="mt-5 text-4xl text-center">Tour Guide Login</h1>
+			<h1 className="mt-5 text-4xl text-center">Camping Vendor Login</h1>
 
 			<div className="flex justify-center">
 				<div className="w-1/2">
@@ -61,7 +61,7 @@ const TourGuideLogin = () => {
 						</div>
 						<div className="text-center">
 							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
-								<Link to="/tour-guide-register">Create an Account.</Link>
+								<Link to="/camping-vendor-register">Create an Account.</Link>
 							</a>
 						</div>
 					</form>
@@ -71,4 +71,4 @@ const TourGuideLogin = () => {
 	);
 };
 
-export default TourGuideLogin;
+export default CampingVendorLogin;

@@ -42,40 +42,12 @@ export function TourGuideProvider({ children }) {
 			setTourGuides([...tourGuides, response.data]);
 			setIsLoading(false);
 			alert("Tour Guide Registered Successfully");
+			window.location.href = "/tour-guide-login";
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error);
 		}
 	};
-
-	/*	const addTourGuide = (values) => {
-		setIsLoading(true);
-		const newTourGuide = {
-			tourGuideName: values.tourGuideName,
-			email: values.email,
-			nic: values.nic,
-			contactNumber: values.contactNumber,
-			profilePicture: values.profilePicture,
-			password: values.password,
-		};
-		TourGuideAPI.tourGuideRegister(newTourGuide)
-			.then((response) => {
-				// setIsLoading(false);
-			})
-			.catch((err) => {
-				//eslint-disable-next-line no-console
-				console.log(err.response.data);
-				if (err.response.data.details == "Email Already Exists") {
-					setMailError(err.response.data.details);
-				}
-				if (err.response.data.details == "NIC Already Exists") {
-					setNicError(err.response.data.details);
-				}
-				if (err.response.data.details == "Username Already Exists") {
-					setUserNameError(err.response.data.details);
-				}
-			});
-	}; */
 
 	const TourGuideLogin = (values) => {
 		setIsLoading(true);
@@ -90,6 +62,8 @@ export function TourGuideProvider({ children }) {
 					localStorage.setItem("Email", response.data.email);
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
+					alert("Logged In Successfully");
+					window.location.href = "/tour-guide-dashboard";
 					setIsLoggedIn(true);
 					setIsLoggedIn(false);
 				}
@@ -108,6 +82,7 @@ export function TourGuideProvider({ children }) {
 				TourGuideRegister,
 				tourGuide,
 				TourGuideLogin,
+				isLoggedIn,
 			}}
 		>
 			{children}
