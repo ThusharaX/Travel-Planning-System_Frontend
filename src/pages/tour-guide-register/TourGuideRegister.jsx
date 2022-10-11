@@ -187,6 +187,12 @@ const TourGuideRegister = () => {
 								</div>
 							</form>
 						</div>
+
+						<div className="text-center">
+							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
+								<Link to="/tour-guide-login">Already have an account? Login!</Link>
+							</a>
+						</div>
 					</div>
 				)}
 			</center>

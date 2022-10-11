@@ -66,6 +66,22 @@ export function TourPackageProvider({ children }) {
 		});
 	};
 
+	// Edit Tour Package
+	/*const editTourPackage = (values)=> {
+		const newTourPackage = {
+			tourPackageName:values.tourPackageName,
+			guideName:values.guideName,
+			email: values.email,
+			contactNumber: values.contactNumber,
+			price: values.price,
+			NumberOfDays:values.NumberOfDays,
+			location:values.location,
+			description:values.description,
+
+
+		}
+	} */
+
 	return (
 		<TourPackageContext.Provider
 			value={{
