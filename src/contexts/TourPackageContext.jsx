@@ -23,7 +23,7 @@ export function TourPackageProvider({ children }) {
 		NumberOfDays: "",
 		location: "",
 		description: "",
-		images: [],
+		images: "",
 	});
 
 	//Get all Tour Packages
@@ -42,6 +42,7 @@ export function TourPackageProvider({ children }) {
 			setIsLoading(true);
 			const response = await TourPackageAPI.createTourPacakge(newTourPackage);
 			setTourPackages([...tourPackages, response.data]);
+			alert("Tour Package Added Successful...!!!");
 			setIsLoading(false);
 		} catch (error) {
 			// eslint-disable-next-line no-console
