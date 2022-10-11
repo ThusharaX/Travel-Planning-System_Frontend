@@ -25,6 +25,11 @@ import TourGuideDashboard from "./tour-guide-dashboard";
 
 import CustomerSignup from "./cutomerSignup";
 
+/*Camping Vendor */
+import CampingVendorRegister from "./camping-vendor-register";
+import CampingVendorLogin from "./camping-vendor-login";
+import CampingVendorDashboard from "./camping-vendor-dashboard";
+
 export {
 	Sample,
 	HotelOwnerLogin,
@@ -46,4 +51,9 @@ export {
 	TourGuideDashboard,
 	Userprofile,
 	CustomerSignup,
+
+	/*Camping Vendor */
+	CampingVendorRegister,
+	CampingVendorLogin,
+	CampingVendorDashboard,
 };
