@@ -47,7 +47,7 @@ const TourPackageCreate = () => {
 												id="tourPackageName"
 												type="text"
 												aria-describedby="emailHelp123"
-												placeholder="Enter Tour Package Name"
+												placeholder="Tour Package Name"
 											></input>
 										</div>
 									</div>
@@ -60,7 +60,7 @@ const TourPackageCreate = () => {
 												id="guideName"
 												type="text"
 												aria-describedby="emailHelp124"
-												placeholder="Enter Tour Guide Name"
+												placeholder="Tour Guide Name"
 											></input>
 										</div>
 									</div>
@@ -74,7 +74,7 @@ const TourPackageCreate = () => {
 												id="email"
 												type="email"
 												aria-describedby="emailHelp123"
-												placeholder="Enter Email Address"
+												placeholder="Email Address"
 											></input>
 										</div>
 									</div>
@@ -87,7 +87,7 @@ const TourPackageCreate = () => {
 												id="contactNumber"
 												type="number"
 												aria-describedby="emailHelp124"
-												placeholder="Enter Contact Number"
+												placeholder="Contact Number"
 											></input>
 										</div>
 									</div>

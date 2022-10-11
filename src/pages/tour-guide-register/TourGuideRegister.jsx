@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import TourGuideContext from "../../contexts/TourGuideContext";
+import "../tour-guide-register/TourGuide.css";
 
 const TourGuideRegister = () => {
 	const { isLoading, TourGuideRegister } = useContext(TourGuideContext);
