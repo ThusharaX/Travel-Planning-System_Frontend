@@ -23,7 +23,7 @@ export function TourPackageProvider({ children }) {
 		NumberOfDays: "",
 		location: "",
 		description: "",
-		images: [],
+		images: "",
 	});
 
 	//Get all Tour Packages
@@ -42,11 +42,28 @@ export function TourPackageProvider({ children }) {
 			setIsLoading(true);
 			const response = await TourPackageAPI.createTourPacakge(newTourPackage);
 			setTourPackages([...tourPackages, response.data]);
+			alert("Tour Package Added Successful...!!!");
 			setIsLoading(false);
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error);
 		}
+	};
+
+	// Get one Tour Package
+	const getOneTourPackage = (id) => {
+		useEffect(() => {
+			TourPackageAPI.getOneTourPackage(id).then((res) => {
+				setTourPackage(res.data);
+			});
+		}, []);
+	};
+
+	// Delete Tour Package
+	const deleteTourPackage = (id) => {
+		TourPackageAPI.deleteTourPackage(id).then(() => {
+			setTourPackages(tourPackages.filter((tourPackages) => tourPackages._id !== id));
+		});
 	};
 
 	return (
@@ -57,6 +74,8 @@ export function TourPackageProvider({ children }) {
 				addTourPackage,
 				tourPackage,
 				schemaProfile,
+				getOneTourPackage,
+				deleteTourPackage,
 			}}
 		>
 			{children}
