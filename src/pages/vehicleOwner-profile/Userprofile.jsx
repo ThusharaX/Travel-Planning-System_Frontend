@@ -1,5 +1,3 @@
-<h1>User profile</h1>;
-
 import "../vehicleOwner-profile/userprofile.css";
 
 const Userprofile = () => {
