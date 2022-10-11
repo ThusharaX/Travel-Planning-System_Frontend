@@ -50,6 +50,22 @@ export function TourPackageProvider({ children }) {
 		}
 	};
 
+	// Get one Tour Package
+	const getOneTourPackage = (id) => {
+		useEffect(() => {
+			TourPackageAPI.getOneTourPackage(id).then((res) => {
+				setTourPackage(res.data);
+			});
+		}, []);
+	};
+
+	// Delete Tour Package
+	const deleteTourPackage = (id) => {
+		TourPackageAPI.deleteTourPackage(id).then(() => {
+			setTourPackages(tourPackages.filter((tourPackages) => tourPackages._id !== id));
+		});
+	};
+
 	return (
 		<TourPackageContext.Provider
 			value={{
@@ -58,6 +74,8 @@ export function TourPackageProvider({ children }) {
 				addTourPackage,
 				tourPackage,
 				schemaProfile,
+				getOneTourPackage,
+				deleteTourPackage,
 			}}
 		>
 			{children}

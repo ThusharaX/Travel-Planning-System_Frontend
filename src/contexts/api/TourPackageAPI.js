@@ -15,11 +15,11 @@ class TourPackageAPI {
 	}
 
 	static editTourPackage(id, newTourPackage) {
-		return axios.get(`${BASE_URL}/tour-package/${id}`, newTourPackage, requestConfig);
+		return axios.put(`${BASE_URL}/tour-package/${id}`, newTourPackage, requestConfig);
 	}
 
-	static deleteTourPackage(id, newTourPackage) {
-		return axios.get(`${BASE_URL}/tour-package/${id}`, requestConfig);
+	static deleteTourPackage(id) {
+		return axios.delete(`${BASE_URL}/tour-package/${id}`, requestConfig);
 	}
 
 	static searchTourPackage(search) {
