@@ -14,6 +14,24 @@ class VehicleTourAPI {
 	static createVehicle(newVehicle) {
 		return axios.post(`${BASE_URL}/vehicle/`, newVehicle, requestConfigJson);
 	}
+
+	//Get one Vehicle Package
+
+	static getOneVehiclePackage(id) {
+		return axios.get(`${BASE_URL}/vehicle/${id}`, requestConfigJson);
+	}
+
+	//Edit Vehicle Package
+
+	static editVehiclePackage(id, newVehiclePackage) {
+		return axios.put(`${BASE_URL}/vehicle/${id}`, newVehiclePackage, requestConfigJson);
+	}
+
+	//Delete Vehicle Package
+
+	static deleteVehiclePackage(id) {
+		return axios.delete(`${BASE_URL}/vehicle/${id}`, requestConfig);
+	}
 }
 
 export default VehicleTourAPI;

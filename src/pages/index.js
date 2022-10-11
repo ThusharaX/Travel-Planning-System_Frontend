@@ -2,16 +2,12 @@ import Sample from "./sample";
 import Home from "./home";
 import HotelOwnerLogin from "./hotel-owner";
 import HotelPackageList from "./hotel-package-list";
-import CampingPackageList from "./camping-package-list";
+
 import HotelPackageCreate from "./hotel-package-create";
 
-import CampingPackageCreate from "./camping-package-create";
-
+import VehicleEdit from "./vehicle-edit";
 import VehicleList from "./vehicle-owner";
 import VehicleCreate from "./vehicle-create";
-
-import CampingPackageEdit from "./camping-package-edit";
-
 import Userprofile from "./vehicleOwner-profile/Userprofile";
 
 /* Tour Package */
@@ -24,24 +20,36 @@ import TourGuideLogin from "./tour-guide-login";
 
 import CustomerSignup from "./cutomerSignup";
 
+/*Camping Package*/
+
+import CampingPackageList from "./camping-package-list";
+import CampingPackageCreate from "./camping-package-create";
+import CampingPackageEdit from "./camping-package-edit";
+
 export {
 	Sample,
 	HotelOwnerLogin,
 	Home,
 	HotelPackageList,
-	CampingPackageList,
 	HotelPackageCreate,
+
+	/*Camping Package*/
+	CampingPackageList,
 	CampingPackageCreate,
-	VehicleList,
-	VehicleCreate,
 	CampingPackageEdit,
 
 	/*Tour Package*/
 	TourPackageCreate,
 	TourPackageList,
+
 	/*Tour Guide*/
 	TourGuideRegister,
 	TourGuideLogin,
 	Userprofile,
 	CustomerSignup,
+
+	/*Vehicle Package*/
+	VehicleList,
+	VehicleCreate,
+	VehicleEdit,
 };

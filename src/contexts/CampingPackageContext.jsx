@@ -66,10 +66,12 @@ export function CampingPackageProvider({ children }) {
 			.then((response) => {
 				//console.log(res.data);
 				//navigate("/viewres");
+				// eslint-disable-next-line no-console
 				console.log("updated successfully...");
 				navigate("/camping-package");
 			})
 			.catch((err) => {
+				// eslint-disable-next-line no-console
 				console.log(err);
 			});
 
