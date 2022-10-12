@@ -32,6 +32,7 @@ import {
 	TourPackageEdit,
 	Userprofile,
 	CustomerSignup,
+	VehicleEdit,
 
 	/*Camping Vendor */
 	CampingVendorRegister,
@@ -60,6 +61,13 @@ const AppRoutes = () => {
 					<Route path="/hotel-package" element={<HotelPackageList />} />
 
 					<Route path="/hotel-package-create" element={<HotelPackageCreate />} />
+
+					<Route path="/camping-package-create" element={<CampingPackageCreate />} />
+
+					<Route path="/vehicle-create" element={<VehicleCreate />} />
+					<Route path="/vehicle" element={<VehicleList />} />
+					<Route path="/vehicleedit/:id" element={<VehicleEdit />} />
+					<Route path="/camping-package-edit/:id" element={<CampingPackageEdit />} />
 
 					{/* Tour Guide */}
 					<Route path="/tour-guide-register" element={<TourGuideRegister />} />

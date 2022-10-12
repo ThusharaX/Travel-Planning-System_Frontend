@@ -81,10 +81,12 @@ export function TourPackageProvider({ children }) {
 		};
 		TourPackageAPI.editTourPackage(values.id, newTourPackage)
 			.then((response) => {
+				// eslint-disable-next-line no-console
 				console.log("Tour Package Updated Successful...!!!");
 				window.location.href = "/tour-package-list";
 			})
 			.catch((err) => {
+				// eslint-disable-next-line no-console
 				console.log(err);
 			});
 	};
