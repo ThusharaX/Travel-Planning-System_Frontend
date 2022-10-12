@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import TourGuideAPI from "./api/TourGuideAPI";
 import Joi from "joi";
+import { useEffect } from "react";
 
 const TourGuideContext = createContext();
 
@@ -41,7 +42,7 @@ export function TourGuideProvider({ children }) {
 		TourGuideAPI.tourGuideRegister(values)
 			.then((response) => {
 				setTourGuides([...tourGuides, response.data]);
-				alert("Register");
+				alert("Tour Guide Registration Successful...!!!");
 				window.location.href = "/tour-guide-login";
 				tourGuides.reset();
 			})
@@ -69,6 +70,7 @@ export function TourGuideProvider({ children }) {
 					localStorage.setItem("uID", response.data._id);
 					localStorage.setItem("username", response.data.tourGuideName);
 					localStorage.setItem("Email", response.data.email);
+					localStorage.setItem("ContactNumber", response.data.contactNumber);
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
 					alert("Logged In Successfully");
@@ -81,6 +83,15 @@ export function TourGuideProvider({ children }) {
 				setIsLoading(false);
 				return alert(err.response.data.details.message);
 			});
+	};
+
+	//Get one Tour Guide
+	const getTourGuide = (id) => {
+		useEffect(() => {
+			TourGuideAPI.getOneTourGuide(id).then((res) => {
+				setTourGuide(res.data);
+			});
+		}, []);
 	};
 
 	return (
@@ -96,6 +107,7 @@ export function TourGuideProvider({ children }) {
 				setMailError,
 				nicError,
 				setNicError,
+				getTourGuide,
 			}}
 		>
 			{children}

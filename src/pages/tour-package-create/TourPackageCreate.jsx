@@ -5,6 +5,13 @@ import "../tour-package-create/TourPackage.css";
 const TourPackageCreate = () => {
 	const { isLoading, addTourPackage } = useContext(TourPackageContext);
 
+	const username = localStorage.getItem("username");
+	const email = localStorage.getItem("Email");
+	const contactNumber = localStorage.getItem("ContactNumber");
+	console.log(username);
+	console.log(email);
+	console.log(contactNumber);
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -61,6 +68,8 @@ const TourPackageCreate = () => {
 												type="text"
 												aria-describedby="emailHelp124"
 												placeholder="Tour Guide Name"
+												value={username}
+												readOnly
 											></input>
 										</div>
 									</div>
@@ -75,6 +84,8 @@ const TourPackageCreate = () => {
 												type="email"
 												aria-describedby="emailHelp123"
 												placeholder="Email Address"
+												value={email}
+												readOnly
 											></input>
 										</div>
 									</div>
@@ -88,6 +99,8 @@ const TourPackageCreate = () => {
 												type="number"
 												aria-describedby="emailHelp124"
 												placeholder="Contact Number"
+												value={contactNumber}
+												readOnly
 											></input>
 										</div>
 									</div>

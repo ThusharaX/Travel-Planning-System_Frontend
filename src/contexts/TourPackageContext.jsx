@@ -44,6 +44,7 @@ export function TourPackageProvider({ children }) {
 			setTourPackages([...tourPackages, response.data]);
 			alert("Tour Package Added Successful...!!!");
 			setIsLoading(false);
+			window.location.href = "/tour-package-list";
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error);
