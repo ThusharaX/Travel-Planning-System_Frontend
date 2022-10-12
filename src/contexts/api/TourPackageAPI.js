@@ -15,7 +15,7 @@ class TourPackageAPI {
 	}
 	// Edit Tour Package
 	static editTourPackage(id, newTourPackage) {
-		return axios.put(`${BASE_URL}/tour-package/${id}`, newTourPackage, requestConfig);
+		return axios.put(`${BASE_URL}/tour-package/${id}`, newTourPackage, requestConfigJson);
 	}
 	// Get one Tour Package
 	static getOneTourPackage(id) {

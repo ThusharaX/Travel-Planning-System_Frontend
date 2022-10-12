@@ -1,4 +1,4 @@
-import Joi from "joi";
+//import Joi from "joi";
 import { createContext, useState, useEffect } from "react";
 import TourPackageAPI from "./api/TourPackageAPI";
 
@@ -8,9 +8,9 @@ export function TourPackageProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [tourPackages, setTourPackages] = useState([]);
 
-	const schemaProfile = Joi.object({
+	/*const schemaProfile = Joi.object({
 		tourPackageName: Joi.string().required(),
-	});
+	}); */
 
 	//Tour Package
 
@@ -23,7 +23,6 @@ export function TourPackageProvider({ children }) {
 		NumberOfDays: "",
 		location: "",
 		description: "",
-		images: "",
 	});
 
 	//Get all Tour Packages
@@ -68,7 +67,7 @@ export function TourPackageProvider({ children }) {
 	};
 
 	// Edit Tour Package
-	const editTourPackage = (values) => {
+	const TourPackageEdit = (values) => {
 		const newTourPackage = {
 			tourPackageName: values.tourPackageName,
 			guideName: values.guideName,
@@ -79,10 +78,11 @@ export function TourPackageProvider({ children }) {
 			location: values.location,
 			description: values.description,
 		};
+
 		TourPackageAPI.editTourPackage(values.id, newTourPackage)
 			.then((response) => {
-				console.log("Tour Package Updated Successful...!!!");
-				window.location.href = "/tour-package-list";
+				console.log("Update");
+				alert("update");
 			})
 			.catch((err) => {
 				console.log(err);
@@ -96,10 +96,10 @@ export function TourPackageProvider({ children }) {
 				tourPackages,
 				addTourPackage,
 				tourPackage,
-				schemaProfile,
 				getOneTourPackage,
 				deleteTourPackage,
-				editTourPackage,
+				setTourPackages,
+				TourPackageEdit,
 				setTourPackage,
 			}}
 		>
