@@ -101,10 +101,12 @@ export function CampingVenderProvider({ children }) {
 			.then((response) => {
 				//console.log(res.data);
 				//navigate("/viewres");
+				// eslint-disable-next-line no-console
 				console.log("updated successfully...");
 				navigate("/camping-vendor-dashboard");
 			})
 			.catch((err) => {
+				// eslint-disable-next-line no-console
 				console.log(err);
 			});
 

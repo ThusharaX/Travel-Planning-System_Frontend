@@ -52,6 +52,7 @@ export function VehicleOwnerProvider({ children }) {
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
 					alert("Logged In Successful...!!!");
+					window.location.href = "/vehicle-profile";
 					setIsLoggedIn(true);
 					setIsLoggedIn(false);
 				}

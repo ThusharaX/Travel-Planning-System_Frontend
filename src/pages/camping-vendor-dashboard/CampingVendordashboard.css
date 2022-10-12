@@ -29,9 +29,9 @@
 }
 
 .searchAdd {
-	position: relative;
+	position: fixed;
 	margin-top: -45px;
-	margin-right: -665px;
+	margin-left: 600px;
 }
 
 .hello {

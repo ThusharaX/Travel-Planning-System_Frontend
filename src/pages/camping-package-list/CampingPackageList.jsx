@@ -30,7 +30,7 @@ const CampingPackageList = () => {
 						<br></br>
 						<br></br>
 						<div className="flex flex-col justify-auto h-full ">
-							<div className="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+							<div className="w-full max-w-5xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
 								<div className="p-3 rounded-lg">
 									<div className="overflow-x-auto  rounded-sm">
 										<table className="table-auto w-full">
