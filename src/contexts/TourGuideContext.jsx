@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import TourGuideAPI from "./api/TourGuideAPI";
 import Joi from "joi";
+import { useEffect } from "react";
 
 const TourGuideContext = createContext();
 
@@ -8,6 +9,8 @@ export function TourGuideProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [tourGuides, setTourGuides] = useState([]);
+	const [mailError, setMailError] = useState("");
+	const [nicError, setNicError] = useState("");
 
 	//Form Validation
 	/*	const schema = Joi.object({
@@ -36,17 +39,24 @@ export function TourGuideProvider({ children }) {
 	// Add Tour Guide
 
 	const TourGuideRegister = async (values) => {
-		try {
-			setIsLoading(true);
-			const response = await TourGuideAPI.tourGuideRegister(values);
-			setTourGuides([...tourGuides, response.data]);
-			setIsLoading(false);
-			alert("Tour Guide Registered Successfully");
-			window.location.href = "/tour-guide-login";
-		} catch (error) {
-			// eslint-disable-next-line no-console
-			console.log(error);
-		}
+		TourGuideAPI.tourGuideRegister(values)
+			.then((response) => {
+				setTourGuides([...tourGuides, response.data]);
+				alert("Tour Guide Registration Successful...!!!");
+				window.location.href = "/tour-guide-login";
+				tourGuides.reset();
+			})
+			.catch((err) => {
+				console.log(err.response.data);
+				if (err.response.data.details == "Email already exists") {
+					setMailError(err.response.data.details);
+					alert("Email already exist");
+				}
+				if (err.response.data.details == "NIC already exists") {
+					setNicError(err.response.data.details);
+					alert("NIC already exists");
+				}
+			});
 	};
 
 	const TourGuideLogin = (values) => {
@@ -60,6 +70,7 @@ export function TourGuideProvider({ children }) {
 					localStorage.setItem("uID", response.data._id);
 					localStorage.setItem("username", response.data.tourGuideName);
 					localStorage.setItem("Email", response.data.email);
+					localStorage.setItem("ContactNumber", response.data.contactNumber);
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
 					alert("Logged In Successfully");
@@ -74,6 +85,15 @@ export function TourGuideProvider({ children }) {
 			});
 	};
 
+	//Get one Tour Guide
+	const getTourGuide = (id) => {
+		useEffect(() => {
+			TourGuideAPI.getOneTourGuide(id).then((res) => {
+				setTourGuide(res.data);
+			});
+		}, []);
+	};
+
 	return (
 		<TourGuideContext.Provider
 			value={{
@@ -83,6 +103,11 @@ export function TourGuideProvider({ children }) {
 				tourGuide,
 				TourGuideLogin,
 				isLoggedIn,
+				mailError,
+				setMailError,
+				nicError,
+				setNicError,
+				getTourGuide,
 			}}
 		>
 			{children}
