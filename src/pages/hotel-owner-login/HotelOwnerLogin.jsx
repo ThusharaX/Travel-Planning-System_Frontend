@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import HotelOwnerContext from "../../contexts/HotelOwnerContext";
 
 const HotelOwnerLogin = () => {
+	const { login, isLoggedIn, isLoading, message } = useContext(HotelOwnerContext);
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const newHotelOwner = {
+			email: e.target.email.value,
+			password: e.target.password.value,
+		};
+
+		login(newHotelOwner);
+	};
+
 	return (
 		<>
 			<h1 className="mt-5 text-4xl text-center">Hotel Owner Login</h1>
 
 			<div className="flex justify-center">
 				<div className="w-1/2">
-					<form className="mt-5">
+					<form className="mt-5" onSubmit={handleSubmit}>
 						<div className="mb-4">
 							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email">
 								Email

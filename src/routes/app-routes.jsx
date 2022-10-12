@@ -8,7 +8,10 @@ import Header from "../components/Header";
 
 import {
 	Sample,
+
+	// Hotel Owner
 	HotelOwnerLogin,
+	HotelOwnerRegister,
 	Home,
 	HotelPackageList,
 	HotelPackageCreate,
@@ -43,7 +46,12 @@ const AppRoutes = () => {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/sample" element={<Sample />} />
-					<Route path="/hotel-login" element={<HotelOwnerLogin />} />
+
+					{/* Hotel Owner */}
+					<Route path="/hotel-owner-login" element={<HotelOwnerLogin />} />
+					<Route path="/hotel-owner-register" element={<HotelOwnerRegister />} />
+
+					{/* Hotel Package */}
 					<Route path="/hotel-package" element={<HotelPackageList />} />
 
 					<Route path="/camping-package" element={<CampingPackageList />} />

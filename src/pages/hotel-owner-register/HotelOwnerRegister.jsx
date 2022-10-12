@@ -1,13 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import HotelOwnerContext from "../../contexts/HotelOwnerContext";
 
 const HotelOwnerRegister = () => {
+	const { register, isLoggedIn, isLoading, message } = useContext(HotelOwnerContext);
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		const newHotelOwner = {
+			ownerName: e.target.ownerName.value,
+			email: e.target.email.value,
+			nic: e.target.nic.value,
+			contactNumber: e.target.contactNumber.value,
+			password: e.target.password.value,
+			hotelName: e.target.hotelName.value,
+			hotelAddress: e.target.hotelAddress.value,
+			companyPhoneNumber: e.target.companyPhoneNumber.value,
+			companyRegNo: e.target.companyRegNo.value,
+		};
+
+		register(newHotelOwner);
+	};
+
 	return (
 		<>
 			<h1 className="mt-5 text-4xl text-center">Hotel Owner Register</h1>
 
 			<div className="flex justify-center">
 				<div className="w-1/2">
-					<form className="mt-5">
+					<form className="mt-5" onSubmit={handleSubmit}>
 						<div className="mb-4">
 							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="ownerName">
 								Owner Name
@@ -121,7 +143,7 @@ const HotelOwnerRegister = () => {
 						<div className="mb-6 text-center">
 							<button
 								className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-								type="button"
+								type="submit"
 							>
 								Register
 							</button>
