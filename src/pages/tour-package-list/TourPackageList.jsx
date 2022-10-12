@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import TourPackageContext from "../../contexts/TourPackageContext";
 
 import "../tour-package-list/TourPackageList.css";
@@ -74,7 +75,9 @@ const TourPackageList = () => {
 										<td className="p-2 text-base font-semibold tracking-normal text-left">{tourPackage.price}</td>
 										<td className="p-2 text-base font-semibold tracking-normal text-left">{tourPackage.location}</td>
 										<td className="p-2 whitespace-nowrap tracking-normal">
-											<img src="../public/pen-to-square-regular.svg" width="18" height="18" alt="Alex Shatov"></img>
+											<Link to={`/tour-package-edit/${tourPackage._id}`} className="">
+												<img src="../public/pen-to-square-regular.svg" width="18" height="18" alt="Alex Shatov"></img>
+											</Link>
 										</td>
 
 										<td className="p-2 whitespace-nowrap">
