@@ -1,16 +1,19 @@
 .usercard {
 	margin-left: 90px;
-	margin-top: 50px;
+	margin-top: 150px;
 }
 
 .table {
 	margin-left: 500px;
 	width: 60%;
-	margin-top: -490px;
+	margin-top: -350px;
+	position: relative;
 }
 
 .btn {
-	margin-left: 650px;
+	position: relative;
+	margin-left: 1px;
+	margin-top: -280px;
 }
 .bottombtn {
 	margin-left: 50px;
@@ -18,4 +21,18 @@
 .searchbtn {
 	margin-top: -37px;
 	margin-left: -250px;
+}
+
+.carddiv {
+	position: relative;
+	margin-top: -150px;
+}
+
+.searchAdd {
+	position: relative;
+	margin-top: -45px;
+	margin-right: -665px;
+}
+
+.hello {
 }

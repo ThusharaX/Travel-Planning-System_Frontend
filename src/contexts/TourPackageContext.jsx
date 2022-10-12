@@ -44,6 +44,7 @@ export function TourPackageProvider({ children }) {
 			setTourPackages([...tourPackages, response.data]);
 			alert("Tour Package Added Successful...!!!");
 			setIsLoading(false);
+			window.location.href = "/tour-package-list";
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error);
@@ -65,6 +66,22 @@ export function TourPackageProvider({ children }) {
 			setTourPackages(tourPackages.filter((tourPackages) => tourPackages._id !== id));
 		});
 	};
+
+	// Edit Tour Package
+	/*const editTourPackage = (values)=> {
+		const newTourPackage = {
+			tourPackageName:values.tourPackageName,
+			guideName:values.guideName,
+			email: values.email,
+			contactNumber: values.contactNumber,
+			price: values.price,
+			NumberOfDays:values.NumberOfDays,
+			location:values.location,
+			description:values.description,
+
+
+		}
+	} */
 
 	return (
 		<TourPackageContext.Provider

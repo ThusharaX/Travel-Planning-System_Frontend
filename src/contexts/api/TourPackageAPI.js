@@ -9,19 +9,23 @@ class TourPackageAPI {
 	static getTourPackages() {
 		return axios.get(`${BASE_URL}/tour-package/`, requestConfig);
 	}
-
+	// Create Tour Package
 	static createTourPacakge(newTourPackage) {
 		return axios.post(`${BASE_URL}/tour-package/`, newTourPackage, requestConfigJson);
 	}
-
+	// Edit Tour Package
 	static editTourPackage(id, newTourPackage) {
 		return axios.put(`${BASE_URL}/tour-package/${id}`, newTourPackage, requestConfig);
 	}
-
+	// Get one Tour Package
+	static getOneTourPackage(id) {
+		return axios.get(`${BASE_URL}/tour-package/${id}`, requestConfig);
+	}
+	// Delete Tour Package
 	static deleteTourPackage(id) {
 		return axios.delete(`${BASE_URL}/tour-package/${id}`, requestConfig);
 	}
-
+	// Search Tour Package
 	static searchTourPackage(search) {
 		return axios.get(`${BASE_URL}/tour-package/searcch/${search}`, requestConfig);
 	}
