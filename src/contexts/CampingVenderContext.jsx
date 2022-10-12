@@ -144,6 +144,10 @@ export function CampingVenderProvider({ children }) {
 				setFileName,
 				fileName,
 				campingVender,
+				mailError,
+				setMailError,
+				nicError,
+				setNicError,
 			}}
 		>
 			{children}
