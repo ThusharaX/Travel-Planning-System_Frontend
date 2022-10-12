@@ -12,6 +12,29 @@ class CampingVendorAPI {
 	static campingVendorRegister(values) {
 		return axios.post(`${BASE_URL}/camping-vendor/register/`, values, requestConfigJson);
 	}
+
+	// Get all camping packages
+	static getCampingVendors() {
+		return axios.get(`${BASE_URL}/camping-vendor/`, requestConfig);
+	}
+
+	//Get one Camping Package
+
+	static getOneVendorData(id) {
+		return axios.get(`${BASE_URL}/camping-vendor/${id}`, requestConfigJson);
+	}
+
+	//Edit Camping Package
+
+	static editCampingVendor(id, newCampingPackage) {
+		return axios.put(`${BASE_URL}/camping-vendor/${id}`, newCampingVendor, requestConfigJson);
+	}
+
+	//Delete Camping Package
+
+	static deleteCampingVendor(id) {
+		return axios.delete(`${BASE_URL}/camping-vendor/${id}`, requestConfig);
+	}
 }
 
 export default CampingVendorAPI;

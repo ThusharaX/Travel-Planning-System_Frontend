@@ -61,7 +61,7 @@ const CampingVendorLogin = () => {
 						</div>
 						<div className="text-center">
 							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
-								<Link to="/tour-guide-register">Create an Account.</Link>
+								<Link to="/camping-vendor-register">Create an Account.</Link>
 							</a>
 						</div>
 					</form>

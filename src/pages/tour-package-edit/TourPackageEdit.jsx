@@ -1,33 +1,37 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import TourGuideContext from "../../contexts/TourGuideContext";
-import "../tour-guide-register/TourGuide.css";
+import { useParams } from "react-router-dom";
+import TourPackageContext from "../../contexts/TourPackageContext";
 
-const TourGuideRegister = () => {
-	const { isLoading, TourGuideRegister } = useContext(TourGuideContext);
+const editTourPackage = () => {
+	const { getOneTourPackage, editTourPackage, tourPackage, setTourPackage, isLoading } = useContext(TourPackageContext);
+
+	const handleChange = (e) => {
+		setTourPackage(e.target.value);
+	};
+	const { id } = useParams();
+
+	getOneTourPackage(id);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		const newTourGuide = {
-			tourGuideName: e.target.tourGuideName.value,
+		const newTourPackage = {
+			id: id,
+			tourPackageName: e.target.tourPackageName.value,
+			guideName: e.target.guideName.value,
 			email: e.target.email.value,
-			nic: e.target.nic.value,
 			contactNumber: e.target.contactNumber.value,
-			guideArea: e.target.guideArea.value,
-			guideCity: e.target.guideCity.value,
-			spokenLanguages: e.target.spokenLanguages.value,
-			motherTongue: e.target.motherTongue.value,
-			profilePicture: e.target.profilePicture.value,
-			password: e.target.password.value,
+			price: e.target.price.value,
+			NumberOfDays: e.target.NumberOfDays.value,
+			location: e.target.location.value,
+			description: e.target.description.value,
 		};
-
-		TourGuideRegister(newTourGuide);
+		editTourPackage(newTourPackage);
 	};
 
 	return (
 		<>
-			<h1 className="mt-5 text-4xl text-center">Tour Guide Register</h1>
+			<h1 className="mt-5 text-4xl text-center">Tour Package Edit</h1>
 
 			<br></br>
 			<center>
@@ -40,43 +44,50 @@ const TourGuideRegister = () => {
 								<div className="grid grid-cols-2 gap-x-10">
 									<div className="form-group mb-6">
 										<label className="labelClass" htmlFor="fname">
-											Tour Guide Name
+											Tour Package Name
 										</label>
 
 										<div className="flex ...">
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base border-indigo-500 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-												id="tourGuideName"
+												id="tourPackageName"
+												value={tourPackage.tourPackageName}
 												type="text"
 												aria-describedby="emailHelp123"
-												placeholder="Tour Guide Name"
+												placeholder="Tour Package Name"
+												onChange={handleChange}
 											></input>
 										</div>
 									</div>
 
 									<div className="form-group mb-6">
-										<label htmlFor="fname">Email</label>
+										<label htmlFor="fname">Tour Guide Name</label>
 										<div className="flex ...">
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base border-indigo-500 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-												id="email"
-												type="email"
+												id="guideName"
+												value={tourPackage.guideName}
+												type="text"
 												aria-describedby="emailHelp124"
-												placeholder="Email Address"
+												placeholder="Tour Guide Name"
+												onChange={handleChange}
 											></input>
 										</div>
 									</div>
 								</div>
 								<div className="grid grid-cols-2 gap-x-10">
 									<div className="form-group mb-10">
-										<label htmlFor="fname">NIC Or Passport</label>
+										<label htmlFor="fname">Email</label>
 										<div className="flex ...">
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base  border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-												id="nic"
-												type="text"
+												id="email"
+												value={tourPackage.email}
+												type="email"
 												aria-describedby="emailHelp123"
-												placeholder="NIC or Passport Number"
+												placeholder="Email Address"
+												onChange={handleChange}
+												readOnly
 											></input>
 										</div>
 									</div>
@@ -87,9 +98,11 @@ const TourGuideRegister = () => {
 											<input
 												className="form-control block  w-80 px-3 py-1.5 text-base border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 												id="contactNumber"
+												value={tourPackage.contactNumber}
 												type="number"
 												aria-describedby="emailHelp124"
 												placeholder="Contact Number"
+												onChange={handleChange}
 											></input>
 										</div>
 									</div>
@@ -97,101 +110,74 @@ const TourGuideRegister = () => {
 
 								<div className="grid grid-cols-2 gap-x-10">
 									<div className="form-group mb-10">
-										<label htmlFor="fname">Guide Area</label>
+										<label htmlFor="fname">Package Price</label>
 										<div className="flex ...">
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base  border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-												id="guideArea"
-												type="text"
+												id="price"
+												value={tourPackage.price}
+												type="number"
 												aria-describedby="emailHelp123"
-												placeholder="Guide Area"
+												placeholder="Pacakge Price"
+												onChange={handleChange}
 											></input>
 										</div>
 									</div>
 
 									<div className="form-group mb-6">
-										<label htmlFor="fname">Guide City</label>
+										<label htmlFor="fname">Number of Days</label>
 										<div className="flex ...">
 											<input
 												className="form-control block  w-80 px-3 py-1.5 text-base border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-												id="guideCity"
-												type="text"
+												id="NumberOfDays"
+												value={tourPackage.NumberOfDays}
+												type="number"
 												aria-describedby="emailHelp124"
-												placeholder="Guide City"
-											></input>
-										</div>
-									</div>
-								</div>
-
-								<div className="grid grid-cols-2 gap-x-10">
-									<div className="form-group mb-10">
-										<label htmlFor="fname">Spoken Language</label>
-										<div className="flex ...">
-											<input
-												className="form-control block w-80 px-3 py-1.5 text-base  border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-												id="spokenLanguages"
-												type="text"
-												aria-describedby="emailHelp123"
-												placeholder="Spoken Language"
-											></input>
-										</div>
-									</div>
-
-									<div className="form-group mb-6">
-										<label htmlFor="fname">Mother Tongue</label>
-										<div className="flex ...">
-											<input
-												className="form-control block  w-80 px-3 py-1.5 text-base border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-												id="motherTongue"
-												type="text"
-												aria-describedby="emailHelp124"
-												placeholder="Mother Tongue"
+												placeholder="Number of Days"
+												onChange={handleChange}
 											></input>
 										</div>
 									</div>
 								</div>
 
 								<div className="singleInput">
-									<label htmlFor="fname">Password</label>
+									<label htmlFor="fname">Location</label>
 									<div className="flex ...">
 										<div className="form-group mb-4">
 											<input
 												className="form-control singleInput block w-80 px-3 py-1.5 text-base  border-indigo-500 font-normal text-gray-700  bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-												id="password"
-												type="password"
+												id="location"
+												value={tourPackage.location}
+												type="text"
 												aria-describedby="emailHelp124"
-												placeholder="************"
+												placeholder="Travel Location"
+												onChange={handleChange}
 											></input>
 										</div>
 									</div>
 								</div>
-								<br></br>
-								<label htmlFor="fname">Upload File</label>
 
-								<div className="mb-4">
-									<input
-										className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-										id="profilePicture"
-										type="file"
-										multiple
-									/>
-								</div>
+								<label htmlFor="fname">Description</label>
+
+								<textarea
+									id="description"
+									value={tourPackage.description}
+									rows="4"
+									className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+									placeholder="Describe Here Package"
+									onChange={handleChange}
+								></textarea>
+								<br></br>
 
 								<div className="mb-6 text-center">
 									<button
 										className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
 										type="submit"
 									>
-										Register
+										Save
 									</button>
 								</div>
 							</form>
-						</div>
-
-						<div className="text-center">
-							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
-								<Link to="/tour-guide-login">Already have an account? Login!</Link>
-							</a>
 						</div>
 					</div>
 				)}
@@ -200,4 +186,4 @@ const TourGuideRegister = () => {
 	);
 };
 
-export default TourGuideRegister;
+export default editTourPackage;

@@ -11,6 +11,7 @@ export function CampingPackageProvider({ children }) {
 
 	// Camping Package
 	const [campingPackage, setCampingPackage] = useState({
+		vendorId: "id",
 		Packagename: "",
 		persons: "",
 		location: "",
@@ -35,7 +36,7 @@ export function CampingPackageProvider({ children }) {
 			setCampingPackages([...campingPackages, response.data]);
 			setIsLoading(false);
 			alert("Data added successfully...");
-			navigate("/camping-package");
+			navigate("/camping-vendor-dashboard");
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error);
@@ -67,7 +68,7 @@ export function CampingPackageProvider({ children }) {
 				//console.log(res.data);
 				//navigate("/viewres");
 				console.log("updated successfully...");
-				navigate("/camping-package");
+				navigate("/camping-vendor-dashboard");
 			})
 			.catch((err) => {
 				console.log(err);

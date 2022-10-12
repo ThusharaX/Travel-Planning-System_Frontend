@@ -8,7 +8,10 @@ import Header from "../components/Header";
 
 import {
 	Sample,
+
+	// Hotel Owner
 	HotelOwnerLogin,
+	HotelOwnerRegister,
 	Home,
 	HotelPackageList,
 	HotelPackageCreate,
@@ -26,6 +29,7 @@ import {
 	TourPackageCreate,
 	TourPackageList,
 	TourGuideDashboard,
+	TourPackageEdit,
 	Userprofile,
 	CustomerSignup,
 
@@ -47,12 +51,15 @@ const AppRoutes = () => {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/sample" element={<Sample />} />
-					<Route path="/hotel-login" element={<HotelOwnerLogin />} />
+
+					{/* Hotel Owner */}
+					<Route path="/hotel-owner-login" element={<HotelOwnerLogin />} />
+					<Route path="/hotel-owner-register" element={<HotelOwnerRegister />} />
+
+					{/* Hotel Package */}
 					<Route path="/hotel-package" element={<HotelPackageList />} />
 
 					<Route path="/camping-package" element={<CampingPackageList />} />
-
-					<Route path="/tour-package" element={<TourPackageList />} />
 					<Route path="/hotel-package-create" element={<HotelPackageCreate />} />
 
 					<Route path="/camping-package-create" element={<CampingPackageCreate />} />
@@ -69,6 +76,7 @@ const AppRoutes = () => {
 					{/*Tour Package */}
 					<Route path="/tour-package-create" element={<TourPackageCreate />} />
 					<Route path="/tour-package-list" element={<TourPackageList />} />
+					<Route path="/tour-package-edit/:id" element={<TourPackageEdit />} />
 
 					<Route path="/vehicle-profile" element={<Userprofile />} />
 
