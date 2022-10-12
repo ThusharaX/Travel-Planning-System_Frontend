@@ -11,6 +11,7 @@ export function CampingPackageProvider({ children }) {
 
 	// Camping Package
 	const [campingPackage, setCampingPackage] = useState({
+		vendorId: "id",
 		Packagename: "",
 		persons: "",
 		location: "",

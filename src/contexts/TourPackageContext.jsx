@@ -44,6 +44,7 @@ export function TourPackageProvider({ children }) {
 			setTourPackages([...tourPackages, response.data]);
 			alert("Tour Package Added Successful...!!!");
 			setIsLoading(false);
+			window.location.href = "/tour-package-list";
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error);
@@ -66,6 +67,28 @@ export function TourPackageProvider({ children }) {
 		});
 	};
 
+	// Edit Tour Package
+	const editTourPackage = (values) => {
+		const newTourPackage = {
+			tourPackageName: values.tourPackageName,
+			guideName: values.guideName,
+			email: values.email,
+			contactNumber: values.contactNumber,
+			price: values.price,
+			NumberOfDays: values.NumberOfDays,
+			location: values.location,
+			description: values.description,
+		};
+		TourPackageAPI.editTourPackage(values.id, newTourPackage)
+			.then((response) => {
+				console.log("Tour Package Updated Successful...!!!");
+				window.location.href = "/tour-package-list";
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
 	return (
 		<TourPackageContext.Provider
 			value={{
@@ -76,6 +99,8 @@ export function TourPackageProvider({ children }) {
 				schemaProfile,
 				getOneTourPackage,
 				deleteTourPackage,
+				editTourPackage,
+				setTourPackage,
 			}}
 		>
 			{children}
