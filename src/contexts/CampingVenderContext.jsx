@@ -40,7 +40,7 @@ export function CampingVenderProvider({ children }) {
 		CampingVendorAPI.campingVendorRegister(values)
 			.then((response) => {
 				setCampingVenders([...campingVenders, response.data]);
-				alert("Registered");
+				alert("Camping Vendor Registration Successful...!!!");
 				window.location.href = "/camping-vendor-login";
 			})
 			.catch((err) => {

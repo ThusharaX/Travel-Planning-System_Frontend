@@ -7,6 +7,8 @@ export function VehicleOwnerProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [vehicleOwners, setVehicleOwners] = useState([]);
+	const [mailError, setMailError] = useState("");
+	const [nicError, setNicError] = useState("");
 
 	const [vehicleOwner, setVehicleOwner] = useState({
 		companyOwnerName: "",
@@ -22,19 +24,24 @@ export function VehicleOwnerProvider({ children }) {
 	});
 
 	// Add Vehicle Owner
-
-	const VehicleOwnerRegister = async (values) => {
-		try {
-			setIsLoading(true);
-			const response = await VehicleOwnerAPI.vehicleOwnerRegister(values);
-			setVehicleOwners([...vehicleOwners, response.data]);
-			setIsLoading(false);
-			alert("Vehicle Owner Registration Successful...!!!");
-			window.location.href = "/vehicle-owner-login";
-		} catch (error) {
-			// eslint-disable-next-line no-console
-			console.log(error);
-		}
+	const VehicleOwnerRegister = (values) => {
+		VehicleOwnerAPI.vehicleOwnerRegister(values)
+			.then((response) => {
+				setVehicleOwners([...vehicleOwners, response.data]);
+				alert("Vehicle Owner Registration Successful...!");
+				window.location.href = "/vehicle-owner-login";
+			})
+			.catch((err) => {
+				console.log(err.response.data);
+				if (err.response.data.details == "Email already Exists") {
+					setMailError(err.response.data.details);
+					alert("Email already Exists");
+				}
+				if (err.response.data.details == "NIC already exists") {
+					setNicError(err.response.data.details);
+					alert("NIC already exists");
+				}
+			});
 	};
 
 	// Vehicle Owner Login
@@ -69,8 +76,13 @@ export function VehicleOwnerProvider({ children }) {
 				isLoading,
 				vehicleOwner,
 				vehicleOwners,
-				VehicleOwnerRegister,
 				VehicleOwnerLogin,
+				VehicleOwnerRegister,
+				setMailError,
+				mailError,
+				setNicError,
+				nicError,
+				isLoggedIn,
 			}}
 		>
 			{children}
