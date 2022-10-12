@@ -35,6 +35,10 @@ import CampingVendorRegister from "./camping-vendor-register";
 import CampingVendorLogin from "./camping-vendor-login";
 import CampingVendorDashboard from "./camping-vendor-dashboard";
 
+/*Vehicle Owner */
+import VehicleOwnerRegister from "./vehicle-owner-register";
+import VehicleOwnerLogin from "./vehicle-owner-login";
+
 export {
 	Sample,
 
@@ -65,4 +69,8 @@ export {
 	CampingVendorRegister,
 	CampingVendorLogin,
 	CampingVendorDashboard,
+
+	/* Vehicle Owner*/
+	VehicleOwnerRegister,
+	VehicleOwnerLogin,
 };

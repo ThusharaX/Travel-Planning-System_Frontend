@@ -37,6 +37,10 @@ import {
 	CampingVendorRegister,
 	CampingVendorLogin,
 	CampingVendorDashboard,
+
+	/*Vehicle Owner */
+	VehicleOwnerRegister,
+	VehicleOwnerLogin,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -55,14 +59,7 @@ const AppRoutes = () => {
 					{/* Hotel Package */}
 					<Route path="/hotel-package" element={<HotelPackageList />} />
 
-					<Route path="/camping-package" element={<CampingPackageList />} />
 					<Route path="/hotel-package-create" element={<HotelPackageCreate />} />
-
-					<Route path="/camping-package-create" element={<CampingPackageCreate />} />
-
-					<Route path="/vehicle-create" element={<VehicleCreate />} />
-					<Route path="/vehicle" element={<VehicleList />} />
-					<Route path="/camping-package-edit/:id" element={<CampingPackageEdit />} />
 
 					{/* Tour Guide */}
 					<Route path="/tour-guide-register" element={<TourGuideRegister />} />
@@ -74,14 +71,24 @@ const AppRoutes = () => {
 					<Route path="/tour-package-list" element={<TourPackageList />} />
 					<Route path="/tour-package-edit/:id" element={<TourPackageEdit />} />
 
-					<Route path="/vehicle-profile" element={<Userprofile />} />
-
-					<Route path="/customersignup" element={<CustomerSignup />} />
-
 					{/*Camping Vendor*/}
 					<Route path="/camping-vendor-register" element={<CampingVendorRegister />} />
 					<Route path="/camping-vendor-login" element={<CampingVendorLogin />} />
 					<Route path="/camping-vendor-dashboard" element={<CampingVendorDashboard />} />
+					<Route path="/camping-package-create" element={<CampingPackageCreate />} />
+					<Route path="/camping-package-edit/:id" element={<CampingPackageEdit />} />
+
+					<Route path="/camping-package" element={<CampingPackageList />} />
+
+					{/*Vehicle Owner*/}
+					<Route path="/vehicle-owner-register" element={<VehicleOwnerRegister />} />
+					<Route path="/vehicle-owner-login" element={<VehicleOwnerLogin />} />
+					<Route path="/vehicle-create" element={<VehicleCreate />} />
+					<Route path="/vehicle" element={<VehicleList />} />
+					<Route path="/vehicle-profile" element={<Userprofile />} />
+
+					{/*customer*/}
+					<Route path="/customersignup" element={<CustomerSignup />} />
 				</Routes>
 			</Router>
 		</>
