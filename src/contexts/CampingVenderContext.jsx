@@ -9,6 +9,8 @@ export function CampingVenderProvider({ children }) {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [campingVenders, setCampingVenders] = useState([]);
 	const [fileName, setFileName] = useState("");
+	const [mailError, setMailError] = useState("");
+	const [nicError, setNicError] = useState("");
 
 	const navigate = useNavigate();
 	// Camping Package
@@ -35,19 +37,25 @@ export function CampingVenderProvider({ children }) {
 	});
 
 	// Add Camping Vendor
-
 	const CampingVendorRegister = async (values) => {
-		try {
-			setIsLoading(true);
-			const response = await CampingVendorAPI.campingVendorRegister(values);
-			setCampingVenders([...campingVenders, response.data]);
-			setIsLoading(false);
-			alert("Camping Vendor Registration Successful...!!!");
-			window.localStorage.href = "/camping-vendor-login";
-		} catch (error) {
-			// eslint-disable-next-line no-console
-			console.log(error);
-		}
+		CampingVendorAPI.campingVendorRegister(values)
+			.then((response) => {
+				setCampingVenders([...campingVenders, response.data]);
+				alert("Camping Vendor Registration Successful...!!!");
+				window.location.href = "/camping-vendor-login";
+				campingVenders.reset();
+			})
+			.catch((err) => {
+				console.log(err.response.data);
+				if (err.response.data.details == "Email already exists") {
+					setMailError(err.response.data.details);
+					alert("Email already exist");
+				}
+				if (err.response.data.details == "NIC already exists") {
+					setNicError(err.response.data.details);
+					alert("NIC already exists");
+				}
+			});
 	};
 
 	const CampingVendorLogin = (values) => {
