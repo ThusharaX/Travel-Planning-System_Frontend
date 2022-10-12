@@ -3,7 +3,7 @@ import CampingPackageContext from "../../contexts/CampingPackageContext";
 import "../camping-package-create/camping.css";
 
 const CampingPackageCreate = () => {
-	const { isLoading, addCampingPackage } = useContext(CampingPackageContext);
+	const { isLoading, addCampingPackage, setFileName } = useContext(CampingPackageContext);
 	const id = localStorage.getItem("uID");
 
 	const handleSubmit = (e) => {
@@ -123,7 +123,8 @@ const CampingPackageCreate = () => {
 									className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									id="images"
 									type="file"
-									multiple
+									accept=".png .jpg .jpeg"
+									fileName="campingVendorImage"
 								/>
 							</div>
 

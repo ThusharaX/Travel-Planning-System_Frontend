@@ -8,6 +8,7 @@ export function CampingVenderProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [campingVenders, setCampingVenders] = useState([]);
+	const [fileName, setFileName] = useState("");
 
 	const navigate = useNavigate();
 	// Camping Package
@@ -132,6 +133,8 @@ export function CampingVenderProvider({ children }) {
 				deleteCampingVendor,
 				getCampingVendor,
 				setCampingVender,
+				setFileName,
+				fileName,
 				campingVender,
 			}}
 		>
