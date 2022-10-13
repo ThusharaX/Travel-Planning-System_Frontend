@@ -65,7 +65,7 @@ const TourGuideDashboard = () => {
 				<div className="c3 text-primary-blue">
 					<h1 className="text-add">Report Generate</h1>
 					<div className="mb-4">
-						<Link to="#">
+						<Link to="/tour-package-report">
 							<img src="../public/report.svg" className="h-64 w-96 bg-white rounded-lg" alt="" />
 						</Link>
 					</div>

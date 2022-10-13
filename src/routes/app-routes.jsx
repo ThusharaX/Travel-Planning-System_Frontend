@@ -31,6 +31,7 @@ import {
 	TourPackageCreate,
 	TourPackageList,
 	TourPackageEdit,
+	TourPackageReport,
 	Userprofile,
 	CustomerSignup,
 	VehicleEdit,
@@ -80,6 +81,7 @@ const AppRoutes = () => {
 					<Route path="/tour-package-create" element={<TourPackageCreate />} />
 					<Route path="/tour-package-list" element={<TourPackageList />} />
 					<Route path="/tour-package-edit/:id" element={<TourPackageEdit />} />
+					<Route path="/tour-package-report" element={<TourPackageReport />} />
 
 					{/*Camping Vendor*/}
 					<Route path="/camping-vendor-register" element={<CampingVendorRegister />} />
