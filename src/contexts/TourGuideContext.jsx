@@ -143,6 +143,7 @@ export function TourGuideProvider({ children }) {
 				getOneTourGuide,
 				logout,
 				TourGuideEdit,
+				setTourGuide,
 			}}
 		>
 			{children}

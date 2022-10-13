@@ -87,7 +87,7 @@ const TourGuideEditProfile = () => {
 												type="text"
 												aria-describedby="emailHelp123"
 												placeholder="NIC"
-												onChange={handleChange}
+												readOnly
 											></input>
 										</div>
 									</div>
