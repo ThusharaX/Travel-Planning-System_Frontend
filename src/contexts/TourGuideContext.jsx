@@ -97,12 +97,34 @@ export function TourGuideProvider({ children }) {
 	};
 
 	//Get one Tour Guide
-	const getTourGuide = (id) => {
+	const getOneTourGuide = (id) => {
 		useEffect(() => {
 			TourGuideAPI.getOneTourGuide(id).then((res) => {
 				setTourGuide(res.data);
 			});
 		}, []);
+	};
+
+	// Edit Tour Guide
+	const TourGuideEdit = (values) => {
+		const newTourGuide = {
+			tourGuideName: values.tourGuideName,
+			email: values.email,
+			nic: values.nic,
+			contactNumber: values.contactNumber,
+			guideArea: values.guideArea,
+			guideCity: values.guideCity,
+			spokenLanguages: values.spokenLanguages,
+			motherTongue: values.motherTongue,
+		};
+		TourGuideAPI.editTourGuide(values.id, newTourGuide)
+			.then((response) => {
+				alert("Tour Guide Updated Successfully");
+				window.location.href = "/tour-guide-dashboard";
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	};
 
 	return (
@@ -118,8 +140,10 @@ export function TourGuideProvider({ children }) {
 				setMailError,
 				nicError,
 				setNicError,
-				getTourGuide,
+				getOneTourGuide,
 				logout,
+				TourGuideEdit,
+				setTourGuide,
 			}}
 		>
 			{children}

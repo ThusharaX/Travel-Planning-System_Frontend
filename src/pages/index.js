@@ -23,6 +23,7 @@ import TourPackageEdit from "./tour-package-edit";
 import TourGuideRegister from "./tour-guide-register";
 import TourGuideLogin from "./tour-guide-login";
 import TourGuideDashboard from "./tour-guide-dashboard";
+import TourGuideEditProfile from "./tour-guide-edit-profile";
 
 import CustomerSignup from "./cutomerSignup";
 
@@ -64,6 +65,7 @@ export {
 	TourGuideRegister,
 	TourGuideLogin,
 	TourGuideDashboard,
+	TourGuideEditProfile,
 	Userprofile,
 	CustomerSignup,
 
