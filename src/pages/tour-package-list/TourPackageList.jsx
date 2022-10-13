@@ -100,7 +100,7 @@ const TourPackageList = () => {
 							className="w-full px-4 py-3 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline "
 							type="submit"
 						>
-							Generate Report
+							<Link to="/tour-package-create">Add Tour Package</Link>
 						</button>
 					</table>
 				</center>
