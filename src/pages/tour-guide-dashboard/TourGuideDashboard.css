@@ -1,0 +1,22 @@
+.c1 {
+	position: relative;
+	margin-left: 500px;
+	margin-top: -300px;
+}
+
+.c2 {
+	position: relative;
+	margin-left: 1000px;
+	margin-top: -280px;
+}
+
+.c3 {
+	position: relative;
+	margin-top: 50px;
+	margin-left: 700px;
+}
+.usercard {
+	position: flex;
+	margin-left: 500px;
+	margin-top: -300px;
+}
