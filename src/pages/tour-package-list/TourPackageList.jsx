@@ -42,10 +42,10 @@ const TourPackageList = () => {
 							<tr>
 								<th className="p-2 text-lg font-semibold tracking-wider text-left">Tour Package Name</th>
 								<th className="p-2 text-lg font-semibold tracking-wider text-left">Tour Guide Name</th>
-								<th className="p-2 text-lg font-semibold tracking-wider text-left">Email</th>
-								<th className="p-2 text-lg font-semibold tracking-wider text-left">Contact Number</th>
+								<th className="p-2 text-lg font-semibold tracking-wider text-left">Contact</th>
 								<th className="p-2 text-lg font-semibold tracking-wider text-left">Price</th>
 								<th className="p-2 text-lg font-semibold tracking-wider text-left">Location</th>
+								<th className="p-2 text-lg font-semibold tracking-wider text-left">Duration</th>
 								<th className="p-2 text-lg font-semibold tracking-wider text-left">Edit</th>
 								<th className="p-2 text-lg font-semibold tracking-wider text-left">Delete</th>
 							</tr>
@@ -57,16 +57,17 @@ const TourPackageList = () => {
 								// eslint-disable-next-line react/jsx-key
 								<tbody>
 									<tr className="bg-gray-50 w-full max-w-5xl ">
-										<td className="p-2 text-base font-semibold tracking-wide text-left ">
+										<td className="p-2 text-base font-medium tracking-wide text-left ">
 											{tourPackage.tourPackageName}
 										</td>
-										<td className="p-2 text-base font-semibold tracking-normal text-left">{tourPackage.guideName}</td>
-										<td className="p-2 text-base font-semibold tracking-normal text-left">{tourPackage.email}</td>
-										<td className="p-2 text-base font-semibold tracking-normal text-left">
-											{tourPackage.contactNumber}
+										<td className="p-2 text-base font-medium tracking-normal text-left">{tourPackage.guideName}</td>
+
+										<td className="p-2 text-base font-medium tracking-normal text-left">{tourPackage.contactNumber}</td>
+										<td className="p-2 text-base font-medium tracking-normal text-left">{tourPackage.price}</td>
+										<td className="p-2 text-base font-medium tracking-normal text-left">{tourPackage.location}</td>
+										<td className="p-2 text-base font-medium tracking-normal text-left">
+											{tourPackage.NumberOfDays} : Day
 										</td>
-										<td className="p-2 text-base font-semibold tracking-normal text-left">{tourPackage.price}</td>
-										<td className="p-2 text-base font-semibold tracking-normal text-left">{tourPackage.location}</td>
 										<td className="p-2 whitespace-nowrap tracking-normal">
 											<Link to={`/tour-package-edit/${tourPackage._id}`} className="">
 												<img src="../public/pen-to-square-regular.svg" width="18" height="18" alt="Alex Shatov"></img>
@@ -96,11 +97,14 @@ const TourPackageList = () => {
 							))}
 
 						<br></br>
-						<button
-							className="w-full px-4 py-3 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline "
-							type="submit"
-						>
-							<Link to="/tour-package-create">Add Tour Package</Link>
+						<button>
+							<Link
+								to="/tour-package-create"
+								className="w-full px-2 py-3 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline "
+								type="submit"
+							>
+								Add Tour Package
+							</Link>
 						</button>
 					</table>
 				</center>

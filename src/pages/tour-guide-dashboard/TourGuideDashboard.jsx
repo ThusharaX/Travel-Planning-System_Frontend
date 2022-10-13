@@ -47,6 +47,7 @@ const TourGuideDashboard = () => {
 			</div>
 			<div className="cards">
 				<div className="c1">
+					<h1 className="addPackage text-primary-blue">Add Tour Package</h1>
 					<div className="mb-4">
 						<Link to="/tour-package-create">
 							<img src="../public/addtourpackage.svg" className=" h-64 w-96 bg-white rounded-lg" alt="" />
@@ -54,16 +55,18 @@ const TourGuideDashboard = () => {
 					</div>
 				</div>
 				<div className="c2">
+					<h1 className="packageList text-primary-blue">View All Tour Package</h1>
 					<div className="mb-4">
 						<Link to="/tour-package-list">
 							<img src="../public/list.svg" className="h-64 w-96 bg-white rounded-lg" alt="" />
 						</Link>
 					</div>
 				</div>
-				<div className="c3">
+				<div className="c3 text-primary-blue">
+					<h1 className="text-add">Report Generate</h1>
 					<div className="mb-4">
 						<Link to="#">
-							<img src="../public/camp.svg" className="h-64 w-96 bg-white rounded-lg" alt="" />
+							<img src="../public/report.svg" className="h-64 w-96 bg-white rounded-lg" alt="" />
 						</Link>
 					</div>
 				</div>

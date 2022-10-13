@@ -68,8 +68,6 @@ const TourPackageCreate = () => {
 												type="text"
 												aria-describedby="emailHelp124"
 												placeholder="Tour Guide Name"
-												value={username}
-												readOnly
 											></input>
 										</div>
 									</div>
