@@ -24,11 +24,12 @@ import {
 	/* Tour Guide */
 	TourGuideRegister,
 	TourGuideLogin,
+	TourGuideDashboard,
+	TourGuideEditProfile,
 
 	/* Tour Package */
 	TourPackageCreate,
 	TourPackageList,
-	TourGuideDashboard,
 	TourPackageEdit,
 	Userprofile,
 	CustomerSignup,
@@ -73,6 +74,7 @@ const AppRoutes = () => {
 					<Route path="/tour-guide-register" element={<TourGuideRegister />} />
 					<Route path="/tour-guide-login" element={<TourGuideLogin />} />
 					<Route path="/tour-guide-dashboard" element={<TourGuideDashboard />} />
+					<Route path="/tour-guide-edit-profile/:id" element={<TourGuideEditProfile />} />
 
 					{/*Tour Package */}
 					<Route path="/tour-package-create" element={<TourPackageCreate />} />
