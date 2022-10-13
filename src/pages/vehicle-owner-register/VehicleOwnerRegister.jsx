@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import CampingVendorContext from "../../contexts/CampingVenderContext";
+import VehicleOwnerContext from "../../contexts/VehicleOwnerContext";
 
-const CampingVendorRegister = () => {
-	const { CampingVendorRegister } = useContext(CampingVendorContext);
+const VehicleOwnerRegister = () => {
+	const { isLoading, VehicleOwnerRegister } = useContext(VehicleOwnerContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		const newCampingVendor = {
+		const newVehicleOwner = {
 			companyOwnerName: e.target.companyOwnerName.value,
 			email: e.target.email.value,
 			nic: e.target.nic.value,
@@ -21,12 +21,12 @@ const CampingVendorRegister = () => {
 			password: e.target.password.value,
 		};
 
-		CampingVendorRegister(newCampingVendor);
+		VehicleOwnerRegister(newVehicleOwner);
 	};
 
 	return (
 		<>
-			<h1 className="mt-5 text-4xl text-center">Camping Vendor Register</h1>
+			<h1 className="mt-5 text-4xl text-center">Vehicle Owner Register</h1>
 
 			<div className="flex justify-center">
 				<div className="w-1/2">
@@ -145,8 +145,6 @@ const CampingVendorRegister = () => {
 								id="profilePicture"
 								type="file"
 								placeholder="Profile Picture"
-								accept=".png .jpg .jpeg"
-								fileName="campingVendorImage"
 							/>
 						</div>
 						<div className="mb-6 text-center">
@@ -161,7 +159,7 @@ const CampingVendorRegister = () => {
 
 						<div className="text-center">
 							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
-								<Link to="/camping-vendor-login">Already have an account? Login!</Link>
+								<Link to="/vehicle-owner-login">Already have an account? Login!</Link>
 							</a>
 						</div>
 					</form>
@@ -171,4 +169,4 @@ const CampingVendorRegister = () => {
 	);
 };
 
-export default CampingVendorRegister;
+export default VehicleOwnerRegister;

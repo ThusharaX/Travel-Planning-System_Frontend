@@ -8,7 +8,8 @@ export function CampingVenderProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [campingVenders, setCampingVenders] = useState([]);
-	const [fileName, setFileName] = useState("");
+	const [mailError, setMailError] = useState("");
+	const [nicError, setNicError] = useState("");
 
 	const navigate = useNavigate();
 	// Camping Package
@@ -30,24 +31,29 @@ export function CampingVenderProvider({ children }) {
 		companyAddress: "",
 		companyPhone: "",
 		companyRegisterNumber: "",
-		profilePicture: "",
+		profilePicture: "null",
 		password: "",
 	});
 
 	// Add Camping Vendor
-
 	const CampingVendorRegister = async (values) => {
-		try {
-			setIsLoading(true);
-			const response = await CampingVendorAPI.campingVendorRegister(values);
-			setCampingVenders([...campingVenders, response.data]);
-			setIsLoading(false);
-			alert("Camping Vendor Registration Successful...!!!");
-			window.localStorage.href = "/camping-vendor-login";
-		} catch (error) {
-			// eslint-disable-next-line no-console
-			console.log(error);
-		}
+		CampingVendorAPI.campingVendorRegister(values)
+			.then((response) => {
+				setCampingVenders([...campingVenders, response.data]);
+				alert("Camping Vendor Registration Successful...!!!");
+				window.location.href = "/camping-vendor-login";
+			})
+			.catch((err) => {
+				console.log(err.response.data);
+				if (err.response.data.details == "Email already Exists") {
+					setMailError(err.response.data.details);
+					alert("Email already Exists");
+				}
+				if (err.response.data.details == "NIC already exists") {
+					setNicError(err.response.data.details);
+					alert("NIC already exists");
+				}
+			});
 	};
 
 	const CampingVendorLogin = (values) => {
@@ -101,10 +107,12 @@ export function CampingVenderProvider({ children }) {
 			.then((response) => {
 				//console.log(res.data);
 				//navigate("/viewres");
+				// eslint-disable-next-line no-console
 				console.log("updated successfully...");
 				navigate("/camping-vendor-dashboard");
 			})
 			.catch((err) => {
+				// eslint-disable-next-line no-console
 				console.log(err);
 			});
 
@@ -126,16 +134,19 @@ export function CampingVenderProvider({ children }) {
 		<CampingVenderContext.Provider
 			value={{
 				isLoading,
+				isLoggedIn,
 				campingVenders,
-				CampingVendorRegister,
 				CampingVendorLogin,
+				CampingVendorRegister,
 				editCampingVendor,
 				deleteCampingVendor,
 				getCampingVendor,
 				setCampingVender,
-				setFileName,
-				fileName,
 				campingVender,
+				mailError,
+				setMailError,
+				nicError,
+				setNicError,
 			}}
 		>
 			{children}

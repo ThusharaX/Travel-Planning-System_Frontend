@@ -8,6 +8,7 @@ const TourPackageList = () => {
 	const { isLoading, tourPackages, deleteTourPackage } = useContext(TourPackageContext);
 
 	const email = localStorage.getItem("Email");
+	// eslint-disable-next-line no-console
 	console.log(email);
 	//	getTourGuide(email);
 
@@ -62,9 +63,10 @@ const TourPackageList = () => {
 						{tourPackages
 							.filter((elem) => elem.email == email)
 							.map((tourPackage) => (
+								// eslint-disable-next-line react/jsx-key
 								<tbody>
-									<tr className="bg-gray-50  ">
-										<td className="p-2 text-base font-semibold tracking-wide text-left">
+									<tr className="bg-gray-50 w-full max-w-5xl ">
+										<td className="p-2 text-base font-semibold tracking-wide text-left ">
 											{tourPackage.tourPackageName}
 										</td>
 										<td className="p-2 text-base font-semibold tracking-normal text-left">{tourPackage.guideName}</td>
@@ -81,7 +83,7 @@ const TourPackageList = () => {
 										</td>
 
 										<td className="p-2 whitespace-nowrap">
-											<button className="" onClick={() => deleteTourPackage(tourPackages._id)}>
+											<button className="" onClick={() => deleteTourPackage(tourPackage._id)}>
 												<svg
 													xmlns="http://www.w3.org/2000/svg"
 													className="h-5 w-5 mr-2"

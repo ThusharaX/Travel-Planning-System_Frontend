@@ -10,6 +10,7 @@ const CampingVendorDashboard = () => {
 
 	const id = localStorage.getItem("uID");
 
+	// eslint-disable-next-line no-console
 	console.log(id);
 
 	getCampingVendor(id);

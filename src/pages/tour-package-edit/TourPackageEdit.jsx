@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import TourPackageContext from "../../contexts/TourPackageContext";
 
 const editTourPackage = () => {
-	const { getOneTourPackage, editTourPackage, tourPackage, setTourPackage, isLoading } = useContext(TourPackageContext);
+	const { getOneTourPackage, TourPackageEdit, tourPackage, isLoading, setTourPackage } = useContext(TourPackageContext);
 
 	const handleChange = (e) => {
 		setTourPackage(e.target.value);
@@ -26,7 +26,7 @@ const editTourPackage = () => {
 			location: e.target.location.value,
 			description: e.target.description.value,
 		};
-		editTourPackage(newTourPackage);
+		TourPackageEdit(newTourPackage);
 	};
 
 	return (
@@ -54,7 +54,7 @@ const editTourPackage = () => {
 												value={tourPackage.tourPackageName}
 												type="text"
 												aria-describedby="emailHelp123"
-												placeholder="Tour Package Name"
+												placeholder=""
 												onChange={handleChange}
 											></input>
 										</div>
@@ -69,8 +69,9 @@ const editTourPackage = () => {
 												value={tourPackage.guideName}
 												type="text"
 												aria-describedby="emailHelp124"
-												placeholder="Tour Guide Name"
+												placeholder=""
 												onChange={handleChange}
+												readOnly
 											></input>
 										</div>
 									</div>
@@ -85,7 +86,7 @@ const editTourPackage = () => {
 												value={tourPackage.email}
 												type="email"
 												aria-describedby="emailHelp123"
-												placeholder="Email Address"
+												placeholder=""
 												onChange={handleChange}
 												readOnly
 											></input>
@@ -101,8 +102,9 @@ const editTourPackage = () => {
 												value={tourPackage.contactNumber}
 												type="number"
 												aria-describedby="emailHelp124"
-												placeholder="Contact Number"
+												placeholder=""
 												onChange={handleChange}
+												readOnly
 											></input>
 										</div>
 									</div>
@@ -118,7 +120,7 @@ const editTourPackage = () => {
 												value={tourPackage.price}
 												type="number"
 												aria-describedby="emailHelp123"
-												placeholder="Pacakge Price"
+												placeholder=""
 												onChange={handleChange}
 											></input>
 										</div>
@@ -133,7 +135,7 @@ const editTourPackage = () => {
 												value={tourPackage.NumberOfDays}
 												type="number"
 												aria-describedby="emailHelp124"
-												placeholder="Number of Days"
+												placeholder=""
 												onChange={handleChange}
 											></input>
 										</div>
@@ -150,7 +152,7 @@ const editTourPackage = () => {
 												value={tourPackage.location}
 												type="text"
 												aria-describedby="emailHelp124"
-												placeholder="Travel Location"
+												placeholder=""
 												onChange={handleChange}
 											></input>
 										</div>
@@ -164,7 +166,7 @@ const editTourPackage = () => {
 									value={tourPackage.description}
 									rows="4"
 									className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-									placeholder="Describe Here Package"
+									placeholder=""
 									onChange={handleChange}
 								></textarea>
 								<br></br>

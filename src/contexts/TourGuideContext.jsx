@@ -85,6 +85,17 @@ export function TourGuideProvider({ children }) {
 			});
 	};
 
+	// Tour Guide Logout
+	const logout = () => {
+		localStorage.removeItem("authToken");
+		localStorage.removeItem("uID");
+		localStorage.removeItem("username");
+		localStorage.removeItem("ContactNumber");
+		localStorage.removeItem("Email");
+		localStorage.removeItem("permissionLevel");
+		window.location.href = "/";
+	};
+
 	//Get one Tour Guide
 	const getTourGuide = (id) => {
 		useEffect(() => {
@@ -108,6 +119,7 @@ export function TourGuideProvider({ children }) {
 				nicError,
 				setNicError,
 				getTourGuide,
+				logout,
 			}}
 		>
 			{children}
