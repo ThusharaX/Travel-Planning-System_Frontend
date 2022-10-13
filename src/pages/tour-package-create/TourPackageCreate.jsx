@@ -97,8 +97,6 @@ const TourPackageCreate = () => {
 												type="number"
 												aria-describedby="emailHelp124"
 												placeholder="Contact Number"
-												value={contactNumber}
-												readOnly
 											></input>
 										</div>
 									</div>

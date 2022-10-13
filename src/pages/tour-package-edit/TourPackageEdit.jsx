@@ -86,7 +86,6 @@ const editTourPackage = () => {
 												type="email"
 												aria-describedby="emailHelp123"
 												placeholder=""
-												onChange={handleChange}
 												readOnly
 											></input>
 										</div>
@@ -103,7 +102,6 @@ const editTourPackage = () => {
 												aria-describedby="emailHelp124"
 												placeholder=""
 												onChange={handleChange}
-												readOnly
 											></input>
 										</div>
 									</div>
