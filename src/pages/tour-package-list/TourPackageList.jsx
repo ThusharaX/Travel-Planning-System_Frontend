@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import TourPackageContext from "../../contexts/TourPackageContext";
 
@@ -6,6 +7,7 @@ import "../tour-package-list/TourPackageList.css";
 
 const TourPackageList = () => {
 	const { isLoading, tourPackages, deleteTourPackage } = useContext(TourPackageContext);
+	const [searchTerm, setSearchTerm] = useState("");
 
 	const email = localStorage.getItem("Email");
 	// eslint-disable-next-line no-console
@@ -28,9 +30,12 @@ const TourPackageList = () => {
 									<input
 										type="search"
 										className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-										placeholder="Search"
+										placeholder="Search Here"
 										aria-label="Search"
 										aria-describedby="button-addon3"
+										onChange={(event) => {
+											setSearchTerm(event.target.value);
+										}}
 									></input>
 								</div>
 							</div>
@@ -52,6 +57,15 @@ const TourPackageList = () => {
 						</thead>
 
 						{tourPackages
+							.filter((val) => {
+								if (searchTerm == "") {
+									return val;
+								} else if (val.tourPackageName.toLowerCase().includes(searchTerm.toLowerCase())) {
+									return val;
+								} else if (val.guideName.toLowerCase().includes(searchTerm.toLowerCase())) {
+									return val;
+								}
+							})
 							.filter((elem) => elem.email == email)
 							.map((tourPackage) => (
 								// eslint-disable-next-line react/jsx-key

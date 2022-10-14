@@ -1,11 +1,12 @@
 import React from "react";
 import "../tour-guide-dashboard/TourGuideDashboard.css";
 import TourGuideContext from "../../contexts/TourGuideContext";
+import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 
 const TourGuideDashboard = () => {
-	const { isLoading, tourGuide, getOneTourGuide } = useContext(TourGuideContext);
+	const { isLoading, tourGuide, getOneTourGuide, logout } = useContext(TourGuideContext);
 
 	const id = localStorage.getItem("uID");
 	console.log(id);
@@ -71,6 +72,7 @@ const TourGuideDashboard = () => {
 					</div>
 				</div>
 			</div>
+			<Toaster />
 		</>
 	);
 };
