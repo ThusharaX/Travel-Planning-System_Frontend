@@ -1,7 +1,6 @@
 import React from "react";
 import "../tour-guide-dashboard/TourGuideDashboard.css";
 import TourGuideContext from "../../contexts/TourGuideContext";
-import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 
@@ -75,7 +74,6 @@ const TourGuideDashboard = () => {
 					</div>
 				</div>
 			</div>
-			<Toaster />
 		</>
 	);
 };

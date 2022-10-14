@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import TourGuideAPI from "./api/TourGuideAPI";
 import { useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import makeToast from "../components/toast/index";
 
 const TourGuideContext = createContext();
 
@@ -65,7 +65,7 @@ export function TourGuideProvider({ children }) {
 					localStorage.setItem("ContactNumber", response.data.contactNumber);
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
-					toast.success("Log");
+					makeToast({ type: "success", message: "Login Successful...!!!" });
 					window.location.href = "/tour-guide-dashboard";
 					setIsLoggedIn(true);
 					setIsLoggedIn(false);
@@ -73,7 +73,7 @@ export function TourGuideProvider({ children }) {
 			})
 			.catch((err) => {
 				setIsLoading(false);
-				toast.error("Invalid Email or Password");
+				makeToast({ type: "error", message: "Invalid Email or Password" });
 			});
 	};
 
