@@ -15,6 +15,9 @@ const TourGuideDashboard = () => {
 	return (
 		<>
 			<h1 className="mt-5 text-4xl text-center">Tour Guide Dashboard</h1>
+
+			{localStorage.getItem("authToken") ? <button onClick={logout}>Logout</button> : <></>}
+
 			<div className="usercard">
 				<div className=" flex flex-col bg-white justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12  white:text-dark">
 					<img src="../public/user.svg" alt="" className="w-32 h-32 mx-auto rounded-full aspect-square" />

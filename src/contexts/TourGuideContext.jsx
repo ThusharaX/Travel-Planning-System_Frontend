@@ -12,17 +12,6 @@ export function TourGuideProvider({ children }) {
 	const [mailError, setMailError] = useState("");
 	const [nicError, setNicError] = useState("");
 
-	const showAlert = () => {
-		toast.success("", {
-			position: "top-right",
-			autoClose: 5000,
-		});
-		toast.error("", {
-			position: "top-right",
-			autoClose: 5000,
-		});
-	};
-
 	const [tourGuide, setTourGuide] = useState({
 		//schema: joiResolver(schema),
 		tourGuideName: "",
@@ -76,7 +65,7 @@ export function TourGuideProvider({ children }) {
 					localStorage.setItem("ContactNumber", response.data.contactNumber);
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
-					toast.success("Login Successful...!!!");
+					toast.success("Log");
 					window.location.href = "/tour-guide-dashboard";
 					setIsLoggedIn(true);
 					setIsLoggedIn(false);
@@ -147,7 +136,6 @@ export function TourGuideProvider({ children }) {
 				logout,
 				TourGuideEdit,
 				setTourGuide,
-				showAlert,
 			}}
 		>
 			{children}
