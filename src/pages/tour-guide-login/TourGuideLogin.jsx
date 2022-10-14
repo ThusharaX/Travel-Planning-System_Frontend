@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import TourGuideContext from "../../contexts/TourGuideContext";
-import toast, { Toaster } from "react-hot-toast";
 
 const TourGuideLogin = () => {
 	const { isLoading, TourGuideLogin } = useContext(TourGuideContext);
@@ -72,7 +71,6 @@ const TourGuideLogin = () => {
 					</div>
 				</div>
 			)}
-			<Toaster />
 		</>
 	);
 };
