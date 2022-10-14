@@ -1,4 +1,3 @@
-//import Joi from "joi";
 import { createContext, useState, useEffect } from "react";
 import TourPackageAPI from "./api/TourPackageAPI";
 
@@ -7,10 +6,6 @@ const TourPackageContext = createContext();
 export function TourPackageProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [tourPackages, setTourPackages] = useState([]);
-
-	/*const schemaProfile = Joi.object({
-		tourPackageName: Joi.string().required(),
-	}); */
 
 	//Tour Package
 
@@ -42,7 +37,6 @@ export function TourPackageProvider({ children }) {
 			const response = await TourPackageAPI.createTourPacakge(newTourPackage);
 			setTourPackages([...tourPackages, response.data]);
 			alert("Tour Package Added Successful...!!!");
-			setIsLoading(false);
 			window.location.href = "/tour-package-list";
 		} catch (error) {
 			// eslint-disable-next-line no-console
@@ -82,7 +76,7 @@ export function TourPackageProvider({ children }) {
 		TourPackageAPI.editTourPackage(values.id, newTourPackage)
 			.then((response) => {
 				// eslint-disable-next-line no-console
-				console.log("Tour Package Updated Successful...!!!");
+
 				window.location.href = "/tour-package-list";
 				// eslint-disable-next-line no-console
 				console.log("Update");

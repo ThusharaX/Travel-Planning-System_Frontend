@@ -1,11 +1,12 @@
 import React from "react";
 import "../tour-guide-dashboard/TourGuideDashboard.css";
 import TourGuideContext from "../../contexts/TourGuideContext";
+import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 
 const TourGuideDashboard = () => {
-	const { isLoading, tourGuide, getOneTourGuide } = useContext(TourGuideContext);
+	const { isLoading, tourGuide, getOneTourGuide, logout } = useContext(TourGuideContext);
 
 	const id = localStorage.getItem("uID");
 	console.log(id);
@@ -14,6 +15,9 @@ const TourGuideDashboard = () => {
 	return (
 		<>
 			<h1 className="mt-5 text-4xl text-center">Tour Guide Dashboard</h1>
+
+			{localStorage.getItem("authToken") ? <button onClick={logout}>Logout</button> : <></>}
+
 			<div className="usercard">
 				<div className=" flex flex-col bg-white justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12  white:text-dark">
 					<img src="../public/user.svg" alt="" className="w-32 h-32 mx-auto rounded-full aspect-square" />
@@ -47,6 +51,7 @@ const TourGuideDashboard = () => {
 			</div>
 			<div className="cards">
 				<div className="c1">
+					<h1 className="addPackage text-primary-blue">Add Tour Package</h1>
 					<div className="mb-4">
 						<Link to="/tour-package-create">
 							<img src="../public/addtourpackage.svg" className=" h-64 w-96 bg-white rounded-lg" alt="" />
@@ -54,20 +59,23 @@ const TourGuideDashboard = () => {
 					</div>
 				</div>
 				<div className="c2">
+					<h1 className="packageList text-primary-blue">View All Tour Package</h1>
 					<div className="mb-4">
 						<Link to="/tour-package-list">
 							<img src="../public/list.svg" className="h-64 w-96 bg-white rounded-lg" alt="" />
 						</Link>
 					</div>
 				</div>
-				<div className="c3">
+				<div className="c3 text-primary-blue">
+					<h1 className="text-add">Report Generate</h1>
 					<div className="mb-4">
-						<Link to="#">
-							<img src="../public/camp.svg" className="h-64 w-96 bg-white rounded-lg" alt="" />
+						<Link to="/tour-package-report">
+							<img src="../public/report.svg" className="h-64 w-96 bg-white rounded-lg" alt="" />
 						</Link>
 					</div>
 				</div>
 			</div>
+			<Toaster />
 		</>
 	);
 };

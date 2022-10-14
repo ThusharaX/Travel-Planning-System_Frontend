@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import TourGuideAPI from "./api/TourGuideAPI";
-import Joi from "joi";
 import { useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const TourGuideContext = createContext();
 
@@ -11,16 +11,6 @@ export function TourGuideProvider({ children }) {
 	const [tourGuides, setTourGuides] = useState([]);
 	const [mailError, setMailError] = useState("");
 	const [nicError, setNicError] = useState("");
-
-	//Form Validation
-	/*	const schema = Joi.object({
-		tourGuideName: Joi.string().min(5).max(20).message("Name should be between 4 and 20 characters"),
-		email: Joi.string().email().message("Email should be valid"),
-		nic: Joi.string().min(10).max(12).message("NIC should be Valid"),
-		contactNumber: Joi.string().min(10).max(10).message("Contact Number should be Valid"),
-		profilePicture: Joi.string().required(),
-		password: Joi.string().min(5).max(20).message("Password should be between 4 and 20 characters"),
-	}); */
 
 	const [tourGuide, setTourGuide] = useState({
 		//schema: joiResolver(schema),
@@ -36,8 +26,9 @@ export function TourGuideProvider({ children }) {
 		password: "",
 	});
 
-	// Add Tour Guide
+	// Toast Message
 
+	// Add Tour Guide
 	const TourGuideRegister = async (values) => {
 		TourGuideAPI.tourGuideRegister(values)
 			.then((response) => {
@@ -59,6 +50,7 @@ export function TourGuideProvider({ children }) {
 			});
 	};
 
+	// Tour Guide Login
 	const TourGuideLogin = (values) => {
 		setIsLoading(true);
 		TourGuideAPI.tourGuideLogin(values)
@@ -73,7 +65,7 @@ export function TourGuideProvider({ children }) {
 					localStorage.setItem("ContactNumber", response.data.contactNumber);
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
-					alert("Logged In Successfully");
+					toast.success("Log");
 					window.location.href = "/tour-guide-dashboard";
 					setIsLoggedIn(true);
 					setIsLoggedIn(false);
@@ -81,19 +73,8 @@ export function TourGuideProvider({ children }) {
 			})
 			.catch((err) => {
 				setIsLoading(false);
-				return alert(err.response.data.details.message);
+				toast.error("Invalid Email or Password");
 			});
-	};
-
-	// Tour Guide Logout
-	const logout = () => {
-		localStorage.removeItem("authToken");
-		localStorage.removeItem("uID");
-		localStorage.removeItem("username");
-		localStorage.removeItem("ContactNumber");
-		localStorage.removeItem("Email");
-		localStorage.removeItem("permissionLevel");
-		window.location.href = "/";
 	};
 
 	//Get one Tour Guide
@@ -125,6 +106,17 @@ export function TourGuideProvider({ children }) {
 			.catch((err) => {
 				console.log(err);
 			});
+	};
+
+	// Tour Guide Logout
+	const logout = () => {
+		localStorage.removeItem("authToken");
+		localStorage.removeItem("uID");
+		localStorage.removeItem("username");
+		localStorage.removeItem("ContactNumber");
+		localStorage.removeItem("Email");
+		localStorage.removeItem("permissionLevel");
+		window.location.href = "/";
 	};
 
 	return (

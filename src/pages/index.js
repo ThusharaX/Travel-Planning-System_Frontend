@@ -18,6 +18,7 @@ import Userprofile from "./vehicleOwner-profile/Userprofile";
 import TourPackageCreate from "./tour-package-create";
 import TourPackageList from "./tour-package-list";
 import TourPackageEdit from "./tour-package-edit";
+import TourPackageReport from "./tour-package-report-generate";
 
 /*Tour Guide*/
 import TourGuideRegister from "./tour-guide-register";
@@ -61,6 +62,7 @@ export {
 	TourPackageCreate,
 	TourPackageList,
 	TourPackageEdit,
+	TourPackageReport,
 	/*Tour Guide*/
 	TourGuideRegister,
 	TourGuideLogin,
