@@ -1,8 +1,10 @@
 import { createContext, useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 import HotelOwnerAPI from "./api/HotelOwnerAPI";
 
 import Joi from "joi";
+
+import { makeToast } from "../components";
 
 const HotelOwnerContext = createContext();
 
@@ -10,6 +12,8 @@ export function HotelOwnerProvider({ children }) {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const [message, setMessage] = useState(null);
+
+	const navigate = useNavigate();
 
 	const [hotelOwner, setHotelOwner] = useState({
 		uID: "",
@@ -57,13 +61,16 @@ export function HotelOwnerProvider({ children }) {
 				localStorage.setItem("email", response.data.email);
 				localStorage.setItem("authToken", response.data.token);
 				localStorage.setItem("permissionLevel", response.data.permissionLevel);
-				window.location.href = "/hotel-owner-dashboard";
+				navigate("/hotel-owner-dashboard");
 				setIsLoggedIn(true);
 				setIsLoading(false);
+				makeToast({ type: "success", message: "Login Successful" });
 			})
 			.catch((err) => {
+				// Show toast
 				setMessage(err.response.data.details.message);
 				setIsLoading(false);
+				makeToast({ type: "error", message: "Invalid Email or Password" });
 			});
 	};
 
