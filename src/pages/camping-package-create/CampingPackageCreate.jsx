@@ -3,7 +3,8 @@ import CampingPackageContext from "../../contexts/CampingPackageContext";
 import "../camping-package-create/camping.css";
 
 const CampingPackageCreate = () => {
-	const { isLoading, addCampingPackage } = useContext(CampingPackageContext);
+	const { isLoading, addCampingPackage, setFileName } = useContext(CampingPackageContext);
+	const id = localStorage.getItem("uID");
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -15,6 +16,7 @@ const CampingPackageCreate = () => {
 		}
 
 		const newCampingPackage = {
+			vendorId: id,
 			packageName: e.target.packageName.value,
 			persons: e.target.persons.value,
 			location: e.target.location.value,
@@ -44,22 +46,7 @@ const CampingPackageCreate = () => {
 									<div className="flex ...">
 										<input
 											type="text"
-											className="form-control
-          block
-          w-80
-          px-3
-          py-1.5
-          text-base
-		  border-indigo-500
-          font-normal
-          text-gray-700
-          bg-white bg-clip-padding
-          border border-solid border-gray-300
-          rounded
-          transition
-          ease-in-out
-          m-0
-          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+											className="form-control block w-80 px-3 py-1.5 text-base border-indigo-500 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 											id="packageName"
 											aria-describedby="emailHelp123"
 											placeholder=""
@@ -71,22 +58,7 @@ const CampingPackageCreate = () => {
 									<div className="flex ...">
 										<input
 											type="text"
-											className="form-control
-          block
-          w-80
-          px-3
-          py-1.5
-          text-base
-		  border-indigo-500
-          font-normal
-          text-gray-700
-          bg-white bg-clip-padding
-          border border-solid border-gray-300
-          rounded
-          transition
-          ease-in-out
-          m-0
-          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+											className="form-control block w-80 px-3 py-1.5 text-base border-indigo-500 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 											id="persons"
 											aria-describedby="emailHelp124"
 											placeholder=""
@@ -100,22 +72,7 @@ const CampingPackageCreate = () => {
 									<div className="flex ...">
 										<input
 											type="text"
-											className="form-control
-          block
-          w-80
-          px-3
-          py-1.5
-          text-base
-		  border-indigo-500
-          font-normal
-          text-gray-700
-          bg-white bg-clip-padding
-          border border-solid border-gray-300
-          rounded
-          transition
-          ease-in-out
-          m-0
-          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+											className="form-control block w-80 px-3 py-1.5 text-base  border-indigo-500 font-normal text-gray-700  bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 											id="location"
 											aria-describedby="emailHelp123"
 											placeholder=""
@@ -128,22 +85,7 @@ const CampingPackageCreate = () => {
 									<div className="flex ...">
 										<input
 											type="text"
-											className="form-control
-          block
-          w-80
-          px-3
-          py-1.5
-          text-base
-		  border-indigo-500
-          font-normal
-          text-gray-700
-          bg-white bg-clip-padding
-          border border-solid border-gray-300
-          rounded
-          transition
-          ease-in-out
-          m-0
-          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+											className="form-control block w-80 px-3 py-1.5 text-base border-indigo-500 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 											id="duration"
 											aria-describedby="emailHelp124"
 											placeholder=""
@@ -157,23 +99,7 @@ const CampingPackageCreate = () => {
 									<div className="form-group mb-4">
 										<input
 											type="text"
-											className="form-control
-		  singleInput
-          block
-		  w-80
-          px-3
-          py-1.5
-          text-base
-		  border-indigo-500
-          font-normal
-          text-gray-700
-          bg-white bg-clip-padding
-          border border-solid border-gray-300
-          rounded
-          transition
-          ease-in-out
-          m-0
-          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+											className="form-control singleInput block w-80 px-3 py-1.5 text-base  border-indigo-500 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 											id="price"
 											aria-describedby="emailHelp124"
 											placeholder=""
@@ -197,31 +123,15 @@ const CampingPackageCreate = () => {
 									className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									id="images"
 									type="file"
-									multiple
+									accept=".png .jpg .jpeg"
+									fileName="campingVendorImage"
 								/>
 							</div>
 
 							<div className="form-group form-check text-center mb-6"></div>
 							<button
 								type="submit"
-								className="
-      w-full
-      px-6
-      py-2.5
-      bg-blue-600
-      text-white
-      font-medium
-      text-xs
-      leading-tight
-      uppercase
-      rounded
-      shadow-md
-      hover:bg-blue-700 hover:shadow-lg
-      focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-      active:bg-blue-800 active:shadow-lg
-      transition
-      duration-150
-      ease-in-out"
+								className="w-full px-6 py-2.5  bg-blue-600  text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
 							>
 								ADD
 							</button>

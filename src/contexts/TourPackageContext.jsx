@@ -1,4 +1,3 @@
-import Joi from "joi";
 import { createContext, useState, useEffect } from "react";
 import TourPackageAPI from "./api/TourPackageAPI";
 
@@ -7,10 +6,6 @@ const TourPackageContext = createContext();
 export function TourPackageProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [tourPackages, setTourPackages] = useState([]);
-
-	const schemaProfile = Joi.object({
-		tourPackageName: Joi.string().required(),
-	});
 
 	//Tour Package
 
@@ -23,7 +18,6 @@ export function TourPackageProvider({ children }) {
 		NumberOfDays: "",
 		location: "",
 		description: "",
-		images: [],
 	});
 
 	//Get all Tour Packages
@@ -42,11 +36,56 @@ export function TourPackageProvider({ children }) {
 			setIsLoading(true);
 			const response = await TourPackageAPI.createTourPacakge(newTourPackage);
 			setTourPackages([...tourPackages, response.data]);
-			setIsLoading(false);
+			alert("Tour Package Added Successful...!!!");
+			window.location.href = "/tour-package-list";
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error);
 		}
+	};
+
+	// Get one Tour Package
+	const getOneTourPackage = (id) => {
+		useEffect(() => {
+			TourPackageAPI.getOneTourPackage(id).then((res) => {
+				setTourPackage(res.data);
+			});
+		}, []);
+	};
+
+	// Delete Tour Package
+	const deleteTourPackage = (id) => {
+		TourPackageAPI.deleteTourPackage(id).then(() => {
+			setTourPackages(tourPackages.filter((tourPackages) => tourPackages._id !== id));
+		});
+	};
+
+	// Edit Tour Package
+	const TourPackageEdit = (values) => {
+		const newTourPackage = {
+			tourPackageName: values.tourPackageName,
+			guideName: values.guideName,
+			email: values.email,
+			contactNumber: values.contactNumber,
+			price: values.price,
+			NumberOfDays: values.NumberOfDays,
+			location: values.location,
+			description: values.description,
+		};
+
+		TourPackageAPI.editTourPackage(values.id, newTourPackage)
+			.then((response) => {
+				// eslint-disable-next-line no-console
+
+				window.location.href = "/tour-package-list";
+				// eslint-disable-next-line no-console
+				console.log("Update");
+				alert("update");
+			})
+			.catch((err) => {
+				// eslint-disable-next-line no-console
+				console.log(err);
+			});
 	};
 
 	return (
@@ -56,7 +95,11 @@ export function TourPackageProvider({ children }) {
 				tourPackages,
 				addTourPackage,
 				tourPackage,
-				schemaProfile,
+				getOneTourPackage,
+				deleteTourPackage,
+				setTourPackages,
+				TourPackageEdit,
+				setTourPackage,
 			}}
 		>
 			{children}
