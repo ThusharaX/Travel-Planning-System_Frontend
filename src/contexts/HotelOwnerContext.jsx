@@ -127,7 +127,9 @@ export function HotelOwnerProvider({ children }) {
 	}, []);
 
 	return (
-		<HotelOwnerContext.Provider value={{ updateProfile, login, logout, isLoggedIn, isLoading, message, register, hotelOwner }}>
+		<HotelOwnerContext.Provider
+			value={{ updateProfile, login, logout, isLoggedIn, isLoading, message, register, hotelOwner }}
+		>
 			{children}
 		</HotelOwnerContext.Provider>
 	);
