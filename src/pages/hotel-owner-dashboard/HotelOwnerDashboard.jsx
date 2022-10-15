@@ -25,7 +25,7 @@ const HotelOwnerDashboard = () => {
 					{/* <div>DP</div> */}
 					<img src="./user.svg" alt="" className="w-32 h-32 mx-auto rounded-full aspect-square" />
 					<div className="text-primary-blue font-bold text-3xl">{hotelOwner.ownerName}</div>
-					<div className="border border-orange-400 inline-flex justify-center items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+					<div className="sm:mx-10 md:mx-20 flex border border-orange-400 justify-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
 						Hotel Owner
 					</div>
 					<div>{hotelOwner.hotelName}</div>
@@ -43,22 +43,22 @@ const HotelOwnerDashboard = () => {
 				<div className="flex flex-col sm:flex-wrap sm:flex-row justify-center">
 					{/* Card 1 */}
 					<Link to="/hotel-package-create">
-						<div className="m-5 p-10 bg-white drop-shadow-lg bg-no-repeat bg-left-bottom md:bg-[url('../public/addPackage.png')] rounded-3xl">
-							<h1 className="text-primary-blue font-bold text-lg hover:underline">Add Package</h1>
+						<div className="m-5 p-5 sm:p-10 md:p-20 bg-white drop-shadow-lg bg-no-repeat bg-left-bottom md:bg-[url('../addPackage.png')] rounded-3xl">
+							<h1 className="text-primary-blue md:text-white md:bg-black md:bg-opacity-60 md:p-2 rounded-xl font-bold text-lg md:text-3xl hover:underline">Add Package</h1>
 						</div>
 					</Link>
 
 					{/* Card 1 */}
 					<Link to="/hotel-package">
-						<div className="m-5 p-10 bg-white drop-shadow-lg bg-no-repeat bg-left-top bg-cover md:bg-[url('../public/allHotelPackages.png')] rounded-3xl">
-							<h1 className="text-primary-blue font-bold text-lg hover:underline">View All Packages</h1>
+						<div className="m-5 p-5 sm:p-10 md:p-20 bg-white drop-shadow-lg bg-no-repeat bg-left-top bg-cover md:bg-[url('../allHotelPackages.png')] rounded-3xl">
+							<h1 className="text-primary-blue md:text-white md:bg-black md:bg-opacity-60 md:p-2 rounded-xl font-bold text-lg md:text-3xl hover:underline">View All Packages</h1>
 						</div>
 					</Link>
 
 					{/* Card 1 */}
 					<Link to="/hotel-package-report">
-						<div className="m-5 p-10 bg-white drop-shadow-lg bg-no-repeat bg-left-top bg-cover md:bg-[url('../public/hotelPackageReport.png')] rounded-3xl">
-							<h1 className="text-primary-blue font-bold text-lg hover:underline">Generate Report</h1>
+						<div className="m-5 p-5 sm:p-10 md:p-20 bg-white drop-shadow-lg bg-no-repeat bg-left-top bg-cover md:bg-[url('../hotelPackageReport.png')] rounded-3xl">
+							<h1 className="text-primary-blue md:text-white md:bg-black md:bg-opacity-60 md:p-2 rounded-xl font-bold text-lg md:text-3xl hover:underline">Generate Report</h1>
 						</div>
 					</Link>
 				</div>
