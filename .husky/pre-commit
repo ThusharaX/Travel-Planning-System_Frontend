@@ -11,11 +11,8 @@ yarn check:format ||
 )
 
 # Fixing formatting issues
-yarn format:fix ||
-(
-  echo "I'm fixing your code styling. 🤓🤓";
-  # false;
-)
+echo "I'm fixing your code styling. 🤓🤓";
+yarn format:fix
 
 # Check ESLint Standards
 yarn check:lint ||
@@ -25,11 +22,8 @@ yarn check:lint ||
 )
 
 # Fixing linting issues
-yarn lint:fix ||
-(
-  echo "I'm fixing your linting issues. 🤓🤓";
-  # false;
-)
+echo "I'm fixing your linting issues. 🤓🤓";
+yarn lint:fix
 
 # If everything passes... Now we can commit
 echo '🤔🤔 Alright.... Code looks good to me... Trying to build now. 🤔🤔'
