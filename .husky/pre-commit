@@ -7,28 +7,28 @@ echo '🏗️👷 Hi, my name is LuciferX. I am responsible for testing your pro
 yarn check:format ||
 (
   echo '🤢🤮 Prettier Check Failed. Your code styling not looking good. 🤢🤮  Run yarn format:fix, add changes and try commit again.';
-  false;
+  # false;
 )
 
 # Fixing formatting issues
 yarn format:fix ||
 (
   echo "I'm fixing your code styling. 🤓🤓";
-  false;
+  # false;
 )
 
 # Check ESLint Standards
 yarn check:lint ||
 (
   echo '😤🏀 ESLint Check Failed. Your code may have some linting issues. 👋😤 Make the required changes listed above, add changes and try to commit again.'
-  false; 
+  # false; 
 )
 
 # Fixing linting issues
 yarn lint:fix ||
 (
   echo "I'm fixing your linting issues. 🤓🤓";
-  false;
+  # false;
 )
 
 # If everything passes... Now we can commit
