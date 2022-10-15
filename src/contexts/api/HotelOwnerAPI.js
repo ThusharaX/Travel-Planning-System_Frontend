@@ -19,6 +19,11 @@ class HotelOwnerAPI {
 	static getHotelOwnerDetails(uid) {
 		return axios.get(`${BASE_URL}/hotel-owner/${uid}`, requestConfig);
 	}
+
+	// Update Hotel Owner Details
+	static updateProfile(values) {
+		return axios.put(`${BASE_URL}/hotel-owner/update`, values, requestConfigJson);
+	}
 }
 
 export default HotelOwnerAPI;
