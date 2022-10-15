@@ -44,21 +44,27 @@ const HotelOwnerDashboard = () => {
 					{/* Card 1 */}
 					<Link to="/hotel-package-create">
 						<div className="m-5 p-5 sm:p-10 md:p-20 bg-white drop-shadow-lg bg-no-repeat bg-left-bottom md:bg-[url('../addPackage.png')] rounded-3xl">
-							<h1 className="text-primary-blue md:text-white md:bg-black md:bg-opacity-60 md:p-2 rounded-xl font-bold text-lg md:text-3xl hover:underline">Add Package</h1>
+							<h1 className="text-primary-blue md:text-white md:bg-black md:bg-opacity-60 md:p-2 rounded-xl font-bold text-lg md:text-3xl hover:underline">
+								Add Package
+							</h1>
 						</div>
 					</Link>
 
 					{/* Card 1 */}
 					<Link to="/hotel-package">
 						<div className="m-5 p-5 sm:p-10 md:p-20 bg-white drop-shadow-lg bg-no-repeat bg-left-top bg-cover md:bg-[url('../allHotelPackages.png')] rounded-3xl">
-							<h1 className="text-primary-blue md:text-white md:bg-black md:bg-opacity-60 md:p-2 rounded-xl font-bold text-lg md:text-3xl hover:underline">View All Packages</h1>
+							<h1 className="text-primary-blue md:text-white md:bg-black md:bg-opacity-60 md:p-2 rounded-xl font-bold text-lg md:text-3xl hover:underline">
+								View All Packages
+							</h1>
 						</div>
 					</Link>
 
 					{/* Card 1 */}
 					<Link to="/hotel-package-report">
 						<div className="m-5 p-5 sm:p-10 md:p-20 bg-white drop-shadow-lg bg-no-repeat bg-left-top bg-cover md:bg-[url('../hotelPackageReport.png')] rounded-3xl">
-							<h1 className="text-primary-blue md:text-white md:bg-black md:bg-opacity-60 md:p-2 rounded-xl font-bold text-lg md:text-3xl hover:underline">Generate Report</h1>
+							<h1 className="text-primary-blue md:text-white md:bg-black md:bg-opacity-60 md:p-2 rounded-xl font-bold text-lg md:text-3xl hover:underline">
+								Generate Report
+							</h1>
 						</div>
 					</Link>
 				</div>
