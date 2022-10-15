@@ -61,7 +61,7 @@ export function HotelOwnerProvider({ children }) {
 				localStorage.setItem("email", response.data.email);
 				localStorage.setItem("authToken", response.data.token);
 				localStorage.setItem("permissionLevel", response.data.permissionLevel);
-				navigate("/hotel-owner-dashboard");
+				navigate("/hotel-owner");
 				setIsLoggedIn(true);
 				setIsLoading(false);
 				makeToast({ type: "success", message: "Login Successful" });
@@ -92,7 +92,7 @@ export function HotelOwnerProvider({ children }) {
 				localStorage.setItem("email", response.data.email);
 				localStorage.setItem("authToken", response.data.token);
 				localStorage.setItem("permissionLevel", response.data.permissionLevel);
-				window.location.href = "/hotel-owner-dashboard";
+				window.location.href = "/hotel-owner";
 				setIsLoggedIn(true);
 				setIsLoading(false);
 			})

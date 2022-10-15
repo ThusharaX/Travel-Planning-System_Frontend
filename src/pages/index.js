@@ -4,6 +4,7 @@ import Home from "./home";
 // Hotel Owner
 import HotelOwnerLogin from "./hotel-owner-login";
 import HotelOwnerRegister from "./hotel-owner-register";
+import HotelOwnerDashboard from "./hotel-owner-dashboard";
 
 import HotelPackageList from "./hotel-package-list";
 
@@ -52,6 +53,7 @@ export {
 	Home,
 	HotelPackageList,
 	HotelPackageCreate,
+	HotelOwnerDashboard,
 
 	/*Camping Package*/
 	CampingPackageList,

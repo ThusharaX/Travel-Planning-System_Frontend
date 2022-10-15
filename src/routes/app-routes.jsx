@@ -1,6 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import PrivateRoute from "./PrivateRoute";
+import CheckLoginStatus from "./CheckLoginStatus";
+
 // Components
 import Header from "../components/Header";
 
@@ -15,6 +18,7 @@ import {
 	Home,
 	HotelPackageList,
 	HotelPackageCreate,
+	HotelOwnerDashboard,
 	CampingPackageCreate,
 	CampingPackageList,
 	VehicleList,
@@ -52,12 +56,22 @@ const AppRoutes = () => {
 			<Router>
 				<Header />
 				<Routes>
+					{/* Public Routes */}
 					<Route path="/" element={<Home />} />
 					<Route path="/sample" element={<Sample />} />
 
-					{/* Hotel Owner */}
-					<Route path="/hotel-owner-login" element={<HotelOwnerLogin />} />
-					<Route path="/hotel-owner-register" element={<HotelOwnerRegister />} />
+					{/* Check Login Status */}
+					<Route exact path="/hotel-owner/login" element={<CheckLoginStatus />}>
+						<Route exact path="/hotel-owner/login" element={<HotelOwnerLogin />} />
+					</Route>
+					<Route exact path="/hotel-owner/register" element={<CheckLoginStatus />}>
+						<Route exact path="/hotel-owner/register" element={<HotelOwnerRegister />} />
+					</Route>
+
+					{/* Hotel Owner Private Routes */}
+					<Route exact path="/hotel-owner" element={<PrivateRoute permissionLevel="HOTEL_OWNER" />}>
+						<Route exact path="/hotel-owner" element={<HotelOwnerDashboard />} />
+					</Route>
 
 					{/* Hotel Package */}
 					<Route path="/hotel-package" element={<HotelPackageList />} />
