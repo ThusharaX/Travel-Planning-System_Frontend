@@ -15,10 +15,17 @@ import {
 	// Hotel Owner
 	HotelOwnerLogin,
 	HotelOwnerRegister,
+	HotelOwnerDashboard,
+	HotelOwnerEdit,
 	Home,
+
+	// Hotel Package
 	HotelPackageList,
 	HotelPackageCreate,
-	HotelOwnerDashboard,
+	HotelOwnerManagePackages,
+	HotelPackageEdit,
+
+	/*Camping Package*/
 	CampingPackageCreate,
 	CampingPackageList,
 	VehicleList,
@@ -59,6 +66,8 @@ const AppRoutes = () => {
 					{/* Public Routes */}
 					<Route path="/" element={<Home />} />
 					<Route path="/sample" element={<Sample />} />
+					{/* Hotel Package */}
+					<Route exact path="/hotel-package" element={<HotelPackageList />} />
 
 					{/* Check Login Status */}
 					<Route exact path="/hotel-owner/login" element={<CheckLoginStatus />}>
@@ -71,12 +80,11 @@ const AppRoutes = () => {
 					{/* Hotel Owner Private Routes */}
 					<Route exact path="/hotel-owner" element={<PrivateRoute permissionLevel="HOTEL_OWNER" />}>
 						<Route exact path="/hotel-owner" element={<HotelOwnerDashboard />} />
+						<Route exact path="/hotel-owner/edit" element={<HotelOwnerEdit />} />
+						<Route exact path="/hotel-owner/create-package" element={<HotelPackageCreate />} />
+						<Route exact path="/hotel-owner/edit-package/:id" element={<HotelPackageEdit />} />
+						<Route exact path="/hotel-owner/manage-packages" element={<HotelOwnerManagePackages />} />
 					</Route>
-
-					{/* Hotel Package */}
-					<Route path="/hotel-package" element={<HotelPackageList />} />
-
-					<Route path="/hotel-package-create" element={<HotelPackageCreate />} />
 
 					<Route path="/camping-package-create" element={<CampingPackageCreate />} />
 
