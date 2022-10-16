@@ -3,7 +3,7 @@ import HotelOwnerContext from "../../contexts/HotelOwnerContext";
 import { Link } from "react-router-dom";
 
 const HotelOwnerDashboard = () => {
-	const { updateProfile, hotelOwner, logout } = useContext(HotelOwnerContext);
+	const { hotelOwner, logout } = useContext(HotelOwnerContext);
 
 	return (
 		<>
@@ -29,20 +29,17 @@ const HotelOwnerDashboard = () => {
 						Hotel Owner
 					</div>
 					<div>{hotelOwner.hotelName}</div>
-					{/* Edit profile button */}
-					<div className="mx-auto">
-						<button
-							className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-							onClick={updateProfile}
-						>
+					{/* Edit profile button Redirects to HotelOwnerEdit page */}
+					<Link to="/hotel-owner/edit">
+						<button className="w-1/2 px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline">
 							Edit Profile
 						</button>
-					</div>
+					</Link>
 				</div>
 
 				<div className="flex flex-col sm:flex-wrap sm:flex-row justify-center">
 					{/* Card 1 */}
-					<Link to="/hotel-package-create">
+					<Link to="/hotel-owner/create-package">
 						<div className="m-5 p-5 sm:p-10 md:p-20 bg-white drop-shadow-lg bg-no-repeat bg-left-bottom md:bg-[url('../addPackage.png')] rounded-3xl">
 							<h1 className="text-primary-blue md:text-white md:bg-black md:bg-opacity-60 md:p-2 rounded-xl font-bold text-lg md:text-3xl hover:underline">
 								Add Package
@@ -51,10 +48,10 @@ const HotelOwnerDashboard = () => {
 					</Link>
 
 					{/* Card 1 */}
-					<Link to="/hotel-package">
+					<Link to="/hotel-owner/manage-packages">
 						<div className="m-5 p-5 sm:p-10 md:p-20 bg-white drop-shadow-lg bg-no-repeat bg-left-top bg-cover md:bg-[url('../allHotelPackages.png')] rounded-3xl">
 							<h1 className="text-primary-blue md:text-white md:bg-black md:bg-opacity-60 md:p-2 rounded-xl font-bold text-lg md:text-3xl hover:underline">
-								View All Packages
+								Manage Packages
 							</h1>
 						</div>
 					</Link>

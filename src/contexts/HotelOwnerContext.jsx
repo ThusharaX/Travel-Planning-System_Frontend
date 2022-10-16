@@ -105,12 +105,14 @@ export function HotelOwnerProvider({ children }) {
 
 	// Update Hotel Owner Profile
 	const updateProfile = (values) => {
+		const uID = localStorage.getItem("uID");
 		setIsLoading(true);
-		HotelOwnerAPI.updateProfile(values)
+		HotelOwnerAPI.updateProfile(uID, values)
 			.then((response) => {
 				setHotelOwner(response.data);
 				setIsLoading(false);
 				makeToast({ type: "success", message: "Profile Updated Successfully" });
+				navigate("/hotel-owner");
 			})
 			.catch((err) => {
 				setMessage(err.response.data.details.message);

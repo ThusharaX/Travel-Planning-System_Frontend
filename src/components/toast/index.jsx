@@ -13,6 +13,14 @@ const makeToast = (props) => {
 	else if (props.type === "loading") {
 		toast.loading(props.message);
 	}
+	// Promise toast
+	else if (props.type === "promise") {
+		toast.promise(props.myPromise, {
+			loading: props.loadingMessage,
+			success: props.successMessage,
+			error: props.errorMessage,
+		});
+	}
 	// Default toast
 	else {
 		toast(props.message);

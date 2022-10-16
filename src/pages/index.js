@@ -5,10 +5,13 @@ import Home from "./home";
 import HotelOwnerLogin from "./hotel-owner-login";
 import HotelOwnerRegister from "./hotel-owner-register";
 import HotelOwnerDashboard from "./hotel-owner-dashboard";
+import HotelOwnerEdit from "./hotel-owner-edit";
 
+// Hotel Package
 import HotelPackageList from "./hotel-package-list";
-
 import HotelPackageCreate from "./hotel-package-create";
+import HotelOwnerManagePackages from "./hotel-owner-manage-packages";
+import HotelPackageEdit from "./hotel-package-edit";
 
 import VehicleEdit from "./vehicle-edit";
 import VehicleList from "./vehicle-owner";
@@ -50,10 +53,15 @@ export {
 	// Hotel Owner
 	HotelOwnerLogin,
 	HotelOwnerRegister,
+	HotelOwnerEdit,
+	HotelOwnerDashboard,
 	Home,
+
+	// Hotel Package
 	HotelPackageList,
 	HotelPackageCreate,
-	HotelOwnerDashboard,
+	HotelOwnerManagePackages,
+	HotelPackageEdit,
 
 	/*Camping Package*/
 	CampingPackageList,
