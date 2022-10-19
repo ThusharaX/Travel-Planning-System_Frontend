@@ -26,10 +26,7 @@ export function TourGuideProvider({ children }) {
 		password: "",
 	});
 
-	const SignUpFormSchema = Joi.object({
-
-	})
-
+	const SignUpFormSchema = Joi.object({});
 
 	// Toast Message
 
@@ -38,19 +35,18 @@ export function TourGuideProvider({ children }) {
 		TourGuideAPI.tourGuideRegister(values)
 			.then((response) => {
 				setTourGuides([...tourGuides, response.data]);
-				makeToast({ type: "success", message: "Registration Successful"});
+				makeToast({ type: "success", message: "Registration Successful" });
 				window.location.href = "/tour-guide-login";
-				
 			})
 			.catch((err) => {
 				console.log(err.response.data);
 				if (err.response.data.details == "Email already exists") {
 					setMailError(err.response.data.details);
-					makeToast({ type: "error", message: "Email already exists"});
+					makeToast({ type: "error", message: "Email already exists" });
 				}
 				if (err.response.data.details == "NIC already exists") {
 					setNicError(err.response.data.details);
-					makeToast({ type: "error", message: "NIC already exists"});
+					makeToast({ type: "error", message: "NIC already exists" });
 				}
 			});
 	};
