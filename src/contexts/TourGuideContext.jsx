@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import TourGuideAPI from "./api/TourGuideAPI";
 import { useEffect } from "react";
 import makeToast from "../components/toast/index";
+import Joi from "joi";
 
 const TourGuideContext = createContext();
 
@@ -13,7 +14,6 @@ export function TourGuideProvider({ children }) {
 	const [nicError, setNicError] = useState("");
 
 	const [tourGuide, setTourGuide] = useState({
-		//schema: joiResolver(schema),
 		tourGuideName: "",
 		email: "",
 		nic: "",
@@ -26,6 +26,11 @@ export function TourGuideProvider({ children }) {
 		password: "",
 	});
 
+	const SignUpFormSchema = Joi.object({
+
+	})
+
+
 	// Toast Message
 
 	// Add Tour Guide
@@ -33,19 +38,19 @@ export function TourGuideProvider({ children }) {
 		TourGuideAPI.tourGuideRegister(values)
 			.then((response) => {
 				setTourGuides([...tourGuides, response.data]);
-				alert("Tour Guide Registration Successful...!!!");
+				makeToast({ type: "success", message: "Registration Successful"});
 				window.location.href = "/tour-guide-login";
-				tourGuides.reset();
+				
 			})
 			.catch((err) => {
 				console.log(err.response.data);
 				if (err.response.data.details == "Email already exists") {
 					setMailError(err.response.data.details);
-					alert("Email already exist");
+					makeToast({ type: "error", message: "Email already exists"});
 				}
 				if (err.response.data.details == "NIC already exists") {
 					setNicError(err.response.data.details);
-					alert("NIC already exists");
+					makeToast({ type: "error", message: "NIC already exists"});
 				}
 			});
 	};
@@ -65,7 +70,7 @@ export function TourGuideProvider({ children }) {
 					localStorage.setItem("ContactNumber", response.data.contactNumber);
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
-					makeToast({ type: "success", message: "Login Successful...!!!" });
+					makeToast({ type: "success", message: "Login Successful" });
 					window.location.href = "/tour-guide-dashboard";
 					setIsLoggedIn(true);
 					setIsLoggedIn(false);
@@ -100,7 +105,7 @@ export function TourGuideProvider({ children }) {
 		};
 		TourGuideAPI.editTourGuide(values.id, newTourGuide)
 			.then((response) => {
-				alert("Tour Guide Updated Successfully");
+				makeToast({ type: "success", message: "Profile Updated Successful" });
 				window.location.href = "/tour-guide-dashboard";
 			})
 			.catch((err) => {
