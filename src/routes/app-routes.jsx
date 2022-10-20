@@ -18,6 +18,9 @@ import {
 	HotelOwnerDashboard,
 	HotelOwnerEdit,
 	Home,
+	AdminLogin,
+	AdminDashboard,
+	AdminEdit,
 
 	// Hotel Package
 	HotelPackageList,
@@ -93,6 +96,17 @@ const AppRoutes = () => {
 						<Route exact path="/hotel-owner/edit-package/:id" element={<HotelPackageEdit />} />
 						<Route exact path="/hotel-owner/manage-packages" element={<HotelOwnerManagePackages />} />
 						<Route exact path="/hotel-owner/report" element={<HotelPackageReport />} />
+					</Route>
+
+					{/* Check Login Status Admin */}
+					<Route exact path="/admin/login" element={<CheckLoginStatus />}>
+						<Route exact path="/admin/login" element={<AdminLogin />} />
+					</Route>
+
+					{/* Admin Private Routes */}
+					<Route exact path="/admin" element={<PrivateRoute permissionLevel="ADMIN" />}>
+						<Route exact path="/admin" element={<AdminDashboard />} />
+						<Route exact path="/admin/edit" element={<AdminEdit />} />
 					</Route>
 
 					<Route path="/camping-package-create" element={<CampingPackageCreate />} />

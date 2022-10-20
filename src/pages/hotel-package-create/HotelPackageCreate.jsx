@@ -47,7 +47,7 @@ const HotelPackageCreate = () => {
 			<h1 className="mt-5 text-4xl text-center font-bold">Add Hotel Package</h1>
 
 			<div className="flex justify-center">
-				<div className="border-t w-1/2 px-10 rounded-2xl mt-5 shadow-2xl">
+				<div className="border-t w-1/2 px-10 rounded-2xl mt-5 shadow-2xl bg-white">
 					<form className="mt-5" onSubmit={handleSubmit}>
 						{/* side by side */}
 						<div className="flex flex-row space-x-4">
