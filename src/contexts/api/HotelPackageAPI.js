@@ -34,6 +34,11 @@ class HotelPackageAPI {
 	static getHotelPackageById(hotel_package_id) {
 		return axios.get(`${BASE_URL}/hotel-package/${hotel_package_id}`, requestConfig);
 	}
+
+	// Search hotel packages
+	static searchHotelPackage(searchTerm) {
+		return axios.get(`${BASE_URL}/hotel-package/search/${searchTerm}`, requestConfig);
+	}
 }
 
 export default HotelPackageAPI;

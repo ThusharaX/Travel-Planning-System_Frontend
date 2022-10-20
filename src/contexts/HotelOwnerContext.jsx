@@ -40,7 +40,7 @@ export function HotelOwnerProvider({ children }) {
 			.message("Email should be valid"),
 		nic: Joi.string().min(10).max(10).message("NIC should be 10 characters"),
 		contactNumber: Joi.string().min(10).max(10).message("Phone number should be 10 characters"),
-		password: Joi.string().min(6).message("Password should be valid"),
+		password: Joi.string().min(4).message("Password should be valid"),
 		confirmPassword: Joi.ref("password"),
 		hotelName: Joi.string().min(2).max(20).message("Hotel name should be between 2 and 20 characters"),
 		hotelAddress: Joi.string().min(2).max(20).message("Hotel address should be between 2 and 20 characters"),
@@ -49,7 +49,7 @@ export function HotelOwnerProvider({ children }) {
 			.min(2)
 			.max(20)
 			.message("Company registration number should be between 2 and 20 characters"),
-		permissionLevel: Joi.string().valid("HOTEL_OWNER"),
+		profilePicture: Joi.string().min(2).message("Profile picture"),
 	});
 
 	// Login Form Validation

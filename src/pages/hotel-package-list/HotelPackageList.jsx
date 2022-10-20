@@ -1,9 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import HotelPackageContext from "../../contexts/HotelPackageContext";
 import { Link } from "react-router-dom";
 
 const HotelPackageList = () => {
-	const { isLoading, hotelPackages } = useContext(HotelPackageContext);
+	const { isLoading, hotelPackages, searchHotelPackage } = useContext(HotelPackageContext);
+
+	const [search, setSearch] = useState("");
+
+	const handleSearch = () => {
+		searchHotelPackage(search);
+	};
 
 	return (
 		<>
@@ -31,6 +37,7 @@ const HotelPackageList = () => {
 								type="text"
 								className="w-full px-5 py-3 text-gray-700 bg-white rounded-lg shadow-md focus:outline-none focus:shadow-outline border-t"
 								placeholder="Search"
+								onChange={(e) => setSearch(e.target.value)}
 							/>
 						</div>
 
@@ -38,6 +45,7 @@ const HotelPackageList = () => {
 							<button
 								type="button"
 								className="w-full px-5 py-3 text-white bg-primary-blue rounded-lg shadow-md hover:bg-primary-blue-dark focus:outline-none focus:shadow-outline"
+								onClick={handleSearch}
 							>
 								Search
 							</button>
@@ -50,10 +58,12 @@ const HotelPackageList = () => {
 						// <div className="flex flex-wrap justify-center">
 						<div className="flex space-x-5 justify-center">
 							{hotelPackages.map((hotelPackage) => (
-								<div key={hotelPackage._id} className="w-1/3 m-5 p-5 border border-gray-300 rounded-lg">
+								<div key={hotelPackage._id} className="w-1/3 m-5 p-5 border border-gray-300 rounded-lg bg-white">
 									{/* side by side */}
 									<div className="flex justify-between">
-										<h1 className="text-2xl">{hotelPackage.name}</h1>
+										<Link to={`/hotel-package/${hotelPackage._id}`}>
+											<h1 className="text-2xl hover:underline">{hotelPackage.name}</h1>
+										</Link>
 										<h1 className="text-xl bg-green-500 text-white rounded-full p-3">{hotelPackage.condition}</h1>
 									</div>
 									<p className="text-sm">{hotelPackage.description}</p>
@@ -62,7 +72,7 @@ const HotelPackageList = () => {
 									<h1 className="text-2xl">Rs. {hotelPackage.cost}</h1>
 
 									{/* Add to wishlist button */}
-									<div className="flex justify-center">
+									{/* <div className="flex justify-center">
 										<div className="w-3/4 mt-5">
 											<button
 												type="button"
@@ -71,7 +81,7 @@ const HotelPackageList = () => {
 												Add to wishlist
 											</button>
 										</div>
-									</div>
+									</div> */}
 								</div>
 							))}
 						</div>
