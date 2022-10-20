@@ -3,10 +3,10 @@ import CustomerRegister from "./CustomerRegister";
 
 const index = () => {
 	return (
-        <>
-            <CustomerRegister/>
-        </>
-    )
+		<>
+			<CustomerRegister />
+		</>
+	);
 };
 
 export default index;

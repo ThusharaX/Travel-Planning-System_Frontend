@@ -59,7 +59,6 @@ import {
 
 	/*Custommer */
 	CustomerRegister,
-
 } from "../pages";
 
 const AppRoutes = () => {

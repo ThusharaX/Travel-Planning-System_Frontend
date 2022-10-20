@@ -49,7 +49,7 @@ import VehicleOwnerLogin from "./vehicle-owner-login";
 
 import WhoAreYou from "./who-are-you";
 
-// Customer 
+// Customer
 import CustomerRegister from "./customer-register";
 
 export {

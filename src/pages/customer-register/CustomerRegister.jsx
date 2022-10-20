@@ -4,9 +4,6 @@ const CustomerRegister = () => {
 	return (
 		<>
 			<h1 className="mt-5 text-4xl text-center">Customer Register</h1>
-
-
-            
 		</>
 	);
 };
