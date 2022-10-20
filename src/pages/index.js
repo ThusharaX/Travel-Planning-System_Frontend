@@ -7,6 +7,11 @@ import HotelOwnerRegister from "./hotel-owner-register";
 import HotelOwnerDashboard from "./hotel-owner-dashboard";
 import HotelOwnerEdit from "./hotel-owner-edit";
 
+// Admin
+import AdminLogin from "./admin-login";
+import AdminDashboard from "./admin-dashboard";
+import AdminEdit from "./admin-edit";
+
 // Hotel Package
 import HotelPackageList from "./hotel-package-list";
 import HotelPackageCreate from "./hotel-package-create";
@@ -60,6 +65,11 @@ export {
 	HotelOwnerEdit,
 	HotelOwnerDashboard,
 	Home,
+
+	// Admin
+	AdminLogin,
+	AdminEdit,
+	AdminDashboard,
 
 	// Hotel Package
 	HotelPackageList,
