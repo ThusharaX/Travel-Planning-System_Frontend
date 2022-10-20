@@ -13,6 +13,7 @@ import HotelPackageCreate from "./hotel-package-create";
 import HotelOwnerManagePackages from "./hotel-owner-manage-packages";
 import HotelPackageEdit from "./hotel-package-edit";
 import HotelPackageReport from "./hotel-package-report";
+import HotelPackage from "./hotel-package";
 
 import VehicleEdit from "./vehicle-edit";
 import VehicleList from "./vehicle-owner";
@@ -66,6 +67,7 @@ export {
 	HotelOwnerManagePackages,
 	HotelPackageEdit,
 	HotelPackageReport,
+	HotelPackage,
 
 	/*Camping Package*/
 	CampingPackageList,

@@ -4,14 +4,28 @@ import HotelPackageContext from "../../contexts/HotelPackageContext";
 const HotelPackageCreate = () => {
 	const { isLoading, addHotelPackage } = useContext(HotelPackageContext);
 
+	const initialValues = {
+		name: "",
+		location: "",
+		condition: "",
+		beds: "",
+		room_no: "",
+		cost: "",
+		description: "",
+		images: "https://images.unsplash.com/photo-1445991842772-097fea258e7b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80,https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80, https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+		hotel_owner_id: "",
+	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
+		// image e.target.images.value - image1, image2, image3
+
 		// Convert image to array
 		var imageArray = [];
-		for (var i = 0; i < e.target.images.files.length; i++) {
-			imageArray.push(e.target.images.files[i].name);
-		}
+		// get string of images separated by comma and split it into array
+		var imageString = e.target.images.value;
+		imageArray = imageString.split(",");
 
 		const newHotelPackage = {
 			name: e.target.name.value,
@@ -122,14 +136,15 @@ const HotelPackageCreate = () => {
 						{/* Select multiple images */}
 						<div className="mb-4">
 							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="images">
-								Images
+								Images URL (separated by comma)
 							</label>
 							{/* Choose file button color red */}
 							<input
 								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 								id="images"
-								type="file"
-								multiple
+								type="text"
+								placeholder="Images URL (separated by comma)"
+								Value={initialValues.images}
 							/>
 						</div>
 

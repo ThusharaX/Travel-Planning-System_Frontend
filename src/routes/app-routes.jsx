@@ -25,6 +25,7 @@ import {
 	HotelOwnerManagePackages,
 	HotelPackageEdit,
 	HotelPackageReport,
+	HotelPackage,
 
 	/*Camping Package*/
 	CampingPackageCreate,
@@ -71,6 +72,7 @@ const AppRoutes = () => {
 					<Route path="/sample" element={<Sample />} />
 					{/* Hotel Package */}
 					<Route exact path="/hotel-package" element={<HotelPackageList />} />
+					<Route exact path="/hotel-package/:id" element={<HotelPackage />} />
 
 					{/* Check Login Status */}
 					<Route exact path="/hotel-owner/login" element={<CheckLoginStatus />}>
