@@ -32,9 +32,49 @@ const Header = () => {
 							{/* Hotel Owner */}
 							<ul className="flex p-1">
 								{permissionLevel === "HOTEL_OWNER" ? (
-									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg">
+									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg ">
 										<Link to="/hotel-owner" className="text-base font-bold  text-primary-blue">
 											Dashboard
+										</Link>
+									</li>
+								) : (
+									<p></p>
+								)}
+								
+								{permissionLevel === "CAMPING_VENDOR" ? (
+									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg ">
+										<Link to="/camping-vendor-dashboard" className="text-base font-bold  text-primary-blue">
+											Dashboard
+										</Link>
+									</li>
+								) : (
+									<p></p>
+								)}
+								
+								{permissionLevel === "CUSTOMER" ? (
+									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg ">
+										<Link to="/customer-dashboard" className="text-base font-bold  text-primary-blue">
+											Dashboard
+										</Link>
+									</li>
+								) : (
+									<p></p>
+								)}
+								
+								{permissionLevel === "TOUR_GUIDE" ? (
+									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg ">
+										<Link to="/tour-guide-dashboard" className="text-base font-bold  text-primary-blue">
+											Dashboard
+										</Link>
+									</li>
+								) : (
+									<p></p>
+								)}
+								
+								{permissionLevel === "VEHICLE_OWNER" ? (
+									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg ">
+										<Link to="/vehicle-profile" className="text-base font-bold  text-primary-blue">
+											Profile
 										</Link>
 									</li>
 								) : (
