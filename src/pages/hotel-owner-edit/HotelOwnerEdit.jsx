@@ -18,6 +18,7 @@ const HotelOwnerEdit = () => {
 			hotelAddress: e.target.hotelAddress.value,
 			companyPhoneNumber: e.target.companyPhoneNumber.value,
 			companyRegNo: e.target.companyRegNo.value,
+			profilePicture: e.target.profilePicture.value,
 		};
 
 		updateProfile(newHotelOwner);
@@ -145,8 +146,8 @@ const HotelOwnerEdit = () => {
 							<input
 								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 								id="profilePicture"
-								type="file"
-								placeholder="Profile Picture"
+								type="text"
+								placeholder="Profile Picture URL"
 								defaultValue={hotelOwner.profilePicture}
 							/>
 						</div>

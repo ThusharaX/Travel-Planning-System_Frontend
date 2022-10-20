@@ -32,7 +32,7 @@ const Header = () => {
 							{/* Hotel Owner */}
 							<ul className="flex p-1">
 								{permissionLevel === "HOTEL_OWNER" ? (
-									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg">
+									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg ">
 										<Link to="/hotel-owner" className="text-base font-bold  text-primary-blue">
 											Dashboard
 										</Link>
@@ -40,6 +40,74 @@ const Header = () => {
 								) : (
 									<p></p>
 								)}
+
+								{permissionLevel === "CAMPING_VENDOR" ? (
+									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg ">
+										<Link to="/camping-vendor-dashboard" className="text-base font-bold  text-primary-blue">
+											Dashboard
+										</Link>
+									</li>
+								) : (
+									<p></p>
+								)}
+
+								{permissionLevel === "CUSTOMER" ? (
+									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg ">
+										<Link to="/customer-dashboard" className="text-base font-bold  text-primary-blue">
+											Dashboard
+										</Link>
+									</li>
+								) : (
+									<p></p>
+								)}
+
+								{permissionLevel === "TOUR_GUIDE" ? (
+									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg ">
+										<Link to="/tour-guide-dashboard" className="text-base font-bold  text-primary-blue">
+											Dashboard
+										</Link>
+									</li>
+								) : (
+									<p></p>
+								)}
+
+								{permissionLevel === "VEHICLE_OWNER" ? (
+									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg ">
+										<Link to="/vehicle-profile" className="text-base font-bold  text-primary-blue">
+											Profile
+										</Link>
+									</li>
+								) : (
+									<p></p>
+								)}
+
+								{/* Hotel packages */}
+								<li className="mr-6">
+									<Link to="/hotel-package" className="text-base font-medium text-white hover:text-gray-300">
+										Hotel Packages
+									</Link>
+								</li>
+
+								{/* Caming Packages */}
+								<li className="mr-6">
+									<Link to="/camping-package" className="text-base font-medium text-white hover:text-gray-300">
+										Camping Packages
+									</Link>
+								</li>
+
+								{/* Vehicle Packages */}
+								<li className="mr-6">
+									<Link to="/vehicle" className="text-base font-medium text-white hover:text-gray-300">
+										Vehicle Packages
+									</Link>
+								</li>
+
+								{/* Tour Packages */}
+								<li className="mr-6">
+									<Link to="/tour-package-list" className="text-base font-medium text-white hover:text-gray-300">
+										Tour Packages
+									</Link>
+								</li>
 							</ul>
 						</nav>
 					</div>

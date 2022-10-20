@@ -45,9 +45,9 @@ export function HotelPackageProvider({ children }) {
 	const AddHotelPackageFormSchema = Joi.object({
 		name: Joi.string().required().min(3).max(50).label("Name"),
 		location: Joi.string().required().min(3).max(50).label("Location"),
-		condition: Joi.string().required().min(3).max(50).label("Condition"),
+		condition: Joi.string().required().label("Condition"),
 		beds: Joi.number().required().min(1).max(10).label("Beds"),
-		room_no: Joi.string().required().min(3).max(50).label("Room Number"),
+		room_no: Joi.string().required().max(50).label("Room Number"),
 		cost: Joi.number().required().min(1).max(100000).label("Cost"),
 		description: Joi.string().required().min(3).max(500).label("Description"),
 		images: Joi.array().required().min(1).label("Images"),
@@ -67,6 +67,7 @@ export function HotelPackageProvider({ children }) {
 			const response = await HotelPackageAPI.createHotelPackage(newHotelPackage);
 			setHotelPackages([...hotelPackages, response.data]);
 			setIsLoading(false);
+			navigate("/hotel-owner/manage-packages");
 			makeToast({ type: "success", message: "Hotel Package Added Successfully" });
 		} catch (error) {
 			// eslint-disable-next-line no-console
@@ -142,6 +143,19 @@ export function HotelPackageProvider({ children }) {
 		}
 	};
 
+	// Search Hotel Package
+	const searchHotelPackage = async (searchTerm) => {
+		try {
+			setIsLoading(true);
+			const response = await HotelPackageAPI.searchHotelPackage(searchTerm);
+			setHotelPackages(response.data);
+			setIsLoading(false);
+		} catch (error) {
+			// eslint-disable-next-line no-console
+			console.log(error);
+		}
+	};
+
 	return (
 		<HotelPackageContext.Provider
 			value={{
@@ -155,6 +169,7 @@ export function HotelPackageProvider({ children }) {
 				setHotelPackagesByHotelOwnerID,
 				updateHotelPackage,
 				getHotelPackageByID,
+				searchHotelPackage,
 			}}
 		>
 			{children}
