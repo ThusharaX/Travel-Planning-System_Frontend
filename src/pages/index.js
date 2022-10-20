@@ -12,7 +12,6 @@ import HotelPackageCreate from "./hotel-package-create";
 import VehicleEdit from "./vehicle-edit";
 import VehicleList from "./vehicle-owner";
 import VehicleCreate from "./vehicle-create";
-import Userprofile from "./vehicleOwner-profile/Userprofile";
 
 /* Tour Package */
 import TourPackageCreate from "./tour-package-create";
@@ -40,6 +39,7 @@ import CampingVendorDashboard from "./camping-vendor-dashboard";
 /*Vehicle Owner */
 import VehicleOwnerRegister from "./vehicle-owner-register";
 import VehicleOwnerLogin from "./vehicle-owner-login";
+import Userprofile from "./vehicleOwner-profile";
 
 export {
 	Sample,
@@ -64,7 +64,6 @@ export {
 	TourGuideRegister,
 	TourGuideLogin,
 	TourGuideDashboard,
-	Userprofile,
 	CustomerSignup,
 
 	/*Vehicle Package*/
@@ -80,4 +79,5 @@ export {
 	/* Vehicle Owner*/
 	VehicleOwnerRegister,
 	VehicleOwnerLogin,
+	Userprofile,
 };
