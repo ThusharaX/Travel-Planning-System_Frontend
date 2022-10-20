@@ -11,6 +11,7 @@ export function VehicleTourProvider({ children }) {
 
 	// Hotel Package
 	const [vehicleTour, setVehicleTour] = useState({
+		ownerId: " ",
 		vehicleType: "",
 		regNo: "",
 		ownersName: "",
@@ -29,11 +30,15 @@ export function VehicleTourProvider({ children }) {
 
 	// Add Hotel Package
 	const addVehicle = async (newVehicleTour) => {
+		console.log("Owner ID context :" + newVehicleTour.ownerId);
+
 		try {
 			setIsLoading(true);
 			const response = await VehicleTourAPI.createVehicle(newVehicleTour);
 			setVehicleTours([...vehicleTours, response.data]);
+			alert("Vehicle Added Successful...!!!");
 			setIsLoading(false);
+			window.location.href = "/vehicle-profile";
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error);
