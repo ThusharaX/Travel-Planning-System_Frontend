@@ -17,7 +17,7 @@ const CampingVendorRegister = () => {
 			companyAddress: e.target.companyAddress.value,
 			companyPhone: e.target.companyPhone.value,
 			companyRegisterNumber: e.target.companyRegisterNumber.value,
-			profilePicture: fileName,
+			profilePicture: null,
 			password: e.target.password.value,
 		};
 

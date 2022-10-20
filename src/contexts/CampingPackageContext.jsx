@@ -30,6 +30,8 @@ export function CampingPackageProvider({ children }) {
 
 	// Add Hotel Package
 	const addCampingPackage = async (newCampingPackage) => {
+		console.log("Owner ID context :" + newCampingPackage.vendorId);
+
 		try {
 			setIsLoading(true);
 			const response = await CampingPackageAPI.createCampingPackage(newCampingPackage);
