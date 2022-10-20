@@ -24,7 +24,7 @@ const Header = () => {
 								</li> */}
 								<li className="mr-6">
 									<Link to="/" className="text-base font-medium text-white hover:text-gray-300">
-										<h1 className="mt-2 mb-2 text-2xl font-bold text-white">Travel Planning System</h1>
+										<h1 className="mt-2 mb-2 text-2xl font-bold text-white">Travel Planner</h1>
 									</Link>
 								</li>
 							</ul>
