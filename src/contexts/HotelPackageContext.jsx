@@ -156,7 +156,6 @@ export function HotelPackageProvider({ children }) {
 		}
 	};
 
-
 	return (
 		<HotelPackageContext.Provider
 			value={{
