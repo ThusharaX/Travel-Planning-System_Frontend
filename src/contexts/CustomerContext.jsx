@@ -5,7 +5,7 @@ import makeToast from "../components/toast/index";
 
 const CustomerContext = createContext();
 
-export function CustomerProvider({ childern }) {
+export function CustomerProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [mailError, setMailError] = useState("");
@@ -46,18 +46,15 @@ export function CustomerProvider({ childern }) {
 	return (
 		<CustomerContext.Provider
 			value={{
-				CustomerRegister,
 				isLoading,
-				setIsLoading,
 				isLoggedIn,
-				setIsLoggedIn,
 				mailError,
-				setMailError,
 				nicError,
-				setNicError,
+				customer,
+				CustomerRegister,
 			}}
 		>
-			{childern}
+			{children}
 		</CustomerContext.Provider>
 	);
 }
