@@ -59,7 +59,10 @@ const HotelOwnerLogin = () => {
 							</a>
 						</div>
 						<div className="text-center">
-							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="/hotel-owner/register">
+							<a
+								className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+								href="/hotel-owner/register"
+							>
 								Create an Account.
 							</a>
 						</div>
