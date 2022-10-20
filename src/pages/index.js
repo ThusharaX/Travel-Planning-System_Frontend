@@ -12,6 +12,8 @@ import HotelPackageList from "./hotel-package-list";
 import HotelPackageCreate from "./hotel-package-create";
 import HotelOwnerManagePackages from "./hotel-owner-manage-packages";
 import HotelPackageEdit from "./hotel-package-edit";
+import HotelPackageReport from "./hotel-package-report";
+import HotelPackage from "./hotel-package";
 
 import VehicleEdit from "./vehicle-edit";
 import VehicleList from "./vehicle-owner";
@@ -47,6 +49,8 @@ import CampingVendorDashboard from "./camping-vendor-dashboard";
 import VehicleOwnerRegister from "./vehicle-owner-register";
 import VehicleOwnerLogin from "./vehicle-owner-login";
 
+import WhoAreYou from "./who-are-you";
+
 export {
 	Sample,
 
@@ -62,6 +66,8 @@ export {
 	HotelPackageCreate,
 	HotelOwnerManagePackages,
 	HotelPackageEdit,
+	HotelPackageReport,
+	HotelPackage,
 
 	/*Camping Package*/
 	CampingPackageList,
@@ -94,4 +100,5 @@ export {
 	/* Vehicle Owner*/
 	VehicleOwnerRegister,
 	VehicleOwnerLogin,
+	WhoAreYou,
 };

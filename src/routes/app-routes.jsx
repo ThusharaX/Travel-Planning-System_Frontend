@@ -24,6 +24,8 @@ import {
 	HotelPackageCreate,
 	HotelOwnerManagePackages,
 	HotelPackageEdit,
+	HotelPackageReport,
+	HotelPackage,
 
 	/*Camping Package*/
 	CampingPackageCreate,
@@ -55,6 +57,7 @@ import {
 	/*Vehicle Owner */
 	VehicleOwnerRegister,
 	VehicleOwnerLogin,
+	WhoAreYou,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -65,9 +68,11 @@ const AppRoutes = () => {
 				<Routes>
 					{/* Public Routes */}
 					<Route path="/" element={<Home />} />
+					<Route path="/who-are-you" element={<WhoAreYou />} />
 					<Route path="/sample" element={<Sample />} />
 					{/* Hotel Package */}
 					<Route exact path="/hotel-package" element={<HotelPackageList />} />
+					<Route exact path="/hotel-package/:id" element={<HotelPackage />} />
 
 					{/* Check Login Status */}
 					<Route exact path="/hotel-owner/login" element={<CheckLoginStatus />}>
@@ -84,6 +89,7 @@ const AppRoutes = () => {
 						<Route exact path="/hotel-owner/create-package" element={<HotelPackageCreate />} />
 						<Route exact path="/hotel-owner/edit-package/:id" element={<HotelPackageEdit />} />
 						<Route exact path="/hotel-owner/manage-packages" element={<HotelOwnerManagePackages />} />
+						<Route exact path="/hotel-owner/report" element={<HotelPackageReport />} />
 					</Route>
 
 					<Route path="/camping-package-create" element={<CampingPackageCreate />} />

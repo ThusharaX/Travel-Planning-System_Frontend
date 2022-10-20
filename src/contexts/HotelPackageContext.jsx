@@ -3,6 +3,8 @@ import HotelPackageAPI from "./api/HotelPackageAPI";
 import makeToast from "../components/toast";
 import { useNavigate } from "react-router-dom";
 
+import Joi from "joi";
+
 const HotelPackageContext = createContext();
 
 export function HotelPackageProvider({ children }) {
@@ -39,13 +41,33 @@ export function HotelPackageProvider({ children }) {
 		});
 	}, []);
 
+	// Add Hotel Package validation schema
+	const AddHotelPackageFormSchema = Joi.object({
+		name: Joi.string().required().min(3).max(50).label("Name"),
+		location: Joi.string().required().min(3).max(50).label("Location"),
+		condition: Joi.string().required().label("Condition"),
+		beds: Joi.number().required().min(1).max(10).label("Beds"),
+		room_no: Joi.string().required().max(50).label("Room Number"),
+		cost: Joi.number().required().min(1).max(100000).label("Cost"),
+		description: Joi.string().required().min(3).max(500).label("Description"),
+		images: Joi.array().required().min(1).label("Images"),
+		hotel_owner_id: Joi.string().required().min(3).max(50).label("Hotel Owner ID"),
+	});
+
 	// Add Hotel Package
 	const addHotelPackage = async (newHotelPackage) => {
+		// Validate the new hotel package
+		const { error } = AddHotelPackageFormSchema.validate(newHotelPackage);
+		if (error) {
+			makeToast({ type: "error", message: error.details[0].message });
+			return;
+		}
 		try {
 			setIsLoading(true);
 			const response = await HotelPackageAPI.createHotelPackage(newHotelPackage);
 			setHotelPackages([...hotelPackages, response.data]);
 			setIsLoading(false);
+			navigate("/hotel-owner/manage-packages");
 			makeToast({ type: "success", message: "Hotel Package Added Successfully" });
 		} catch (error) {
 			// eslint-disable-next-line no-console
@@ -121,6 +143,19 @@ export function HotelPackageProvider({ children }) {
 		}
 	};
 
+	// Search Hotel Package
+	const searchHotelPackage = async (searchTerm) => {
+		try {
+			setIsLoading(true);
+			const response = await HotelPackageAPI.searchHotelPackage(searchTerm);
+			setHotelPackages(response.data);
+			setIsLoading(false);
+		} catch (error) {
+			// eslint-disable-next-line no-console
+			console.log(error);
+		}
+	};
+
 	return (
 		<HotelPackageContext.Provider
 			value={{
@@ -134,6 +169,7 @@ export function HotelPackageProvider({ children }) {
 				setHotelPackagesByHotelOwnerID,
 				updateHotelPackage,
 				getHotelPackageByID,
+				searchHotelPackage,
 			}}
 		>
 			{children}
