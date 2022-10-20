@@ -56,6 +56,10 @@ import {
 	VehicleOwnerRegister,
 	VehicleOwnerLogin,
 	WhoAreYou,
+
+	/*Custommer */
+	CustomerRegister,
+
 } from "../pages";
 
 const AppRoutes = () => {
@@ -129,6 +133,7 @@ const AppRoutes = () => {
 
 					{/*customer*/}
 					<Route path="/customersignup" element={<CustomerSignup />} />
+					<Route path="/customer-register" element={<CustomerRegister />} />
 				</Routes>
 			</Router>
 		</>
