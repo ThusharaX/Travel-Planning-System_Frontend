@@ -133,10 +133,9 @@ const AppRoutes = () => {
 					{/*customer*/}
 					<Route path="/customersignup" element={<CustomerSignup />} />
 
-					{/*Display page*/ }
+					{/*Display page*/}
 
 					<Route path="/displayvehicle" element={<Displaypage />} />
-					
 				</Routes>
 			</Router>
 		</>

@@ -105,6 +105,5 @@ export {
 	WhoAreYou,
 
 	/*Display page*/
-
 	Displaypage,
 };
