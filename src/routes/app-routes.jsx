@@ -93,9 +93,13 @@ const AppRoutes = () => {
 					<Route path="/vehicleedit/:id" element={<VehicleEdit />} />
 					<Route path="/camping-package-edit/:id" element={<CampingPackageEdit />} />
 
+					{/*Check Login Status Tour Guide */}
+
+					<Route exact path="/tour-guide-login" element={<CheckLoginStatus />}>
+						<Route exact path="/tour-guide-login" element={<TourGuideLogin />} />
+					</Route>
 					{/* Tour Guide */}
 					<Route path="/tour-guide-register" element={<TourGuideRegister />} />
-					<Route path="/tour-guide-login" element={<TourGuideLogin />} />
 					<Route path="/tour-guide-dashboard" element={<TourGuideDashboard />} />
 					<Route path="/tour-guide-edit-profile/:id" element={<TourGuideEditProfile />} />
 
