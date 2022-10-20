@@ -70,7 +70,7 @@ export function VehicleTourProvider({ children }) {
 				//navigate("/viewres");
 				// eslint-disable-next-line no-console
 				console.log("updated successfully...");
-				navigate("/vehicle");
+				navigate("/vehicle-profile");
 			})
 			.catch((err) => {
 				// eslint-disable-next-line no-console
