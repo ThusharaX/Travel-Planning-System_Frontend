@@ -1,23 +1,23 @@
 import React, { useContext } from "react";
 
-import HotelOwnerContext from "../../contexts/HotelOwnerContext";
+import AdminContext from "../../contexts/AdminContext";
 
-const HotelOwnerLogin = () => {
-	const { login, isLoggedIn, isLoading, message } = useContext(HotelOwnerContext);
+const AdminLogin = () => {
+	const { login, isLoggedIn, isLoading, message } = useContext(AdminContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const newHotelOwner = {
+		const newAdmin = {
 			email: e.target.email.value,
 			password: e.target.password.value,
 		};
 
-		login(newHotelOwner);
+		login(newAdmin);
 	};
 
 	return (
 		<>
-			<h1 className="mt-5 text-4xl text-center">Hotel Owner Login</h1>
+			<h1 className="mt-5 text-4xl text-center">Admin Login</h1>
 
 			<div className="flex justify-center">
 				<div className="w-1/2">
@@ -53,19 +53,6 @@ const HotelOwnerLogin = () => {
 							</button>
 						</div>
 						<hr className="mb-6 border-t" />
-						{/* <div className="text-center">
-							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
-								Forgot Password?
-							</a>
-						</div> */}
-						<div className="text-center">
-							<a
-								className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-								href="/hotel-owner/register"
-							>
-								Create an Account.
-							</a>
-						</div>
 					</form>
 				</div>
 			</div>
@@ -73,4 +60,4 @@ const HotelOwnerLogin = () => {
 	);
 };
 
-export default HotelOwnerLogin;
+export default AdminLogin;

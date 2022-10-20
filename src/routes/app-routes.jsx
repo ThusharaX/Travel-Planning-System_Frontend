@@ -18,12 +18,17 @@ import {
 	HotelOwnerDashboard,
 	HotelOwnerEdit,
 	Home,
+	AdminLogin,
+	AdminDashboard,
+	AdminEdit,
 
 	// Hotel Package
 	HotelPackageList,
 	HotelPackageCreate,
 	HotelOwnerManagePackages,
 	HotelPackageEdit,
+	HotelPackageReport,
+	HotelPackage,
 
 	/*Camping Package*/
 	CampingPackageCreate,
@@ -73,6 +78,7 @@ const AppRoutes = () => {
 					<Route path="/sample" element={<Sample />} />
 					{/* Hotel Package */}
 					<Route exact path="/hotel-package" element={<HotelPackageList />} />
+					<Route exact path="/hotel-package/:id" element={<HotelPackage />} />
 
 					{/* Check Login Status */}
 					<Route exact path="/hotel-owner/login" element={<CheckLoginStatus />}>
@@ -89,6 +95,18 @@ const AppRoutes = () => {
 						<Route exact path="/hotel-owner/create-package" element={<HotelPackageCreate />} />
 						<Route exact path="/hotel-owner/edit-package/:id" element={<HotelPackageEdit />} />
 						<Route exact path="/hotel-owner/manage-packages" element={<HotelOwnerManagePackages />} />
+						<Route exact path="/hotel-owner/report" element={<HotelPackageReport />} />
+					</Route>
+
+					{/* Check Login Status Admin */}
+					<Route exact path="/admin/login" element={<CheckLoginStatus />}>
+						<Route exact path="/admin/login" element={<AdminLogin />} />
+					</Route>
+
+					{/* Admin Private Routes */}
+					<Route exact path="/admin" element={<PrivateRoute permissionLevel="ADMIN" />}>
+						<Route exact path="/admin" element={<AdminDashboard />} />
+						<Route exact path="/admin/edit" element={<AdminEdit />} />
 					</Route>
 
 					<Route path="/camping-package-create" element={<CampingPackageCreate />} />
@@ -98,13 +116,9 @@ const AppRoutes = () => {
 					<Route path="/vehicleedit/:id" element={<VehicleEdit />} />
 					<Route path="/camping-package-edit/:id" element={<CampingPackageEdit />} />
 
-					{/*Check Login Status Tour Guide */}
-
-					<Route exact path="/tour-guide-login" element={<CheckLoginStatus />}>
-						<Route exact path="/tour-guide-login" element={<TourGuideLogin />} />
-					</Route>
 					{/* Tour Guide */}
 					<Route path="/tour-guide-register" element={<TourGuideRegister />} />
+					<Route path="/tour-guide-login" element={<TourGuideLogin />} />
 					<Route path="/tour-guide-dashboard" element={<TourGuideDashboard />} />
 					<Route path="/tour-guide-edit-profile/:id" element={<TourGuideEditProfile />} />
 

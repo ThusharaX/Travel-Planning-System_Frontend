@@ -7,16 +7,22 @@ import HotelOwnerRegister from "./hotel-owner-register";
 import HotelOwnerDashboard from "./hotel-owner-dashboard";
 import HotelOwnerEdit from "./hotel-owner-edit";
 
+// Admin
+import AdminLogin from "./admin-login";
+import AdminDashboard from "./admin-dashboard";
+import AdminEdit from "./admin-edit";
+
 // Hotel Package
 import HotelPackageList from "./hotel-package-list";
 import HotelPackageCreate from "./hotel-package-create";
 import HotelOwnerManagePackages from "./hotel-owner-manage-packages";
 import HotelPackageEdit from "./hotel-package-edit";
+import HotelPackageReport from "./hotel-package-report";
+import HotelPackage from "./hotel-package";
 
 import VehicleEdit from "./vehicle-edit";
 import VehicleList from "./vehicle-owner";
 import VehicleCreate from "./vehicle-create";
-import Userprofile from "./vehicleOwner-profile/Userprofile";
 
 /* Tour Package */
 import TourPackageCreate from "./tour-package-create";
@@ -46,6 +52,7 @@ import CampingVendorDashboard from "./camping-vendor-dashboard";
 /*Vehicle Owner */
 import VehicleOwnerRegister from "./vehicle-owner-register";
 import VehicleOwnerLogin from "./vehicle-owner-login";
+import Userprofile from "./vehicleOwner-profile";
 
 import WhoAreYou from "./who-are-you";
 
@@ -62,11 +69,18 @@ export {
 	HotelOwnerDashboard,
 	Home,
 
+	// Admin
+	AdminLogin,
+	AdminEdit,
+	AdminDashboard,
+
 	// Hotel Package
 	HotelPackageList,
 	HotelPackageCreate,
 	HotelOwnerManagePackages,
 	HotelPackageEdit,
+	HotelPackageReport,
+	HotelPackage,
 
 	/*Camping Package*/
 	CampingPackageList,
@@ -83,7 +97,6 @@ export {
 	TourGuideLogin,
 	TourGuideDashboard,
 	TourGuideEditProfile,
-	Userprofile,
 	CustomerSignup,
 
 	/*Vehicle Package*/
@@ -99,6 +112,7 @@ export {
 	/* Vehicle Owner*/
 	VehicleOwnerRegister,
 	VehicleOwnerLogin,
+	Userprofile,
 	WhoAreYou,
 
 	/*Customer */

@@ -1,21 +1,35 @@
 .usercard {
 	margin-left: 90px;
-	margin-top: 50px;
+	margin-top: 100px;
 }
 
 .table {
+	position: fixed;
 	margin-left: 500px;
 	width: 60%;
 	margin-top: -490px;
 }
 
 .btn {
-	margin-left: 650px;
+	position: fixed;
+	margin-left: 500px;
+	margin-top: -550px;
+}
+.btn1 {
+	position: fixed;
+	margin-left: 800px;
+	margin-top: -550px;
+}
+.btn2 {
+	position: fixed;
+	margin-left: 1100px;
+	margin-top: -550px;
 }
 .bottombtn {
 	margin-left: 50px;
 }
-.searchbtn {
-	margin-top: -37px;
-	margin-left: -250px;
+.searchAdd {
+	position: fixed;
+	margin-top: -620px;
+	margin-left: 1000px;
 }
