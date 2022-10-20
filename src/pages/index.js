@@ -83,10 +83,7 @@ export {
 	TourGuideRegister,
 	TourGuideLogin,
 	TourGuideDashboard,
-
 	TourGuideEditProfile,
-	Userprofile,
-
 	CustomerSignup,
 
 	/*Vehicle Package*/
@@ -102,9 +99,6 @@ export {
 	/* Vehicle Owner*/
 	VehicleOwnerRegister,
 	VehicleOwnerLogin,
-
 	Userprofile,
-
 	WhoAreYou,
-
 };
