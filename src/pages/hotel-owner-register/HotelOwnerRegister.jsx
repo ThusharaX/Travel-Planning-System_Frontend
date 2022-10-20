@@ -16,7 +16,8 @@ const HotelOwnerRegister = () => {
 		hotelAddress: "Colombo 07",
 		companyPhoneNumber: "0112345678",
 		companyRegNo: "REG123",
-		profilePicture: "https://images.unsplash.com/photo-1654110455429-cf322b40a906?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
+		profilePicture:
+			"https://images.unsplash.com/photo-1654110455429-cf322b40a906?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
 	};
 
 	const handleSubmit = (e) => {
