@@ -56,6 +56,9 @@ import Userprofile from "./vehicleOwner-profile";
 
 import WhoAreYou from "./who-are-you";
 
+// Customer
+import CustomerRegister from "./customer-register";
+
 export {
 	Sample,
 
@@ -111,4 +114,7 @@ export {
 	VehicleOwnerLogin,
 	Userprofile,
 	WhoAreYou,
+
+	/*Customer */
+	CustomerRegister,
 };
