@@ -28,7 +28,7 @@ const WhoAreYou = () => {
 				</div>
 				{/* Tour Guide */}
 				<div className="w-1/4 m-2">
-					<Link to="/tour-guide">
+					<Link to="/tour-guide-login">
 						<div className="bg-white shadow-md rounded-lg p-4">
 							<div className="flex flex-col items-center">
 								<div className="w-20 h-20 rounded-full bg-gray-200 flex justify-center items-center">

@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
 	const permissionLevel = localStorage.getItem("permissionLevel");
 	const uID = localStorage.getItem("uID") || null;
+
+	const logout = () => {
+		localStorage.removeItem("authToken");
+		localStorage.removeItem("uID");
+		localStorage.removeItem("username");
+		localStorage.removeItem("ContactNumber");
+		localStorage.removeItem("Email");
+		localStorage.removeItem("permissionLevel");
+
+		if (permissionLevel == "TOUR_GUIDE") {
+			window.location.href = "/tour-guide-login";
+		} else if (permissionLevel == "HOTEL_OWNER") {
+			window.location.href = "/hotel-owner/login";
+		} else if (permissionLevel == "CAMPING_VENDOR") {
+			window.location.href = "/camping-vendor-login";
+		} else if (permissionLevel == "VEHICLE_OWNER") {
+			window.location.href = "/vehicle-owner-login";
+		} else {
+			window.location.href = "/";
+		}
+	};
 	return (
 		<>
 			<div className="bg-primary-blue text-2xl">
@@ -108,6 +129,28 @@ const Header = () => {
 										Tour Packages
 									</Link>
 								</li>
+
+								{localStorage.getItem("authToken") ? (
+									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg " onClick={logout}>
+										<Link to="#" className="text-base font-bold  text-primary-blue">
+											Logout
+										</Link>
+									</li>
+								) : (
+									<>
+										<li className="mr-6">
+											<Link to="/who-are-you" className="text-base font-medium text-white hover:text-gray-300">
+												Login
+											</Link>
+										</li>
+
+										<li className="mr-6">
+											<Link to="/tour-package-list" className="text-base font-medium text-white hover:text-gray-300">
+												SignUp
+											</Link>
+										</li>
+									</>
+								)}
 							</ul>
 						</nav>
 					</div>
