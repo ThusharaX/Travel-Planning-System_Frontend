@@ -94,7 +94,7 @@ const AppRoutes = () => {
 					<Route path="/vehicle" element={<VehicleList />} />
 					<Route path="/vehicleedit/:id" element={<VehicleEdit />} />
 					<Route path="/camping-package-edit/:id" element={<CampingPackageEdit />} />
-		
+
 					{/* Tour Guide */}
 					<Route path="/tour-guide-register" element={<TourGuideRegister />} />
 					<Route path="/tour-guide-login" element={<TourGuideLogin />} />
