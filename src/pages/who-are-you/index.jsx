@@ -44,7 +44,7 @@ const WhoAreYou = () => {
 				</div>
 				{/* Camping Vendor */}
 				<div className="w-1/4 m-2">
-					<Link to="/camping-vendor">
+					<Link to="/camping-vendor-login">
 						<div className="bg-white shadow-md rounded-lg p-4">
 							<div className="flex flex-col items-center">
 								<div className="w-20 h-20 rounded-full bg-gray-200 flex justify-center items-center">
@@ -61,7 +61,7 @@ const WhoAreYou = () => {
 				</div>
 				{/* Vehicle Owner */}
 				<div className="w-1/4 m-2">
-					<Link to="/vehicle-owner">
+					<Link to="/vehicle-owner-login">
 						<div className="bg-white shadow-md rounded-lg p-4">
 							<div className="flex flex-col items-center">
 								<div className="w-20 h-20 rounded-full bg-gray-200 flex justify-center items-center">
