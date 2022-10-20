@@ -40,6 +40,34 @@ const Header = () => {
 								) : (
 									<p></p>
 								)}
+
+								{/* Hotel packages */}
+								<li className="mr-6">
+									<Link to="/hotel-package" className="text-base font-medium text-white hover:text-gray-300">
+										Hotel Packages
+									</Link>
+								</li>
+
+								{/* Caming Packages */}
+								<li className="mr-6">
+									<Link to="/camping-package" className="text-base font-medium text-white hover:text-gray-300">
+										Camping Packages
+									</Link>
+								</li>
+
+								{/* Vehicle Packages */}
+								<li className="mr-6">
+									<Link to="/vehicle" className="text-base font-medium text-white hover:text-gray-300">
+										Vehicle Packages
+									</Link>
+								</li>
+
+								{/* Tour Packages */}
+								<li className="mr-6">
+									<Link to="/tour-package-list" className="text-base font-medium text-white hover:text-gray-300">
+										Tour Packages
+									</Link>
+								</li>
 							</ul>
 						</nav>
 					</div>

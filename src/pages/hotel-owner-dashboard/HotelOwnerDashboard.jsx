@@ -57,7 +57,7 @@ const HotelOwnerDashboard = () => {
 					</Link>
 
 					{/* Card 1 */}
-					<Link to="/hotel-package-report">
+					<Link to="/hotel-owner/report">
 						<div className="m-5 p-5 sm:p-10 md:p-20 bg-white drop-shadow-lg bg-no-repeat bg-left-top bg-cover md:bg-[url('../hotelPackageReport.png')] rounded-3xl">
 							<h1 className="text-primary-blue md:text-white md:bg-black md:bg-opacity-60 md:p-2 rounded-xl font-bold text-lg md:text-3xl hover:underline">
 								Generate Report

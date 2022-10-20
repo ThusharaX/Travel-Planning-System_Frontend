@@ -24,6 +24,7 @@ import {
 	HotelPackageCreate,
 	HotelOwnerManagePackages,
 	HotelPackageEdit,
+	HotelPackageReport,
 
 	/*Camping Package*/
 	CampingPackageCreate,
@@ -86,6 +87,7 @@ const AppRoutes = () => {
 						<Route exact path="/hotel-owner/create-package" element={<HotelPackageCreate />} />
 						<Route exact path="/hotel-owner/edit-package/:id" element={<HotelPackageEdit />} />
 						<Route exact path="/hotel-owner/manage-packages" element={<HotelOwnerManagePackages />} />
+						<Route exact path="/hotel-owner/report" element={<HotelPackageReport />} />
 					</Route>
 
 					<Route path="/camping-package-create" element={<CampingPackageCreate />} />
