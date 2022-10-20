@@ -68,7 +68,7 @@ const HotelPackage = () => {
 									key={image}
 									src={image}
 									alt="hotel"
-									className="w-1/3 border-2 border-black"
+									className="w-1/3 border-2 border-black cursor-pointer"
 									onClick={() => {
 										setSelectedImage(image);
 										setShowModal(true);

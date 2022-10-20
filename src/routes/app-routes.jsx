@@ -18,6 +18,9 @@ import {
 	HotelOwnerDashboard,
 	HotelOwnerEdit,
 	Home,
+	AdminLogin,
+	AdminDashboard,
+	AdminEdit,
 
 	// Hotel Package
 	HotelPackageList,
@@ -92,6 +95,17 @@ const AppRoutes = () => {
 						<Route exact path="/hotel-owner/report" element={<HotelPackageReport />} />
 					</Route>
 
+					{/* Check Login Status Admin */}
+					<Route exact path="/admin/login" element={<CheckLoginStatus />}>
+						<Route exact path="/admin/login" element={<AdminLogin />} />
+					</Route>
+
+					{/* Admin Private Routes */}
+					<Route exact path="/admin" element={<PrivateRoute permissionLevel="ADMIN" />}>
+						<Route exact path="/admin" element={<AdminDashboard />} />
+						<Route exact path="/admin/edit" element={<AdminEdit />} />
+					</Route>
+
 					<Route path="/camping-package-create" element={<CampingPackageCreate />} />
 
 					<Route path="/vehicle-create" element={<VehicleCreate />} />
@@ -99,13 +113,9 @@ const AppRoutes = () => {
 					<Route path="/vehicleedit/:id" element={<VehicleEdit />} />
 					<Route path="/camping-package-edit/:id" element={<CampingPackageEdit />} />
 
-					{/*Check Login Status Tour Guide */}
-
-					<Route exact path="/tour-guide-login" element={<CheckLoginStatus />}>
-						<Route exact path="/tour-guide-login" element={<TourGuideLogin />} />
-					</Route>
 					{/* Tour Guide */}
 					<Route path="/tour-guide-register" element={<TourGuideRegister />} />
+					<Route path="/tour-guide-login" element={<TourGuideLogin />} />
 					<Route path="/tour-guide-dashboard" element={<TourGuideDashboard />} />
 					<Route path="/tour-guide-edit-profile/:id" element={<TourGuideEditProfile />} />
 
