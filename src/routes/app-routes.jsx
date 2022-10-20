@@ -55,6 +55,7 @@ import {
 	/*Vehicle Owner */
 	VehicleOwnerRegister,
 	VehicleOwnerLogin,
+	WhoAreYou,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -65,6 +66,7 @@ const AppRoutes = () => {
 				<Routes>
 					{/* Public Routes */}
 					<Route path="/" element={<Home />} />
+					<Route path="/who-are-you" element={<WhoAreYou />} />
 					<Route path="/sample" element={<Sample />} />
 					{/* Hotel Package */}
 					<Route exact path="/hotel-package" element={<HotelPackageList />} />
