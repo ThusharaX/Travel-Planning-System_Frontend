@@ -41,6 +41,16 @@ const Header = () => {
 									<p></p>
 								)}
 
+								{permissionLevel === "ADMIN" ? (
+									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg ">
+										<Link to="/admin" className="text-base font-bold  text-primary-blue">
+											Admin Dashboard
+										</Link>
+									</li>
+								) : (
+									<p></p>
+								)}
+
 								{permissionLevel === "CAMPING_VENDOR" ? (
 									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg ">
 										<Link to="/camping-vendor-dashboard" className="text-base font-bold  text-primary-blue">

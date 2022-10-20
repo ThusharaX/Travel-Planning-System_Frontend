@@ -8,7 +8,7 @@ const WhoAreYou = () => {
 	// Vehicle Owner
 	return (
 		<>
-			{/* <h1>WhoAreYou</h1> */}
+			<h1 className="mt-5 text-4xl text-center">Who are you</h1>
 
 			{/* 4 cards for 4 types of users */}
 			<div className="flex flex-wrap justify-center mt-10">
