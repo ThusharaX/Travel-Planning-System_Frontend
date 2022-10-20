@@ -21,6 +21,8 @@ const Header = () => {
 			window.location.href = "/camping-vendor-login";
 		} else if (permissionLevel == "VEHICLE_OWNER") {
 			window.location.href = "/vehicle-owner-login";
+		} else if (permissionLevel == "ADMIN") {
+			window.location.href = "/admin";
 		} else {
 			window.location.href = "/";
 		}
@@ -56,6 +58,16 @@ const Header = () => {
 									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg ">
 										<Link to="/hotel-owner" className="text-base font-bold  text-primary-blue">
 											Dashboard
+										</Link>
+									</li>
+								) : (
+									<p></p>
+								)}
+
+								{permissionLevel === "ADMIN" ? (
+									<li className="mr-6 bg-white hover:bg-gray-300 px-5 rounded-lg ">
+										<Link to="/admin" className="text-base font-bold  text-primary-blue">
+											Admin Dashboard
 										</Link>
 									</li>
 								) : (
@@ -137,19 +149,7 @@ const Header = () => {
 										</Link>
 									</li>
 								) : (
-									<>
-										<li className="mr-6">
-											<Link to="/who-are-you" className="text-base font-medium text-white hover:text-gray-300">
-												Login
-											</Link>
-										</li>
-
-										<li className="mr-6">
-											<Link to="/tour-package-list" className="text-base font-medium text-white hover:text-gray-300">
-												SignUp
-											</Link>
-										</li>
-									</>
+									<></>
 								)}
 							</ul>
 						</nav>

@@ -33,7 +33,7 @@ const HotelPackageEdit = () => {
 			<h1 className="mt-5 text-4xl text-center font-bold">Update Hotel Package</h1>
 
 			<div className="flex justify-center">
-				<div className="border-t w-1/2 px-10 rounded-2xl mt-5 shadow-2xl">
+				<div className="border-t w-1/2 px-10 rounded-2xl mt-5 shadow-2xl bg-white">
 					<form className="mt-5" onSubmit={handleSubmit}>
 						{/* side by side */}
 						<div className="flex flex-row space-x-4">
@@ -129,14 +129,15 @@ const HotelPackageEdit = () => {
 						{/* Select multiple images */}
 						<div className="mb-4">
 							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="images">
-								Images
+								Images URL (separated by comma)
 							</label>
 							{/* Choose file button color red */}
 							<input
 								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 								id="images"
-								type="file"
-								multiple
+								type="text"
+								placeholder="Images URL (separated by comma)"
+								defaultValue={hotelPackage.images}
 							/>
 						</div>
 
