@@ -4,6 +4,9 @@ import VehicleTourContext from "../../contexts/VehicleTourContext";
 
 const VehicleCreate = () => {
 	const { isLoading, addVehicle } = useContext(VehicleTourContext);
+	const id = localStorage.getItem("uID");
+
+	console.log("user ID is" + id);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -15,6 +18,7 @@ const VehicleCreate = () => {
 		}
 
 		const newVehicle = {
+			ownerId: id,
 			vehicleType: e.target.vehicleType.value,
 			regNo: e.target.regNo.value,
 			ownersName: e.target.ownersName.value,
