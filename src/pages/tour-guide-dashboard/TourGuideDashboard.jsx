@@ -8,7 +8,7 @@ import "../tour-guide-dashboard/TourGuideDashboard.css";
 import { useContext } from "react";
 
 const TourGuideDashboard = () => {
-	const { isLoading, tourGuide, getOneTourGuide, logout } = useContext(TourGuideContext);
+	const { isLoading, tourGuide, getOneTourGuide } = useContext(TourGuideContext);
 
 	const id = localStorage.getItem("uID");
 	console.log(id);
