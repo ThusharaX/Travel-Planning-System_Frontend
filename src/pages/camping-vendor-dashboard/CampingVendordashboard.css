@@ -7,13 +7,13 @@
 	margin-left: 500px;
 	width: 60%;
 	margin-top: -350px;
-	position: relative;
+	position: fixed;
 }
 
 .btn {
-	position: relative;
-	margin-left: 1px;
-	margin-top: -280px;
+	position: fixed;
+	margin-left: 501px;
+	margin-top: -400px;
 }
 .bottombtn {
 	margin-left: 50px;
@@ -30,8 +30,13 @@
 
 .searchAdd {
 	position: fixed;
+
+	margin-top: -395px;
+	margin-left: 1100px;
+
 	margin-top: -45px;
 	margin-left: 600px;
+
 }
 
 .hello {
