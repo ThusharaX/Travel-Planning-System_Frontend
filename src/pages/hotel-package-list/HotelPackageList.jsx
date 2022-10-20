@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import HotelPackageContext from "../../contexts/HotelPackageContext";
+import { Link } from "react-router-dom";
 
 const HotelPackageList = () => {
 	const { isLoading, hotelPackages } = useContext(HotelPackageContext);
@@ -11,11 +12,13 @@ const HotelPackageList = () => {
 				<h1 className="mt-5 text-3xl text-left ml-10 font-bold text-primary-blue">Hotel Packages</h1>
 				<div className="mr-10">
 					{/* when button clicked, redirect to create page */}
-					<a href="/hotel-package-create">
-						<button className="bg-primary-blue text-white font-bold py-2 px-4 rounded-full mt-5">
-							+ Add Hotel Package
-						</button>
-					</a>
+					{localStorage.getItem("permissionLevel") === "HOTEL_OWNER" && (
+						<Link to="/hotel-owner/create-package">
+							<button className="bg-primary-blue text-white font-bold py-2 px-4 rounded-full mt-5">
+								+ Add Hotel Package
+							</button>
+						</Link>
+					)}
 				</div>
 			</div>
 

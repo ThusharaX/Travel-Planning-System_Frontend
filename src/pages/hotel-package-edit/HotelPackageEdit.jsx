@@ -1,19 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import HotelPackageContext from "../../contexts/HotelPackageContext";
 
-const HotelPackageCreate = () => {
-	const { isLoading, addHotelPackage } = useContext(HotelPackageContext);
+const HotelPackageEdit = () => {
+	const { hotelPackage, updateHotelPackage, getHotelPackageByID } = useContext(HotelPackageContext);
+
+	const hotelPackageId = window.location.pathname.split("/")[3];
+
+	useEffect(() => {
+		// eslint-disable-next-line no-console
+		// console.log(hotelPackageId);
+		getHotelPackageByID(hotelPackageId);
+	}, []);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		// Convert image to array
-		var imageArray = [];
-		for (var i = 0; i < e.target.images.files.length; i++) {
-			imageArray.push(e.target.images.files[i].name);
-		}
-
 		const newHotelPackage = {
+			id: hotelPackageId,
 			name: e.target.name.value,
 			location: e.target.location.value,
 			condition: e.target.condition.value,
@@ -21,15 +24,13 @@ const HotelPackageCreate = () => {
 			room_no: e.target.room_no.value,
 			cost: e.target.cost.value,
 			description: e.target.description.value,
-			images: imageArray,
-			hotel_owner_id: localStorage.getItem("uID"),
 		};
-		addHotelPackage(newHotelPackage);
+		updateHotelPackage(newHotelPackage);
 	};
 
 	return (
 		<>
-			<h1 className="mt-5 text-4xl text-center font-bold">Add Hotel Package</h1>
+			<h1 className="mt-5 text-4xl text-center font-bold">Update Hotel Package</h1>
 
 			<div className="flex justify-center">
 				<div className="border-t w-1/2 px-10 rounded-2xl mt-5 shadow-2xl">
@@ -45,6 +46,7 @@ const HotelPackageCreate = () => {
 									id="name"
 									type="text"
 									placeholder="Name"
+									defaultValue={hotelPackage.name}
 								/>
 							</div>
 							<div className="mb-4 w-1/2">
@@ -56,6 +58,7 @@ const HotelPackageCreate = () => {
 									id="location"
 									type="text"
 									placeholder="Location"
+									defaultValue={hotelPackage.location}
 								/>
 							</div>
 						</div>
@@ -81,6 +84,7 @@ const HotelPackageCreate = () => {
 									id="beds"
 									type="number"
 									placeholder="Beds"
+									defaultValue={hotelPackage.beds}
 								/>
 							</div>
 						</div>
@@ -94,6 +98,7 @@ const HotelPackageCreate = () => {
 									id="room_no"
 									type="text"
 									placeholder="Room No"
+									defaultValue={hotelPackage.room_no}
 								/>
 							</div>
 							<div className="mb-4 w-1/2">
@@ -105,6 +110,7 @@ const HotelPackageCreate = () => {
 									id="cost"
 									type="number"
 									placeholder="Cost"
+									defaultValue={hotelPackage.cost}
 								/>
 							</div>
 						</div>
@@ -117,6 +123,7 @@ const HotelPackageCreate = () => {
 								id="description"
 								type="text"
 								placeholder="Description"
+								defaultValue={hotelPackage.description}
 							/>
 						</div>
 						{/* Select multiple images */}
@@ -138,7 +145,7 @@ const HotelPackageCreate = () => {
 								className="w-full px-4 py-2 font-bold text-white bg-primary-blue rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
 								type="submit"
 							>
-								ADD
+								Update
 							</button>
 						</div>
 					</form>
@@ -148,4 +155,4 @@ const HotelPackageCreate = () => {
 	);
 };
 
-export default HotelPackageCreate;
+export default HotelPackageEdit;

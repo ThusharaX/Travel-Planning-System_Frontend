@@ -52,9 +52,24 @@ export function HotelOwnerProvider({ children }) {
 		permissionLevel: Joi.string().valid("HOTEL_OWNER"),
 	});
 
+	// Login Form Validation
+	const LoginFormSchema = Joi.object({
+		email: Joi.string()
+			.email({ tlds: { allow: false } })
+			.message("Email should be valid"),
+		password: Joi.string().min(4).message("Password should be valid"),
+	});
+
 	// Hotel Owner Login
 	const login = (values) => {
 		setIsLoading(true);
+		// Validate
+		const { error } = LoginFormSchema.validate(values);
+		if (error) {
+			makeToast({ type: "error", message: error.details[0].message });
+			return;
+		}
+
 		HotelOwnerAPI.login(values)
 			.then((response) => {
 				localStorage.setItem("uID", response.data._id);
@@ -64,6 +79,7 @@ export function HotelOwnerProvider({ children }) {
 				navigate("/hotel-owner");
 				setIsLoggedIn(true);
 				setIsLoading(false);
+				window.location.reload();
 				makeToast({ type: "success", message: "Login Successful" });
 			})
 			.catch((err) => {
@@ -80,11 +96,20 @@ export function HotelOwnerProvider({ children }) {
 		localStorage.removeItem("uID");
 		localStorage.removeItem("hotelOwnername");
 		localStorage.removeItem("permissionLevel");
-		window.location.href = "/";
+		navigate("/hotel-owner/login");
+		window.location.reload();
+		makeToast({ type: "success", message: "Logout Successful" });
 	};
 
 	// Hotel Owner Register
 	const register = (values) => {
+		// Validate
+		const { error } = SignUpFormSchema.validate(values);
+		if (error) {
+			makeToast({ type: "error", message: error.details[0].message });
+			return;
+		}
+
 		setIsLoading(true);
 		HotelOwnerAPI.register(values)
 			.then((response) => {
@@ -102,6 +127,23 @@ export function HotelOwnerProvider({ children }) {
 			});
 	};
 
+	// Update Hotel Owner Profile
+	const updateProfile = (values) => {
+		const uID = localStorage.getItem("uID");
+		setIsLoading(true);
+		HotelOwnerAPI.updateProfile(uID, values)
+			.then((response) => {
+				setHotelOwner(response.data);
+				setIsLoading(false);
+				makeToast({ type: "success", message: "Profile Updated Successfully" });
+				navigate("/hotel-owner");
+			})
+			.catch((err) => {
+				setMessage(err.response.data.details.message);
+				setIsLoading(false);
+			});
+	};
+
 	useEffect(() => {
 		if (localStorage.getItem("uID")) {
 			HotelOwnerAPI.getHotelOwnerDetails(localStorage.getItem("uID")).then((response) => {
@@ -111,7 +153,9 @@ export function HotelOwnerProvider({ children }) {
 	}, []);
 
 	return (
-		<HotelOwnerContext.Provider value={{ login, logout, isLoggedIn, isLoading, message, register, hotelOwner }}>
+		<HotelOwnerContext.Provider
+			value={{ updateProfile, login, logout, isLoggedIn, isLoading, message, register, hotelOwner }}
+		>
 			{children}
 		</HotelOwnerContext.Provider>
 	);
