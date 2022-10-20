@@ -40,7 +40,7 @@ export function CampingVenderProvider({ children }) {
 		CampingVendorAPI.campingVendorRegister(values)
 			.then((response) => {
 				setCampingVenders([...campingVenders, response.data]);
-				alert("Registered");
+				alert("Camping Vendor Registration Successful...!!!");
 				window.location.href = "/camping-vendor-login";
 			})
 			.catch((err) => {
@@ -107,10 +107,12 @@ export function CampingVenderProvider({ children }) {
 			.then((response) => {
 				//console.log(res.data);
 				//navigate("/viewres");
+				// eslint-disable-next-line no-console
 				console.log("updated successfully...");
 				navigate("/camping-vendor-dashboard");
 			})
 			.catch((err) => {
+				// eslint-disable-next-line no-console
 				console.log(err);
 			});
 

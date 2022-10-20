@@ -1,16 +1,12 @@
-//import Joi from "joi";
 import { createContext, useState, useEffect } from "react";
 import TourPackageAPI from "./api/TourPackageAPI";
+import makeToast from "../components/toast";
 
 const TourPackageContext = createContext();
 
 export function TourPackageProvider({ children }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [tourPackages, setTourPackages] = useState([]);
-
-	/*const schemaProfile = Joi.object({
-		tourPackageName: Joi.string().required(),
-	}); */
 
 	//Tour Package
 
@@ -41,8 +37,8 @@ export function TourPackageProvider({ children }) {
 			setIsLoading(true);
 			const response = await TourPackageAPI.createTourPacakge(newTourPackage);
 			setTourPackages([...tourPackages, response.data]);
-			alert("Tour Package Added Successful...!!!");
 			setIsLoading(false);
+			makeToast({ type: "success", message: "Tour Package added successful" });
 			window.location.href = "/tour-package-list";
 		} catch (error) {
 			// eslint-disable-next-line no-console
@@ -63,6 +59,7 @@ export function TourPackageProvider({ children }) {
 	const deleteTourPackage = (id) => {
 		TourPackageAPI.deleteTourPackage(id).then(() => {
 			setTourPackages(tourPackages.filter((tourPackages) => tourPackages._id !== id));
+			makeToast({ type: "success", message: "Tour Package deleted successful" });
 		});
 	};
 
@@ -81,11 +78,15 @@ export function TourPackageProvider({ children }) {
 
 		TourPackageAPI.editTourPackage(values.id, newTourPackage)
 			.then((response) => {
-				console.log("Update");
-				alert("update");
+				// eslint-disable-next-line no-console
+
+				window.location.href = "/tour-package-list";
+				// eslint-disable-next-line no-console
+				makeToast({ type: "success", message: "Tour Package update successful" });
 			})
-			.catch((err) => {
-				console.log(err);
+			.catch((error) => {
+				// eslint-disable-next-line no-console
+				console.log(error);
 			});
 	};
 

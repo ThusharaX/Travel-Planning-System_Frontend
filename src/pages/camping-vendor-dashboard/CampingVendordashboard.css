@@ -30,8 +30,13 @@
 
 .searchAdd {
 	position: fixed;
+
 	margin-top: -395px;
 	margin-left: 1100px;
+
+	margin-top: -45px;
+	margin-left: 600px;
+
 }
 
 .hello {

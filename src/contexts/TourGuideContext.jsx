@@ -1,7 +1,8 @@
 import { createContext, useState } from "react";
 import TourGuideAPI from "./api/TourGuideAPI";
-import Joi from "joi";
 import { useEffect } from "react";
+import makeToast from "../components/toast/index";
+import Joi from "joi";
 
 const TourGuideContext = createContext();
 
@@ -12,18 +13,7 @@ export function TourGuideProvider({ children }) {
 	const [mailError, setMailError] = useState("");
 	const [nicError, setNicError] = useState("");
 
-	//Form Validation
-	/*	const schema = Joi.object({
-		tourGuideName: Joi.string().min(5).max(20).message("Name should be between 4 and 20 characters"),
-		email: Joi.string().email().message("Email should be valid"),
-		nic: Joi.string().min(10).max(12).message("NIC should be Valid"),
-		contactNumber: Joi.string().min(10).max(10).message("Contact Number should be Valid"),
-		profilePicture: Joi.string().required(),
-		password: Joi.string().min(5).max(20).message("Password should be between 4 and 20 characters"),
-	}); */
-
 	const [tourGuide, setTourGuide] = useState({
-		//schema: joiResolver(schema),
 		tourGuideName: "",
 		email: "",
 		nic: "",
@@ -36,29 +26,32 @@ export function TourGuideProvider({ children }) {
 		password: "",
 	});
 
-	// Add Tour Guide
+	const SignUpFormSchema = Joi.object({});
 
+	// Toast Message
+
+	// Add Tour Guide
 	const TourGuideRegister = async (values) => {
 		TourGuideAPI.tourGuideRegister(values)
 			.then((response) => {
 				setTourGuides([...tourGuides, response.data]);
-				alert("Tour Guide Registration Successful...!!!");
+				makeToast({ type: "success", message: "Registration Successful" });
 				window.location.href = "/tour-guide-login";
-				tourGuides.reset();
 			})
 			.catch((err) => {
 				console.log(err.response.data);
 				if (err.response.data.details == "Email already exists") {
 					setMailError(err.response.data.details);
-					alert("Email already exist");
+					makeToast({ type: "error", message: "Email already exists" });
 				}
 				if (err.response.data.details == "NIC already exists") {
 					setNicError(err.response.data.details);
-					alert("NIC already exists");
+					makeToast({ type: "error", message: "NIC already exists" });
 				}
 			});
 	};
 
+	// Tour Guide Login
 	const TourGuideLogin = (values) => {
 		setIsLoading(true);
 		TourGuideAPI.tourGuideLogin(values)
@@ -73,7 +66,7 @@ export function TourGuideProvider({ children }) {
 					localStorage.setItem("ContactNumber", response.data.contactNumber);
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
-					alert("Logged In Successfully");
+					makeToast({ type: "success", message: "Login Successful" });
 					window.location.href = "/tour-guide-dashboard";
 					setIsLoggedIn(true);
 					setIsLoggedIn(false);
@@ -81,17 +74,50 @@ export function TourGuideProvider({ children }) {
 			})
 			.catch((err) => {
 				setIsLoading(false);
-				return alert(err.response.data.details.message);
+				makeToast({ type: "error", message: "Invalid Email or Password" });
 			});
 	};
 
 	//Get one Tour Guide
-	const getTourGuide = (id) => {
+	const getOneTourGuide = (id) => {
 		useEffect(() => {
 			TourGuideAPI.getOneTourGuide(id).then((res) => {
 				setTourGuide(res.data);
 			});
 		}, []);
+	};
+
+	// Edit Tour Guide
+	const TourGuideEdit = (values) => {
+		const newTourGuide = {
+			tourGuideName: values.tourGuideName,
+			email: values.email,
+			nic: values.nic,
+			contactNumber: values.contactNumber,
+			guideArea: values.guideArea,
+			guideCity: values.guideCity,
+			spokenLanguages: values.spokenLanguages,
+			motherTongue: values.motherTongue,
+		};
+		TourGuideAPI.editTourGuide(values.id, newTourGuide)
+			.then((response) => {
+				makeToast({ type: "success", message: "Profile Updated Successful" });
+				window.location.href = "/tour-guide-dashboard";
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
+	// Tour Guide Logout
+	const logout = () => {
+		localStorage.removeItem("authToken");
+		localStorage.removeItem("uID");
+		localStorage.removeItem("username");
+		localStorage.removeItem("ContactNumber");
+		localStorage.removeItem("Email");
+		localStorage.removeItem("permissionLevel");
+		window.location.href = "/";
 	};
 
 	return (
@@ -107,7 +133,10 @@ export function TourGuideProvider({ children }) {
 				setMailError,
 				nicError,
 				setNicError,
-				getTourGuide,
+				getOneTourGuide,
+				logout,
+				TourGuideEdit,
+				setTourGuide,
 			}}
 		>
 			{children}

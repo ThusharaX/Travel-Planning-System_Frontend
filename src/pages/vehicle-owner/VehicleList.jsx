@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import VehicleTourContext from "../../contexts/VehicleTourContext";
 
 const VehicleList = () => {
-	const { isLoading, vehicleTours } = useContext(VehicleTourContext);
+	const { isLoading, vehicleTours, deleteVehiclePackage } = useContext(VehicleTourContext);
 
 	return (
 		<>
@@ -65,17 +66,17 @@ const VehicleList = () => {
 														</td>
 
 														<td className="p-2 whitespace-nowrap">
-															<button className="">
+															<Link to={`/vehicleedit/${vehicle._id}`} className="">
 																<img
 																	src="../public/pen-to-square-regular.svg"
 																	width="18"
 																	height="18"
 																	alt="Alex Shatov"
 																></img>
-															</button>
+															</Link>
 														</td>
 														<td className="p-2 whitespace-nowrap">
-															<button className="">
+															<button className="" onClick={() => deleteVehiclePackage(vehicle._id)}>
 																<svg
 																	xmlns="http://www.w3.org/2000/svg"
 																	className="h-5 w-5 mr-2"
