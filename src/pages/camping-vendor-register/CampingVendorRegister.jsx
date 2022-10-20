@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CampingVendorContext from "../../contexts/CampingVenderContext";
 
 const CampingVendorRegister = () => {
-	const { isLoading, CampingVendorRegister, setFileName, fileName } = useContext(CampingVendorContext);
+	const { CampingVendorRegister } = useContext(CampingVendorContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -17,7 +17,7 @@ const CampingVendorRegister = () => {
 			companyAddress: e.target.companyAddress.value,
 			companyPhone: e.target.companyPhone.value,
 			companyRegisterNumber: e.target.companyRegisterNumber.value,
-			profilePicture: fileName,
+			profilePicture: e.target.profilePicture.value,
 			password: e.target.password.value,
 		};
 
