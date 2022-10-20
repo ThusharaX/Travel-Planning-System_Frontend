@@ -1,11 +1,17 @@
 import React from "react";
+import HotelPackageReport from "./HotelPackageReport";
 
-const HotelPackageReport = () => {
+// HotelPackageProvider
+import { HotelPackageProvider } from "../../contexts/HotelPackageContext";
+
+const index = () => {
 	return (
-		<div>
-			<h1>HotelPackageReport</h1>
-		</div>
+		<>
+			<HotelPackageProvider>
+				<HotelPackageReport />
+			</HotelPackageProvider>
+		</>
 	);
 };
 
-export default HotelPackageReport;
+export default index;
