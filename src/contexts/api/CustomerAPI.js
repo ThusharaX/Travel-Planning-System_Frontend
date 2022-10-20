@@ -7,7 +7,7 @@ const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 class CustomerAPI {
 	// Customer Login
 	static customerLogin(values) {
-		return axios.post(`${BASE_URL}/customer-login/`, values, requestConfigJson);
+		return axios.post(`${BASE_URL}/customer/login/`, values, requestConfigJson);
 	}
 	// Customer Register
 	static customerRegister(values) {
