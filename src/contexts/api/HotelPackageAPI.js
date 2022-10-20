@@ -14,6 +14,31 @@ class HotelPackageAPI {
 	static createHotelPackage(newHotelPackage) {
 		return axios.post(`${BASE_URL}/hotel-package/`, newHotelPackage, requestConfigJson);
 	}
+
+	// Get hotel packages by hotel_owner_id
+	static getHotelPackageByHotelOwnerId(hotel_owner_id) {
+		return axios.get(`${BASE_URL}/hotel-packages/hotel-owner/${hotel_owner_id}`, requestConfig);
+	}
+
+	// Delete a hotel package
+	static deleteHotelPackage(hotel_package_id) {
+		return axios.delete(`${BASE_URL}/hotel-package/${hotel_package_id}`, requestConfig);
+	}
+
+	// Edit a hotel package
+	static editHotelPackage(hotel_package_id, updatedHotelPackage) {
+		return axios.put(`${BASE_URL}/hotel-package/${hotel_package_id}`, updatedHotelPackage, requestConfigJson);
+	}
+
+	// Get a hotel package by id
+	static getHotelPackageById(hotel_package_id) {
+		return axios.get(`${BASE_URL}/hotel-package/${hotel_package_id}`, requestConfig);
+	}
+
+	// Search hotel packages
+	static searchHotelPackage(searchTerm) {
+		return axios.get(`${BASE_URL}/hotel-package/search/${searchTerm}`, requestConfig);
+	}
 }
 
 export default HotelPackageAPI;

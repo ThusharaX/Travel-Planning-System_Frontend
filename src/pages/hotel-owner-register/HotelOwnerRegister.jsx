@@ -5,6 +5,21 @@ import HotelOwnerContext from "../../contexts/HotelOwnerContext";
 const HotelOwnerRegister = () => {
 	const { register, isLoggedIn, isLoading, message } = useContext(HotelOwnerContext);
 
+	const initialValues = {
+		ownerName: "Thiwanka",
+		email: "thiwanka@gmail.com",
+		password: "pass",
+		confirmPassword: "pass",
+		nic: "123456789V",
+		contactNumber: "0712345678",
+		hotelName: "Hotel XYZ",
+		hotelAddress: "Colombo 07",
+		companyPhoneNumber: "0112345678",
+		companyRegNo: "REG123",
+		profilePicture:
+			"https://images.unsplash.com/photo-1654110455429-cf322b40a906?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
+	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -18,6 +33,7 @@ const HotelOwnerRegister = () => {
 			hotelAddress: e.target.hotelAddress.value,
 			companyPhoneNumber: e.target.companyPhoneNumber.value,
 			companyRegNo: e.target.companyRegNo.value,
+			profilePicture: e.target.profilePicture.value,
 		};
 
 		register(newHotelOwner);
@@ -131,13 +147,14 @@ const HotelOwnerRegister = () => {
 						</div>
 						<div className="mb-4">
 							<label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="profilePicture">
-								Profile Picture
+								Profile Picture Link
 							</label>
 							<input
 								className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 								id="profilePicture"
-								type="file"
-								placeholder="Profile Picture"
+								type="text"
+								placeholder="Profile Picture Link"
+								value={initialValues.profilePicture}
 							/>
 						</div>
 						<div className="mb-6 text-center">
@@ -149,11 +166,11 @@ const HotelOwnerRegister = () => {
 							</button>
 						</div>
 						<hr className="mb-6 border-t" />
-						<div className="text-center">
+						{/* <div className="text-center">
 							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
 								Forgot Password?
 							</a>
-						</div>
+						</div> */}
 						<div className="text-center">
 							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
 								Already have an account? Login!

@@ -23,7 +23,7 @@ class TourGuideAPI {
 	}
 	// Edit Tour Guide
 	static editTourGuide(id, newTourPackage) {
-		return axios.put(`${BASE_URL}/tour-guide/${id}`, newTourPackage, requestConfig);
+		return axios.put(`${BASE_URL}/tour-guide/${id}`, newTourPackage, requestConfigJson);
 	}
 	// Delete Tour Guide
 	static deleteTourGuide(id) {

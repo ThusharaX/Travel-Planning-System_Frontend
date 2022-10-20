@@ -69,14 +69,14 @@ const TourGuideRegister = () => {
 								</div>
 								<div className="grid grid-cols-2 gap-x-10">
 									<div className="form-group mb-10">
-										<label htmlFor="fname">NIC Or Passport</label>
+										<label htmlFor="fname">NIC</label>
 										<div className="flex ...">
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base  border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 												id="nic"
 												type="text"
 												aria-describedby="emailHelp123"
-												placeholder="NIC or Passport Number"
+												placeholder="NIC"
 											></input>
 										</div>
 									</div>

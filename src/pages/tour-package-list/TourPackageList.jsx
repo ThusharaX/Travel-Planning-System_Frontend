@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import TourPackageContext from "../../contexts/TourPackageContext";
 
@@ -6,6 +7,7 @@ import "../tour-package-list/TourPackageList.css";
 
 const TourPackageList = () => {
 	const { isLoading, tourPackages, deleteTourPackage } = useContext(TourPackageContext);
+	const [searchTerm, setSearchTerm] = useState("");
 
 	const email = localStorage.getItem("Email");
 	// eslint-disable-next-line no-console
@@ -28,19 +30,13 @@ const TourPackageList = () => {
 									<input
 										type="search"
 										className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-										placeholder="Search"
+										placeholder="Search Here"
 										aria-label="Search"
 										aria-describedby="button-addon3"
+										onChange={(event) => {
+											setSearchTerm(event.target.value);
+										}}
 									></input>
-									<div className="searchbtn">
-										<button
-											className="btn inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-											type="button"
-											id="button-addon3"
-										>
-											Search
-										</button>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -51,31 +47,41 @@ const TourPackageList = () => {
 							<tr>
 								<th className="p-2 text-lg font-semibold tracking-wider text-left">Tour Package Name</th>
 								<th className="p-2 text-lg font-semibold tracking-wider text-left">Tour Guide Name</th>
-								<th className="p-2 text-lg font-semibold tracking-wider text-left">Email</th>
-								<th className="p-2 text-lg font-semibold tracking-wider text-left">Contact Number</th>
+								<th className="p-2 text-lg font-semibold tracking-wider text-left">Contact</th>
 								<th className="p-2 text-lg font-semibold tracking-wider text-left">Price</th>
 								<th className="p-2 text-lg font-semibold tracking-wider text-left">Location</th>
+								<th className="p-2 text-lg font-semibold tracking-wider text-left">Duration</th>
 								<th className="p-2 text-lg font-semibold tracking-wider text-left">Edit</th>
 								<th className="p-2 text-lg font-semibold tracking-wider text-left">Delete</th>
 							</tr>
 						</thead>
 
 						{tourPackages
+							.filter((val) => {
+								if (searchTerm == "") {
+									return val;
+								} else if (val.tourPackageName.toLowerCase().includes(searchTerm.toLowerCase())) {
+									return val;
+								} else if (val.guideName.toLowerCase().includes(searchTerm.toLowerCase())) {
+									return val;
+								}
+							})
 							.filter((elem) => elem.email == email)
 							.map((tourPackage) => (
 								// eslint-disable-next-line react/jsx-key
 								<tbody>
 									<tr className="bg-gray-50 w-full max-w-5xl ">
-										<td className="p-2 text-base font-semibold tracking-wide text-left ">
+										<td className="p-2 text-base font-medium tracking-wide text-left ">
 											{tourPackage.tourPackageName}
 										</td>
-										<td className="p-2 text-base font-semibold tracking-normal text-left">{tourPackage.guideName}</td>
-										<td className="p-2 text-base font-semibold tracking-normal text-left">{tourPackage.email}</td>
-										<td className="p-2 text-base font-semibold tracking-normal text-left">
-											{tourPackage.contactNumber}
+										<td className="p-2 text-base font-medium tracking-normal text-left">{tourPackage.guideName}</td>
+
+										<td className="p-2 text-base font-medium tracking-normal text-left">{tourPackage.contactNumber}</td>
+										<td className="p-2 text-base font-medium tracking-normal text-left">{tourPackage.price}</td>
+										<td className="p-2 text-base font-medium tracking-normal text-left">{tourPackage.location}</td>
+										<td className="p-2 text-base font-medium tracking-normal text-left">
+											{tourPackage.NumberOfDays} : Day
 										</td>
-										<td className="p-2 text-base font-semibold tracking-normal text-left">{tourPackage.price}</td>
-										<td className="p-2 text-base font-semibold tracking-normal text-left">{tourPackage.location}</td>
 										<td className="p-2 whitespace-nowrap tracking-normal">
 											<Link to={`/tour-package-edit/${tourPackage._id}`} className="">
 												<img src="../public/pen-to-square-regular.svg" width="18" height="18" alt="Alex Shatov"></img>
@@ -103,6 +109,17 @@ const TourPackageList = () => {
 									</tr>
 								</tbody>
 							))}
+
+						<br></br>
+						<button>
+							<Link
+								to="/tour-package-create"
+								className="w-full px-2 py-3 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline "
+								type="submit"
+							>
+								Add Tour Package
+							</Link>
+						</button>
 					</table>
 				</center>
 			)}
