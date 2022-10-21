@@ -58,6 +58,7 @@ import {
 	CampingVendorRegister,
 	CampingVendorLogin,
 	CampingVendorDashboard,
+	CampingVendorEditProfile,
 
 	/*Vehicle Owner */
 	VehicleOwnerRegister,
@@ -146,6 +147,7 @@ const AppRoutes = () => {
 					<Route path="/camping-package-create" element={<CampingPackageCreate />} />
 					<Route path="/camping-package-edit/:id" element={<CampingPackageEdit />} />
 					<Route path="/camping-package-report" element={<CampingPackageReport />} />
+					<Route path="/camping-vendor-edit-profile/:id" element={<CampingVendorEditProfile />} />
 
 					<Route path="/camping-package" element={<CampingPackageList />} />
 

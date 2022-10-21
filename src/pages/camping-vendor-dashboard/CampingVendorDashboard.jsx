@@ -39,7 +39,7 @@ const CampingVendorDashboard = () => {
 
 						<div className=" flex flex-col bg-white justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12  white:text-dark">
 							<img
-								src="https://source.unsplash.com/150x150/?portrait?3"
+								src="https://img.icons8.com/color/96/000000/user-menu-male--v1.png"
 								alt=""
 								className="w-32 h-32 mx-auto rounded-full aspect-square"
 							/>
@@ -57,7 +57,7 @@ const CampingVendorDashboard = () => {
 						<br></br>
 						<br></br>
 						<div className="bottombtn">
-							<Link to="#">
+							<Link to={`/camping-vendor-edit-profile/${id}`}>
 								<button
 									type="button"
 									className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"

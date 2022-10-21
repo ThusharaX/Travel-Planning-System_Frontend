@@ -156,7 +156,7 @@ export function CampingVenderProvider({ children }) {
 				//console.log(res.data);
 				//navigate("/viewres");
 				// eslint-disable-next-line no-console
-				console.log("updated successfully...");
+				makeToast({ type: "success", message: "Update Successful" });
 				navigate("/camping-vendor-dashboard");
 			})
 			.catch((err) => {
@@ -189,6 +189,7 @@ export function CampingVenderProvider({ children }) {
 				setMailError,
 				nicError,
 				setNicError,
+				campingVenders,
 			}}
 		>
 			{children}
