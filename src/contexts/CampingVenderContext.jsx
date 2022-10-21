@@ -189,7 +189,6 @@ export function CampingVenderProvider({ children }) {
 				setMailError,
 				nicError,
 				setNicError,
-				campingVenders,
 			}}
 		>
 			{children}
