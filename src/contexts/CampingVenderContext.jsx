@@ -44,6 +44,7 @@ export function CampingVenderProvider({ children }) {
 				window.location.href = "/camping-vendor-login";
 			})
 			.catch((err) => {
+				// eslint-disable-next-line no-console
 				console.log(err.response.data);
 				if (err.response.data.details == "Email already Exists") {
 					setMailError(err.response.data.details);
@@ -115,18 +116,12 @@ export function CampingVenderProvider({ children }) {
 				// eslint-disable-next-line no-console
 				console.log(err);
 			});
-
-		/*setCampingPackages(
-				campingPackage.map((campingPackage) => (campingPackage._id === values.id ? response.data : campingPackage))
-			);
-			form.reset();*/
-		//});
 	};
 
 	// Delete trainer and update UI
 	const deleteCampingVendor = (id) => {
 		CampingVendorAPI.deleteCampingVendor(id).then(() => {
-			setCampingVenders(campingVenders.filter((campingVenders) => campingVenders._id !== id));
+			setCampingVenders(campingVenders.filter((campingVen) => campingVen._id !== id));
 		});
 	};
 

@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 import CustomerAPI from "./api/CustomerAPI";
-import { useEffect } from "react";
 import makeToast from "../components/toast/index";
 import Joi from "joi";
 
@@ -43,6 +42,7 @@ export function CustomerProvider({ children }) {
 				window.location.href = "/customer-login";
 			})
 			.catch((error) => {
+				// eslint-disable-next-line no-console
 				console.log(error.response.data);
 				if (error.response.data.details == "Email already exists") {
 					setMailError(error.response.data.details);
