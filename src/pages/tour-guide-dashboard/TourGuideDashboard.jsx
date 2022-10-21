@@ -48,7 +48,7 @@ const TourGuideDashboard = () => {
 				</div>
 			</div>
 			<div className="cards">
-				<div className="c1">
+				<div className="card1">
 					<h1 className="addPackage text-primary-blue">Add Tour Package</h1>
 					<div className="mb-4">
 						<Link to="/tour-package-create">
