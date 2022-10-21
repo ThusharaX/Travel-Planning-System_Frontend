@@ -44,7 +44,7 @@ const WhoAreYou = () => {
 				</div>
 				{/* Camping Vendor */}
 				<div className="w-1/4 m-2">
-					<Link to="/camping-vendor">
+					<Link to="/camping-vendor-login">
 						<div className="bg-white shadow-md rounded-lg p-4">
 							<div className="flex flex-col items-center">
 								<div className="w-20 h-20 rounded-full bg-gray-200 flex justify-center items-center">
@@ -61,7 +61,7 @@ const WhoAreYou = () => {
 				</div>
 				{/* Vehicle Owner */}
 				<div className="w-1/4 m-2">
-					<Link to="/vehicle-owner">
+					<Link to="/vehicle-owner-login">
 						<div className="bg-white shadow-md rounded-lg p-4">
 							<div className="flex flex-col items-center">
 								<div className="w-20 h-20 rounded-full bg-gray-200 flex justify-center items-center">
@@ -69,6 +69,22 @@ const WhoAreYou = () => {
 								</div>
 								<h3 className="text-gray-700 font-medium text-lg mt-3">Vehicle Owner</h3>
 								<span className="text-sm text-gray-500"> You own a vehicle and want to list it on our platform</span>
+							</div>
+						</div>
+					</Link>
+				</div>
+				<div className="w-1/4 m-2">
+					<Link to="/customer-login">
+						<div className="bg-white shadow-md rounded-lg p-4">
+							<div className="flex flex-col items-center">
+								<div className="w-20 h-20 rounded-full bg-gray-200 flex justify-center items-center">
+									<img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/452/external-customer-copywriting-flaticons-lineal-color-flat-icons.pnghttps://img.icons8.com/dusk/64/000000/vehicle-security.png" />
+								</div>
+								<h3 className="text-gray-700 font-medium text-lg mt-3">User</h3>
+								<span className="text-sm text-gray-500">
+									{" "}
+									You are a user and you can to list your favourite items on our platform
+								</span>
 							</div>
 						</div>
 					</Link>
