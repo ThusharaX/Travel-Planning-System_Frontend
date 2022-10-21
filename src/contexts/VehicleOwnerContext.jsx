@@ -4,8 +4,6 @@ import makeToast from "../components/toast/index";
 
 import Joi from "joi";
 
-import { makeToast } from "../components";
-
 const VehicleOwnerContext = createContext();
 
 export function VehicleOwnerProvider({ children }) {
