@@ -147,7 +147,7 @@ export function VehicleOwnerProvider({ children }) {
 		VehicleOwnerAPI.editVehicleOwner(values.id, newVehicleOwner)
 			.then((response) => {
 				makeToast({ type: "success", message: "Update Successful" });
-				window.location.href = "/vehicle-profile";
+				//window.location.href = "/vehicle-profile";
 			})
 			.catch((err) => {
 				console.log(err);
