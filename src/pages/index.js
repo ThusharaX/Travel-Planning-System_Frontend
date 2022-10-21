@@ -1,6 +1,8 @@
 import Sample from "./sample";
 import Home from "./home";
 
+import Displaypage from "./displaypage";
+
 // Hotel Owner
 import HotelOwnerLogin from "./hotel-owner-login";
 import HotelOwnerRegister from "./hotel-owner-register";
@@ -29,6 +31,7 @@ import TourPackageCreate from "./tour-package-create";
 import TourPackageList from "./tour-package-list";
 import TourPackageEdit from "./tour-package-edit";
 import TourPackageReport from "./tour-package-report-generate";
+import TourPackageView from "./tour-package-view";
 
 /*Tour Guide*/
 import TourGuideRegister from "./tour-guide-register";
@@ -93,6 +96,7 @@ export {
 	TourPackageList,
 	TourPackageEdit,
 	TourPackageReport,
+	TourPackageView,
 	/*Tour Guide*/
 	TourGuideRegister,
 	TourGuideLogin,
@@ -115,6 +119,9 @@ export {
 	VehicleOwnerLogin,
 	Userprofile,
 	WhoAreYou,
+
+	/*Display page*/
+	Displaypage,
 
 	/*Customer */
 	CustomerRegister,
