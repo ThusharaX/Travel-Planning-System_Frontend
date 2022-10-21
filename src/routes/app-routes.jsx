@@ -62,6 +62,9 @@ import {
 	VehicleOwnerLogin,
 	WhoAreYou,
 
+	/*display page*/
+	Displaypage,
+
 	/*Custommer */
 	CustomerRegister,
 	CustomerLogin,
@@ -147,6 +150,11 @@ const AppRoutes = () => {
 
 					{/*customer*/}
 					<Route path="/customersignup" element={<CustomerSignup />} />
+
+					{/*Display page*/}
+
+					<Route path="/displayvehicle" element={<Displaypage />} />
+
 					<Route path="/customer-register" element={<CustomerRegister />} />
 					<Route path="/customer-login" element={<CustomerLogin />} />
 				</Routes>
