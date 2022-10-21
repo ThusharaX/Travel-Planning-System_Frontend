@@ -71,7 +71,7 @@ export function VehicleTourProvider({ children }) {
 				//navigate("/viewres");
 				// eslint-disable-next-line no-console
 				console.log("updated successfully...");
-				navigate("/vehicle-profile");
+				navigate("/vehicle");
 			})
 			.catch((err) => {
 				// eslint-disable-next-line no-console

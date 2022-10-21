@@ -68,6 +68,10 @@ import {
 	/*Custommer */
 	CustomerRegister,
 	CustomerLogin,
+
+	/* Vehicle Package*/
+	VehiclePackageCreate,
+	VehiclePackageEdit,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -157,6 +161,10 @@ const AppRoutes = () => {
 
 					<Route path="/customer-register" element={<CustomerRegister />} />
 					<Route path="/customer-login" element={<CustomerLogin />} />
+
+					{/*Vehicle Package*/}
+					<Route path="/vehiclepackagecreate" element={<VehiclePackageCreate />} />
+					<Route path="/vehiclepackageedit/:id" element={<VehiclePackageEdit />} />
 				</Routes>
 			</Router>
 		</>

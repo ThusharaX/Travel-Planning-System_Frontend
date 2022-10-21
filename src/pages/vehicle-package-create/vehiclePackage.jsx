@@ -1,29 +1,33 @@
-import React, { useContext, useState } from "react";
-import VehicleTourContext from "../../contexts/VehicleTourContext";
-import { useParams } from "react-router-dom";
+import React, { useContext } from "react";
+import "../vehicle-package-create/vehiclePackage.css";
+import VehiclePackageContext from "../../contexts/VehiclePackageContext";
 
-const VehicleEdit = () => {
-	const { getVehiclePackage, editVehiclePackage, vehicleTour, setVehicleTour } = useContext(VehicleTourContext);
+const VehiclePackageCreate = () => {
+	const { isLoading, addVehiclePackage } = useContext(VehiclePackageContext);
+	const id = localStorage.getItem("uID");
 
-	const handleChange = (e) => {
-		setVehicleTour(e.target.value);
-	};
-
-	const { id } = useParams();
-	getVehiclePackage(id);
+	console.log("user ID is" + id);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		const newVehicleTour = {
-			id: id,
-			vehicleType: e.target.vehicleType.value,
-			regNo: e.target.regNo.value,
-			ownersName: e.target.ownersName.value,
-			year: e.target.year.value,
-			discription: e.target.discription.value,
+		/*
+		var imageArray = [];
+		for (var i = 0; i < e.target.images.files.length; i++) {
+			imageArray.push(e.target.images.files[i].name);
+		}*/
+
+		const newVehiclePackage = {
+			ownerId: id,
+			packageName: e.target.packageName.value,
+			persons: e.target.persons.value,
+			vehicle: e.target.vehicle.value,
+			durantion: e.target.durantion.value,
+			price: e.target.price.value,
+			description: e.target.description.value,
+			//packageImage: e.packageImage.value,
 		};
-		editVehiclePackage(newVehicleTour);
+		addVehiclePackage(newVehiclePackage);
 	};
 
 	return (
@@ -36,21 +40,20 @@ const VehicleEdit = () => {
 				<div>
 					<div className="block p-8 rounded-3xl shadow-lg bg-white max-w-screen-md max-h-full">
 						<form onSubmit={handleSubmit}>
-							<h1 className="text-base">Update Vehicle</h1>
+							<h1 className="text-base">Add Vehicle Tour Package</h1>
 
 							<br></br>
 
 							<div className="grid grid-cols-2 gap-x-10">
 								<div className="form-group mb-6">
 									<label className="labelClass" htmlFor="fname">
-										Vehicle type
+										Package Name
 									</label>
 
 									<div className="flex ...">
 										<input
-											id="vehicleType"
 											type="text"
-											value={vehicleTour.vehicleType}
+											id="packageName"
 											className="form-control
           block
           w-80
@@ -69,17 +72,14 @@ const VehicleEdit = () => {
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 											aria-describedby="emailHelp123"
 											placeholder=""
-											onChange={handleChange}
 										></input>
 									</div>
 								</div>
 								<div className="form-group mb-6">
-									<label htmlFor="fname">Reg. Number</label>
+									<label htmlFor="fname">Persons</label>
 									<div className="flex ...">
 										<input
-											id="regNo"
 											type="text"
-											value={vehicleTour.regNo}
 											className="form-control
           block
           w-80
@@ -96,20 +96,19 @@ const VehicleEdit = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+											id="persons"
 											aria-describedby="emailHelp124"
 											placeholder=""
-											onChange={handleChange}
 										></input>
 									</div>
 								</div>
 							</div>
 							<div className="grid grid-cols-2 gap-x-10">
 								<div className="form-group mb-10">
-									<label htmlFor="fname">Owners Name</label>
+									<label htmlFor="fname">Vehicle</label>
 									<div className="flex ...">
 										<input
 											type="text"
-											value={vehicleTour.ownersName}
 											className="form-control
           block
           w-80
@@ -126,21 +125,18 @@ const VehicleEdit = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-											id="ownersName"
+											id="vehicle"
 											aria-describedby="emailHelp123"
 											placeholder=""
-											onChange={handleChange}
 										></input>
 									</div>
 								</div>
 
 								<div className="form-group mb-6">
-									<label htmlFor="fname">Year</label>
+									<label htmlFor="fname">Durantion</label>
 									<div className="flex ...">
 										<input
-											id="year"
 											type="text"
-											value={vehicleTour.year}
 											className="form-control
           block
           w-80
@@ -157,31 +153,57 @@ const VehicleEdit = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+											id="durantion"
 											aria-describedby="emailHelp124"
 											placeholder=""
-											onChange={handleChange}
 										></input>
 									</div>
+								</div>
+							</div>
+
+							<div className="form-group mb-6">
+								<label htmlFor="fname">Price</label>
+								<div className="flex ...">
+									<input
+										type="text"
+										className="form-control
+          block
+          w-80
+          px-3
+          py-1.5
+          text-base
+		  border-indigo-500
+          font-normal
+          text-gray-700
+          bg-white bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+										id="price"
+										aria-describedby="emailHelp124"
+										placeholder=""
+									></input>
 								</div>
 							</div>
 
 							<label htmlFor="fname">Description</label>
 
 							<textarea
-								id="discription"
+								id="description"
 								rows="4"
 								className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
 								placeholder="Your message..."
-								value={vehicleTour.discription}
-								onChange={handleChange}
 							></textarea>
 							<br></br>
-							<label htmlFor="fname">Vehicle Image</label>
+							<label htmlFor="fname">Photos</label>
 
 							<div className="mb-4">
 								<input
 									className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-									id="images"
+									id="packageImage"
 									type="file"
 									multiple
 								/>
@@ -209,14 +231,15 @@ const VehicleEdit = () => {
       duration-150
       ease-in-out"
 							>
-								Update
+								ADD
 							</button>
 						</form>
 					</div>
 				</div>
+				<br></br>
 			</center>
 		</>
 	);
 };
 
-export default VehicleEdit;
+export default VehiclePackageCreate;

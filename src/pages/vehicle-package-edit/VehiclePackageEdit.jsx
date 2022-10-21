@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
-import VehicleTourContext from "../../contexts/VehicleTourContext";
+import VehiclePackageContext from "../../contexts/VehiclePackageContext";
 import { useParams } from "react-router-dom";
 
-const VehicleEdit = () => {
-	const { getVehiclePackage, editVehiclePackage, vehicleTour, setVehicleTour } = useContext(VehicleTourContext);
+const VehiclePackageEdit = () => {
+	const { getVehiclePackage, editVehiclePackage, vehiclePackage, setVehiclePackage } =
+		useContext(VehiclePackageContext);
 
 	const handleChange = (e) => {
-		setVehicleTour(e.target.value);
+		setVehiclePackage(e.target.value);
 	};
 
 	const { id } = useParams();
@@ -15,15 +16,16 @@ const VehicleEdit = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		const newVehicleTour = {
+		const newVehiclePackage = {
 			id: id,
-			vehicleType: e.target.vehicleType.value,
-			regNo: e.target.regNo.value,
-			ownersName: e.target.ownersName.value,
-			year: e.target.year.value,
-			discription: e.target.discription.value,
+			packageName: e.target.packageName.value,
+			persons: e.target.persons.value,
+			vehicle: e.target.vehicle.value,
+			durantion: e.target.durantion.value,
+			price: e.target.price.value,
+			description: e.target.description.value,
 		};
-		editVehiclePackage(newVehicleTour);
+		editVehiclePackage(newVehiclePackage);
 	};
 
 	return (
@@ -36,21 +38,21 @@ const VehicleEdit = () => {
 				<div>
 					<div className="block p-8 rounded-3xl shadow-lg bg-white max-w-screen-md max-h-full">
 						<form onSubmit={handleSubmit}>
-							<h1 className="text-base">Update Vehicle</h1>
+							<h1 className="text-base">Update Vehicle Package</h1>
 
 							<br></br>
 
 							<div className="grid grid-cols-2 gap-x-10">
 								<div className="form-group mb-6">
 									<label className="labelClass" htmlFor="fname">
-										Vehicle type
+										Package Name
 									</label>
 
 									<div className="flex ...">
 										<input
-											id="vehicleType"
+											id="packageName"
 											type="text"
-											value={vehicleTour.vehicleType}
+											value={vehiclePackage.packageName}
 											className="form-control
           block
           w-80
@@ -74,12 +76,12 @@ const VehicleEdit = () => {
 									</div>
 								</div>
 								<div className="form-group mb-6">
-									<label htmlFor="fname">Reg. Number</label>
+									<label htmlFor="fname">persons</label>
 									<div className="flex ...">
 										<input
-											id="regNo"
+											id="persons"
 											type="text"
-											value={vehicleTour.regNo}
+											value={vehiclePackage.persons}
 											className="form-control
           block
           w-80
@@ -105,11 +107,11 @@ const VehicleEdit = () => {
 							</div>
 							<div className="grid grid-cols-2 gap-x-10">
 								<div className="form-group mb-10">
-									<label htmlFor="fname">Owners Name</label>
+									<label htmlFor="fname">Vehicle</label>
 									<div className="flex ...">
 										<input
 											type="text"
-											value={vehicleTour.ownersName}
+											value={vehiclePackage.vehicle}
 											className="form-control
           block
           w-80
@@ -126,7 +128,7 @@ const VehicleEdit = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-											id="ownersName"
+											id="vehicle"
 											aria-describedby="emailHelp123"
 											placeholder=""
 											onChange={handleChange}
@@ -135,12 +137,12 @@ const VehicleEdit = () => {
 								</div>
 
 								<div className="form-group mb-6">
-									<label htmlFor="fname">Year</label>
+									<label htmlFor="fname">Duration</label>
 									<div className="flex ...">
 										<input
-											id="year"
+											id="durantion"
 											type="text"
-											value={vehicleTour.year}
+											value={vehiclePackage.durantion}
 											className="form-control
           block
           w-80
@@ -165,14 +167,44 @@ const VehicleEdit = () => {
 								</div>
 							</div>
 
+							<div className="form-group mb-6">
+								<label htmlFor="fname">Price</label>
+								<div className="flex ...">
+									<input
+										id="price"
+										type="text"
+										value={vehiclePackage.price}
+										className="form-control
+          block
+          w-80
+          px-3
+          py-1.5
+          text-base
+		  border-indigo-500
+          font-normal
+          text-gray-700
+          bg-white bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+										aria-describedby="emailHelp124"
+										placeholder=""
+										onChange={handleChange}
+									></input>
+								</div>
+							</div>
+
 							<label htmlFor="fname">Description</label>
 
 							<textarea
-								id="discription"
+								id="description"
 								rows="4"
 								className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
 								placeholder="Your message..."
-								value={vehicleTour.discription}
+								value={vehiclePackage.description}
 								onChange={handleChange}
 							></textarea>
 							<br></br>
@@ -219,4 +251,4 @@ const VehicleEdit = () => {
 	);
 };
 
-export default VehicleEdit;
+export default VehiclePackageEdit;

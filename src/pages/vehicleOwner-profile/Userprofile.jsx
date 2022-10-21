@@ -1,15 +1,22 @@
 import "../vehicleOwner-profile/userprofile.css";
 import React, { useContext, useState, useRef } from "react";
 import VehicleTourContext from "../../contexts/VehicleTourContext";
+import VehiclePackageContext from "../../contexts/VehiclePackageContext";
+import VehicleOwnerContext from "../../contexts/VehicleOwnerContext";
 import { useReactToPrint } from "react-to-print";
 import { Link } from "react-router-dom";
 
 const Userprofile = () => {
-	const { isLoading, vehicleTours, deleteVehiclePackage } = useContext(VehicleTourContext);
+	//const { isLoading, vehicleTours } = useContext(VehicleTourContext);
+
+	const { vehiclePackages, deleteVehiclePackage } = useContext(VehiclePackageContext);
+	//const {getVehicleOwner, vehicleOwner } = useContext(VehicleOwnerContext);
 
 	//const { getCampingVendor, campingVender } = useContext(CampingVenderContext);
 
 	const id = localStorage.getItem("uID");
+	const name = localStorage.getItem("username");
+	const email = localStorage.getItem("Email");
 
 	// eslint-disable-next-line no-console
 	console.log(id);
@@ -46,12 +53,10 @@ const Userprofile = () => {
 							/>
 							<div className="space-y-4 text-center divide-y divide-white-700">
 								<div className="my-2 space-y-1">
-									<h2 className="text-xl font-semibold sm:text-2xl">owner name</h2>
+									<h2 className="text-xl font-semibold sm:text-2xl">{name}</h2>
 								</div>
 								<div className="justify-center pt-2 align-center">
-									<h3>company name</h3>
-									<h3>email</h3>
-									<h3>company phone</h3>
+									<h3>{email}</h3>
 								</div>
 							</div>
 						</div>
@@ -86,7 +91,7 @@ const Userprofile = () => {
 				<div className="flex flex-col justify-center h-full">
 					<div className="w-full max-w-5xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
 						<header className="px-5 py-4 border-b border-gray-100">
-							<h2 className="font-semibold text-gray-800">Vehicles</h2>
+							<h2 className="font-semibold text-gray-800">My Vehicle Packages</h2>
 						</header>
 						<div className="p-3">
 							<div className="overflow-x-auto">
@@ -97,13 +102,13 @@ const Userprofile = () => {
 												<div className="font-semibold text-left"></div>
 											</th>
 											<th className="p-2 ">
-												<div className="text-left">Owner's Name</div>
+												<div className="text-left">Package Name</div>
 											</th>
 											<th className="p-2 whitespace-nowrap">
-												<div className="text-left">Vehicle Type</div>
+												<div className="text-left">Duration</div>
 											</th>
 											<th className="p-2 whitespace-nowrap">
-												<div className="text-left">Reg. No</div>
+												<div className="text-left">Price</div>
 											</th>
 
 											<th className="p-3 whitespace-nowrap">
@@ -115,16 +120,16 @@ const Userprofile = () => {
 										</tr>
 									</thead>
 
-									{vehicleTours
+									{vehiclePackages
 										.filter((elem) => elem.ownerId == id)
 										.filter((val) => {
 											if (searchTerm == "") {
 												return val;
-											} else if (val.vehicleType.toLowerCase().includes(searchTerm.toLowerCase())) {
+											} else if (val.packageName.toLowerCase().includes(searchTerm.toLowerCase())) {
 												return val;
 											}
 										})
-										.map((vehicleTour) => (
+										.map((vehiclePackage) => (
 											// eslint-disable-next-line react/jsx-key
 											<tbody className="text-sm divide-y divide-gray-100">
 												<tr>
@@ -142,17 +147,17 @@ const Userprofile = () => {
 														</div>
 													</td>
 													<td className="p-2 whitespace-nowrap">
-														<div className="text-left">{vehicleTour.ownersName}</div>
+														<div className="text-left">{vehiclePackage.packageName}</div>
 													</td>
 													<td className="p-2 whitespace-nowrap">
-														<div className="text-left font-semibold">{vehicleTour.vehicleType}</div>
+														<div className="text-left font-semibold">{vehiclePackage.durantion}</div>
 													</td>
 													<td className="p-2 whitespace-nowrap">
-														<div className="text-left font-semibold">{vehicleTour.regNo}</div>
+														<div className="text-left font-semibold">{vehiclePackage.price}</div>
 													</td>
 
 													<td className="p-2 whitespace-nowrap">
-														<Link to={`/vehicleedit/${vehicleTour._id}`} className="">
+														<Link to={`/vehiclepackageedit/${vehiclePackage._id}`} className="">
 															<img
 																src="../public/pen-to-square-regular.svg"
 																width="18"
@@ -162,7 +167,7 @@ const Userprofile = () => {
 														</Link>
 													</td>
 													<td className="p-2 whitespace-nowrap">
-														<button className="" onClick={() => deleteVehiclePackage(vehicleTour._id)}>
+														<button className="" onClick={() => deleteVehiclePackage(vehiclePackage._id)}>
 															<svg
 																xmlns="http://www.w3.org/2000/svg"
 																className="h-5 w-5 mr-2"
@@ -192,7 +197,7 @@ const Userprofile = () => {
 			<div className="btn">
 				<div>
 					<Link
-						to="#"
+						to="/vehiclepackagecreate"
 						type="button"
 						className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 w-48 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-9 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
 					>
