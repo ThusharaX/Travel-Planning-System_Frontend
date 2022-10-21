@@ -29,6 +29,7 @@ import TourPackageCreate from "./tour-package-create";
 import TourPackageList from "./tour-package-list";
 import TourPackageEdit from "./tour-package-edit";
 import TourPackageReport from "./tour-package-report-generate";
+import TourPackageView from "./tour-package-view";
 
 /*Tour Guide*/
 import TourGuideRegister from "./tour-guide-register";
@@ -93,6 +94,7 @@ export {
 	TourPackageList,
 	TourPackageEdit,
 	TourPackageReport,
+	TourPackageView,
 	/*Tour Guide*/
 	TourGuideRegister,
 	TourGuideLogin,

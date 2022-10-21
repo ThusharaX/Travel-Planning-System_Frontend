@@ -70,7 +70,7 @@ const editTourPackage = () => {
 												type="text"
 												aria-describedby="emailHelp124"
 												placeholder=""
-												onChange={handleChange}
+												readOnly
 											></input>
 										</div>
 									</div>
