@@ -38,6 +38,13 @@ export function CustomerProvider({ children }) {
 			.then((response) => {
 				setCustomers([...customers, response.data]);
 				const { error } = SignUpFormSchema.validate(values);
+
+				// BUG FIX
+				if (error) {
+					makeToast({ type: "error", message: error.details[0].message });
+					return;
+				}
+
 				makeToast({ type: "success", message: "Registration Successful" });
 				window.location.href = "/customer-login";
 			})
@@ -91,6 +98,8 @@ export function CustomerProvider({ children }) {
 				customer,
 				CustomerRegister,
 				CustomerLogin,
+				// BUG FIX
+				setCustomer,
 			}}
 		>
 			{children}
