@@ -1,6 +1,9 @@
 import { createContext, useState, useEffect } from "react";
 import CampingVendorAPI from "./api/CampingVendorAPI";
 import { useNavigate } from "react-router-dom";
+import Joi from "joi";
+import { makeToast } from "../components";
+
 
 const CampingVenderContext = createContext();
 
@@ -31,16 +34,52 @@ export function CampingVenderProvider({ children }) {
 		companyAddress: "",
 		companyPhone: "",
 		companyRegisterNumber: "",
-		profilePicture: "null",
+		profilePicture: "",
 		password: "",
+	});
+
+	///register form validation
+
+	const SignUpFormSchema = Joi.object({
+		companyOwnerName: Joi.string().min(2).max(20).message("Owner name should be between 2 and 20 characters"),
+		email: Joi.string()
+			.email({ tlds: { allow: false } })
+			.message("Email should be valid"),
+		nic: Joi.string().min(10).max(10).message("NIC should be 10 characters"),
+		contactNumber: Joi.string().min(10).max(10).message("Phone number should be 10 characters"),
+		password: Joi.string().min(4).message("Password should be valid"),
+		companyName: Joi.string().min(2).max(20).message("Company name should be between 2 and 20 characters"),
+		companyAddress: Joi.string().min(2).max(20).message("Company address should be between 2 and 20 characters"),
+		companyPhone: Joi.string().min(10).max(10).message("Company phone number should be 10 characters"),
+		companyRegisterNumber: Joi.string()
+			.min(2)
+			.max(20)
+			.message("Company registration number should be between 2 and 20 characters"),
+		profilePicture: Joi.string().min(0).message("Profile picture"),
+	});
+
+	// Login Form Validation
+	const LoginFormSchema = Joi.object({
+		email: Joi.string()
+			.email({ tlds: { allow: false } })
+			.message("Email should be valid"),
+		password: Joi.string().min(4).message("Password should be valid"),
 	});
 
 	// Add Camping Vendor
 	const CampingVendorRegister = async (values) => {
+		//Validate Form Details
+
+		const { error } = SignUpFormSchema.validate(values);
+		if (error) {
+			makeToast({ type: "error", message: error.details[0].message });
+			return;
+		}
+
 		CampingVendorAPI.campingVendorRegister(values)
 			.then((response) => {
 				setCampingVenders([...campingVenders, response.data]);
-				alert("Camping Vendor Registration Successful...!!!");
+				makeToast({ type: "success", message: "Registration Successful" });
 				window.location.href = "/camping-vendor-login";
 			})
 			.catch((err) => {
@@ -48,17 +87,26 @@ export function CampingVenderProvider({ children }) {
 				console.log(err.response.data);
 				if (err.response.data.details == "Email already Exists") {
 					setMailError(err.response.data.details);
-					alert("Email already Exists");
+					makeToast({ type: "error", message: "Email already exists" });
 				}
 				if (err.response.data.details == "NIC already exists") {
 					setNicError(err.response.data.details);
-					alert("NIC already exists");
+					makeToast({ type: "error", message: "NIC already exists" });
 				}
 			});
 	};
 
 	const CampingVendorLogin = (values) => {
 		setIsLoading(true);
+
+		const { error } = LoginFormSchema.validate(values);
+		if (error) {
+			makeToast({ type: "error", message: error.details[0].message });
+			return;
+		}
+
+		//validate form Data
+
 		CampingVendorAPI.campingVendorLogin(values)
 			.then((response) => {
 				if (response.data.permissionLevel !== "CAMPING_VENDOR") {
@@ -70,7 +118,7 @@ export function CampingVenderProvider({ children }) {
 					localStorage.setItem("Email", response.data.email);
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
-					alert("Logged In Successful...!!!");
+					makeToast({ type: "success", message: "Login Successful" });
 					window.location.href = "/camping-vendor-dashboard";
 					setIsLoggedIn(true);
 					setIsLoggedIn(false);
@@ -78,7 +126,7 @@ export function CampingVenderProvider({ children }) {
 			})
 			.catch((err) => {
 				setIsLoading(false);
-				return alert(err.response.data.details.message);
+				makeToast({ type: "error", message: "Invalid Email or Password" });
 			});
 	};
 

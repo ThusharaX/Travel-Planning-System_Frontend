@@ -31,6 +31,7 @@ import TourPackageCreate from "./tour-package-create";
 import TourPackageList from "./tour-package-list";
 import TourPackageEdit from "./tour-package-edit";
 import TourPackageReport from "./tour-package-report-generate";
+import TourPackageView from "./tour-package-view";
 
 /*Tour Guide*/
 import TourGuideRegister from "./tour-guide-register";
@@ -45,6 +46,7 @@ import CustomerSignup from "./cutomerSignup";
 import CampingPackageList from "./camping-package-list";
 import CampingPackageCreate from "./camping-package-create";
 import CampingPackageEdit from "./camping-package-edit";
+import CampingPackageReport from "./camping-package-report";
 
 /*Camping Vendor */
 import CampingVendorRegister from "./camping-vendor-register";
@@ -92,12 +94,14 @@ export {
 	CampingPackageList,
 	CampingPackageCreate,
 	CampingPackageEdit,
+	CampingPackageReport,
 
 	/*Tour Package*/
 	TourPackageCreate,
 	TourPackageList,
 	TourPackageEdit,
 	TourPackageReport,
+	TourPackageView,
 	/*Tour Guide*/
 	TourGuideRegister,
 	TourGuideLogin,

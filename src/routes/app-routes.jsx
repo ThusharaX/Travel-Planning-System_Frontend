@@ -36,6 +36,7 @@ import {
 	VehicleList,
 	VehicleCreate,
 	CampingPackageEdit,
+	CampingPackageReport,
 
 	/* Tour Guide */
 	TourGuideRegister,
@@ -48,6 +49,7 @@ import {
 	TourPackageList,
 	TourPackageEdit,
 	TourPackageReport,
+	TourPackageView,
 	Userprofile,
 	CustomerSignup,
 	VehicleEdit,
@@ -135,6 +137,7 @@ const AppRoutes = () => {
 					<Route path="/tour-package-list" element={<TourPackageList />} />
 					<Route path="/tour-package-edit/:id" element={<TourPackageEdit />} />
 					<Route path="/tour-package-report" element={<TourPackageReport />} />
+					<Route path="/tour-package-view" element={<TourPackageView />} />
 
 					{/*Camping Vendor*/}
 					<Route path="/camping-vendor-register" element={<CampingVendorRegister />} />
@@ -142,6 +145,7 @@ const AppRoutes = () => {
 					<Route path="/camping-vendor-dashboard" element={<CampingVendorDashboard />} />
 					<Route path="/camping-package-create" element={<CampingPackageCreate />} />
 					<Route path="/camping-package-edit/:id" element={<CampingPackageEdit />} />
+					<Route path="/camping-package-report" element={<CampingPackageReport />} />
 
 					<Route path="/camping-package" element={<CampingPackageList />} />
 
