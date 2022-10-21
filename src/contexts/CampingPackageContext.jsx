@@ -30,6 +30,7 @@ export function CampingPackageProvider({ children }) {
 
 	// Add Hotel Package
 	const addCampingPackage = async (newCampingPackage) => {
+		// eslint-disable-next-line no-console
 		console.log("Owner ID context :" + newCampingPackage.vendorId);
 
 		try {
@@ -77,18 +78,12 @@ export function CampingPackageProvider({ children }) {
 				// eslint-disable-next-line no-console
 				console.log(err);
 			});
-
-		/*setCampingPackages(
-				campingPackage.map((campingPackage) => (campingPackage._id === values.id ? response.data : campingPackage))
-			);
-			form.reset();*/
-		//});
 	};
 
 	// Delete trainer and update UI
 	const deleteCampingPackage = (id) => {
 		CampingPackageAPI.deleteCampingPackage(id).then(() => {
-			setCampingPackages(campingPackages.filter((campingPackages) => campingPackages._id !== id));
+			setCampingPackages(campingPackages.filter((campingPack) => campingPack._id !== id));
 		});
 	};
 

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import HotelPackageContext from "../../contexts/HotelPackageContext";
 import makeToast from "../../components/toast";
@@ -15,7 +15,6 @@ const HotelOwnerManagePackage = () => {
 			errorMessage: "Error when refreshing data",
 			loadingMessage: "Refreshing data...",
 		});
-		// getHotelPackageByHotelOwnerID(localStorage.getItem("uID"));
 	};
 
 	return (

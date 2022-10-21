@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import CampingPackageContext from "../../contexts/CampingPackageContext";
 import { useParams } from "react-router-dom";
 import "../camping-package-edit/camping.css";

@@ -3,7 +3,7 @@ import CampingPackageContext from "../../contexts/CampingPackageContext";
 import "../camping-package-create/camping.css";
 
 const CampingPackageCreate = () => {
-	const { isLoading, addCampingPackage, setFileName } = useContext(CampingPackageContext);
+	const { addCampingPackage } = useContext(CampingPackageContext);
 	const id = localStorage.getItem("uID");
 
 	const handleSubmit = (e) => {
