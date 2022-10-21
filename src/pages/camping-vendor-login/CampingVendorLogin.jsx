@@ -31,7 +31,7 @@ const CampingVendorLogin = () => {
 							<h4 className="mt-2 text-white">please login to our system</h4>
 						</div>
 						<div className="img ml-3 mt-16">
-							<img class="object-cover w-100 h-56" src="./tourguide.svg" alt="img" />
+							<img class="object-cover w-100 ml-10 h-56" src="camp.svg" alt="img" />
 						</div>
 					</div>
 
