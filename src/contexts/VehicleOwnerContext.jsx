@@ -33,6 +33,7 @@ export function VehicleOwnerProvider({ children }) {
 				window.location.href = "/vehicle-owner-login";
 			})
 			.catch((err) => {
+				// eslint-disable-next-line no-console
 				console.log(err.response.data);
 				if (err.response.data.details == "Email already Exists") {
 					setMailError(err.response.data.details);

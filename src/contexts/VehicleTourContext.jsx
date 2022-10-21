@@ -31,6 +31,7 @@ export function VehicleTourProvider({ children }) {
 
 	// Add Hotel Package
 	const addVehicle = async (newVehicleTour) => {
+		// eslint-disable-next-line no-console
 		console.log("Owner ID context :" + newVehicleTour.ownerId);
 
 		try {

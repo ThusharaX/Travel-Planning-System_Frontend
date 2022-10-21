@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import AdminContext from "../../contexts/AdminContext";
 
 const AdminLogin = () => {
-	const { login, isLoggedIn, isLoading, message } = useContext(AdminContext);
+	const { login } = useContext(AdminContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
