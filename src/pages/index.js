@@ -43,6 +43,7 @@ import CustomerSignup from "./cutomerSignup";
 import CampingPackageList from "./camping-package-list";
 import CampingPackageCreate from "./camping-package-create";
 import CampingPackageEdit from "./camping-package-edit";
+import CampingPackageReport from "./camping-package-report";
 
 /*Camping Vendor */
 import CampingVendorRegister from "./camping-vendor-register";
@@ -87,6 +88,7 @@ export {
 	CampingPackageList,
 	CampingPackageCreate,
 	CampingPackageEdit,
+	CampingPackageReport,
 
 	/*Tour Package*/
 	TourPackageCreate,
