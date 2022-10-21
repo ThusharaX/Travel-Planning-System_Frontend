@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import VehicleTourAPI from "./api/VehicleTourApi";
+import makeToast from "../components/toast";
 
 const VehicleTourContext = createContext();
 
@@ -37,7 +38,7 @@ export function VehicleTourProvider({ children }) {
 			setIsLoading(true);
 			const response = await VehicleTourAPI.createVehicle(newVehicleTour);
 			setVehicleTours([...vehicleTours, response.data]);
-			alert("Vehicle Added Successful...!!!");
+			makeToast({ type: "success", message: "Vehicle Package added successful" });
 			setIsLoading(false);
 			window.location.href = "/vehicle-profile";
 		} catch (error) {
@@ -71,7 +72,7 @@ export function VehicleTourProvider({ children }) {
 				//navigate("/viewres");
 				// eslint-disable-next-line no-console
 				console.log("updated successfully...");
-				navigate("/vehicle");
+				navigate("/vehicle-profile");
 			})
 			.catch((err) => {
 				// eslint-disable-next-line no-console

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Joi from "joi";
 import { makeToast } from "../components";
 
+
 const CampingVenderContext = createContext();
 
 export function CampingVenderProvider({ children }) {
@@ -78,7 +79,7 @@ export function CampingVenderProvider({ children }) {
 		CampingVendorAPI.campingVendorRegister(values)
 			.then((response) => {
 				setCampingVenders([...campingVenders, response.data]);
-				alert("Camping Vendor Registration Successful...!!!");
+				makeToast({ type: "success", message: "Registration Successful" });
 				window.location.href = "/camping-vendor-login";
 			})
 			.catch((err) => {
@@ -86,11 +87,11 @@ export function CampingVenderProvider({ children }) {
 				console.log(err.response.data);
 				if (err.response.data.details == "Email already Exists") {
 					setMailError(err.response.data.details);
-					alert("Email already Exists");
+					makeToast({ type: "error", message: "Email already exists" });
 				}
 				if (err.response.data.details == "NIC already exists") {
 					setNicError(err.response.data.details);
-					alert("NIC already exists");
+					makeToast({ type: "error", message: "NIC already exists" });
 				}
 			});
 	};
@@ -117,7 +118,7 @@ export function CampingVenderProvider({ children }) {
 					localStorage.setItem("Email", response.data.email);
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
-					alert("Logged In Successful...!!!");
+					makeToast({ type: "success", message: "Login Successful" });
 					window.location.href = "/camping-vendor-dashboard";
 					setIsLoggedIn(true);
 					setIsLoggedIn(false);
@@ -125,7 +126,7 @@ export function CampingVenderProvider({ children }) {
 			})
 			.catch((err) => {
 				setIsLoading(false);
-				return alert(err.response.data.details.message);
+				makeToast({ type: "error", message: "Invalid Email or Password" });
 			});
 	};
 

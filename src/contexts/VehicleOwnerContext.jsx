@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import VehicleOwnerAPI from "./api/VehicleOwnerAPI";
+import makeToast from "../components/toast/index";
 
 const VehicleOwnerContext = createContext();
 
@@ -28,7 +29,7 @@ export function VehicleOwnerProvider({ children }) {
 		VehicleOwnerAPI.vehicleOwnerRegister(values)
 			.then((response) => {
 				setVehicleOwners([...vehicleOwners, response.data]);
-				alert("Vehicle Owner Registration Successful...!");
+				makeToast({ type: "success", message: "Registration Successful" });
 				window.location.href = "/vehicle-owner-login";
 			})
 			.catch((err) => {
@@ -36,11 +37,11 @@ export function VehicleOwnerProvider({ children }) {
 				console.log(err.response.data);
 				if (err.response.data.details == "Email already Exists") {
 					setMailError(err.response.data.details);
-					alert("Email already Exists");
+					makeToast({ type: "error", message: "Email already exists" });
 				}
 				if (err.response.data.details == "NIC already exists") {
 					setNicError(err.response.data.details);
-					alert("NIC already exists");
+					makeToast({ type: "error", message: "NIC already exists" });
 				}
 			});
 	};
@@ -59,7 +60,7 @@ export function VehicleOwnerProvider({ children }) {
 					localStorage.setItem("Email", response.data.email);
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
-					alert("Logged In Successful...!!!");
+					makeToast({ type: "success", message: "Login Successful" });
 					window.location.href = "/vehicle-profile";
 					setIsLoggedIn(true);
 					setIsLoggedIn(false);
@@ -67,7 +68,7 @@ export function VehicleOwnerProvider({ children }) {
 			})
 			.catch((err) => {
 				setIsLoading(false);
-				return alert(err.response.data.details.message);
+				makeToast({ type: "error", message: "Invalid Email or Password" });
 			});
 	};
 

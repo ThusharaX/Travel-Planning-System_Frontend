@@ -49,6 +49,7 @@ import {
 	TourPackageList,
 	TourPackageEdit,
 	TourPackageReport,
+	TourPackageView,
 	Userprofile,
 	CustomerSignup,
 	VehicleEdit,
@@ -62,6 +63,9 @@ import {
 	VehicleOwnerRegister,
 	VehicleOwnerLogin,
 	WhoAreYou,
+
+	/*display page*/
+	Displaypage,
 
 	/*Custommer */
 	CustomerRegister,
@@ -129,6 +133,7 @@ const AppRoutes = () => {
 					<Route path="/tour-package-list" element={<TourPackageList />} />
 					<Route path="/tour-package-edit/:id" element={<TourPackageEdit />} />
 					<Route path="/tour-package-report" element={<TourPackageReport />} />
+					<Route path="/tour-package-view" element={<TourPackageView />} />
 
 					{/*Camping Vendor*/}
 					<Route path="/camping-vendor-register" element={<CampingVendorRegister />} />
@@ -149,6 +154,11 @@ const AppRoutes = () => {
 
 					{/*customer*/}
 					<Route path="/customersignup" element={<CustomerSignup />} />
+
+					{/*Display page*/}
+
+					<Route path="/displayvehicle" element={<Displaypage />} />
+
 					<Route path="/customer-register" element={<CustomerRegister />} />
 					<Route path="/customer-login" element={<CustomerLogin />} />
 				</Routes>
