@@ -70,9 +70,6 @@ const TourPackageReport = () => {
 								<th scope="col" class="py-3 px-6">
 									Location
 								</th>
-								<th scope="col" class="py-3 px-6">
-									Duration
-								</th>
 							</tr>
 						</thead>
 
@@ -87,7 +84,6 @@ const TourPackageReport = () => {
 										<td>{guidePackage.contactNumber}</td>
 										<td>{guidePackage.price}</td>
 										<td>{guidePackage.location}</td>
-										<td>{guidePackage.NumberofDays}</td>
 									</tr>
 								</tbody>
 							))}
