@@ -78,7 +78,7 @@ const WhoAreYou = () => {
 						<div className="bg-white shadow-md rounded-lg p-4">
 							<div className="flex flex-col items-center">
 								<div className="w-20 h-20 rounded-full bg-gray-200 flex justify-center items-center">
-									<img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/452/external-customer-copywriting-flaticons-lineal-color-flat-icons.pnghttps://img.icons8.com/dusk/64/000000/vehicle-security.png" />
+									<img src="https://img.icons8.com/bubbles/50/000000/user.png" />
 								</div>
 								<h3 className="text-gray-700 font-medium text-lg mt-3">User</h3>
 								<span className="text-sm text-gray-500">

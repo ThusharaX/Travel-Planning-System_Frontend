@@ -1,4 +1,4 @@
-.c1 {
+.card1 {
 	position: relative;
 
 	margin-left: 600px;
@@ -21,12 +21,10 @@
 .usercard {
 	position: flex;
 	margin-left: 500px;
-
 	margin-left: 850px;
 }
 .usercard {
 	position: flex;
 	margin-left: 400px;
-
 	margin-top: -300px;
 }

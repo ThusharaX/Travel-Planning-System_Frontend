@@ -18,7 +18,11 @@ const TourGuideDashboard = () => {
 		<>
 			<div className="usercard">
 				<div className=" flex flex-col bg-white justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12  white:text-dark">
-					<img src="../public/user.svg" alt="" className="w-32 h-32 mx-auto rounded-full aspect-square" />
+					<img
+						src="https://img.icons8.com/color/96/000000/user-menu-male--v1.png"
+						alt=""
+						className="w-32 h-32 mx-auto rounded-full aspect-square"
+					/>
 					<div className="space-y-4 text-center divide-y divide-white-700">
 						<div className="my-2 space-y-1">
 							<h1 className="text-2xl font-bold text-primary-blue">{tourGuide.tourGuideName}</h1>
@@ -48,7 +52,7 @@ const TourGuideDashboard = () => {
 				</div>
 			</div>
 			<div className="cards">
-				<div className="c1">
+				<div className="card1">
 					<h1 className="addPackage text-primary-blue">Add Tour Package</h1>
 					<div className="mb-4">
 						<Link to="/tour-package-create">

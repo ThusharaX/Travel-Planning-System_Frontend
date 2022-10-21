@@ -2,6 +2,7 @@ import React from "react";
 import "./CustomerLogin.css";
 import CustomerContext from "../../contexts/CustomerContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 const CustomerLogin = () => {
 	const { isLoading, CustomerLogin } = useContext(CustomerContext);
@@ -67,6 +68,17 @@ const CustomerLogin = () => {
 								>
 									Login
 								</button>
+							</div>
+							<br></br>
+							<div className="text-center">
+								<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
+									Forgot Password?
+								</a>
+							</div>
+							<div className="text-center">
+								<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
+									<Link to="/customer-register">Create an Account.</Link>
+								</a>
 							</div>
 						</div>
 					</div>
