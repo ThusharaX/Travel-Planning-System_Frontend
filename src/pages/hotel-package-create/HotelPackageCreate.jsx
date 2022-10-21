@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import HotelPackageContext from "../../contexts/HotelPackageContext";
 
 const HotelPackageCreate = () => {
-	const { isLoading, addHotelPackage } = useContext(HotelPackageContext);
+	const { addHotelPackage } = useContext(HotelPackageContext);
 
 	const initialValues = {
 		name: "",

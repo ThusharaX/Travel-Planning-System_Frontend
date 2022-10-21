@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import HotelOwnerContext from "../../contexts/HotelOwnerContext";
 
 const HotelOwnerRegister = () => {
-	const { register, isLoggedIn, isLoading, message } = useContext(HotelOwnerContext);
+	const { register } = useContext(HotelOwnerContext);
 
 	const initialValues = {
 		ownerName: "Thiwanka",
@@ -166,11 +166,6 @@ const HotelOwnerRegister = () => {
 							</button>
 						</div>
 						<hr className="mb-6 border-t" />
-						{/* <div className="text-center">
-							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
-								Forgot Password?
-							</a>
-						</div> */}
 						<div className="text-center">
 							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
 								Already have an account? Login!
