@@ -1,6 +1,8 @@
 import Sample from "./sample";
 import Home from "./home";
 
+import Displaypage from "./displaypage";
+
 // Hotel Owner
 import HotelOwnerLogin from "./hotel-owner-login";
 import HotelOwnerRegister from "./hotel-owner-register";
@@ -117,6 +119,9 @@ export {
 	VehicleOwnerLogin,
 	Userprofile,
 	WhoAreYou,
+
+	/*Display page*/
+	Displaypage,
 
 	/*Customer */
 	CustomerRegister,

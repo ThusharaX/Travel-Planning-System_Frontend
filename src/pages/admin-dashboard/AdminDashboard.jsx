@@ -8,7 +8,7 @@ import VehicleOwnerTable from "./VehicleOwnerTable";
 import CustomerTable from "./CustomerTable";
 
 const AdminDashboard = () => {
-	const { admin, logout } = useContext(AdminContext);
+	const { logout } = useContext(AdminContext);
 
 	return (
 		<>

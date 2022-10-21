@@ -21,9 +21,9 @@ export function HotelPackageProvider({ children }) {
 		name: "",
 		location: "",
 		condition: "",
-		beds: 0,
+		beds: "",
 		room_no: "",
-		cost: 0,
+		cost: "",
 		description: "",
 		images: [],
 		hotel_owner_id: "",
@@ -57,9 +57,9 @@ export function HotelPackageProvider({ children }) {
 	// Add Hotel Package
 	const addHotelPackage = async (newHotelPackage) => {
 		// Validate the new hotel package
-		const { error } = AddHotelPackageFormSchema.validate(newHotelPackage);
-		if (error) {
-			makeToast({ type: "error", message: error.details[0].message });
+		const { validationError } = AddHotelPackageFormSchema.validate(newHotelPackage);
+		if (validationError) {
+			makeToast({ type: "error", message: validationError.details[0].message });
 			return;
 		}
 		try {
@@ -69,9 +69,9 @@ export function HotelPackageProvider({ children }) {
 			setIsLoading(false);
 			navigate("/hotel-owner/manage-packages");
 			makeToast({ type: "success", message: "Hotel Package Added Successfully" });
-		} catch (error) {
+		} catch (addHotelPackageError) {
 			// eslint-disable-next-line no-console
-			console.log(error);
+			console.log(addHotelPackageError);
 		}
 	};
 
@@ -82,9 +82,9 @@ export function HotelPackageProvider({ children }) {
 			const response = await HotelPackageAPI.getHotelPackageByHotelOwnerId(hotel_owner_id);
 			setHotelPackagesByHotelOwnerID(response.data);
 			setIsLoading(false);
-		} catch (error) {
+		} catch (getHotelPackageByHotelOwnerIDError) {
 			// eslint-disable-next-line no-console
-			console.log(error);
+			console.log(getHotelPackageByHotelOwnerIDError);
 		}
 	};
 
@@ -94,7 +94,7 @@ export function HotelPackageProvider({ children }) {
 			setIsLoading(true);
 			await HotelPackageAPI.deleteHotelPackage(id);
 			// Update the hotelPackages state
-			setHotelPackagesByHotelOwnerID(hotelPackagesByHotelOwnerID.filter((hotelPackage) => hotelPackage._id !== id));
+			setHotelPackagesByHotelOwnerID(hotelPackagesByHotelOwnerID.filter((hotelPack) => hotelPack._id !== id));
 			makeToast({ type: "success", message: "Hotel Package deleted successfully" });
 			setIsLoading(false);
 		} catch (error) {
@@ -112,11 +112,11 @@ export function HotelPackageProvider({ children }) {
 		HotelPackageAPI.editHotelPackage(hotelPackageID, values)
 			.then((response) => {
 				setHotelPackagesByHotelOwnerID(
-					hotelPackagesByHotelOwnerID.map((hotelPackage) => {
-						if (hotelPackage._id === hotelPackageID) {
+					hotelPackagesByHotelOwnerID.map((hotelPackageByID) => {
+						if (hotelPackageByID._id === hotelPackageID) {
 							return response.data;
 						}
-						return hotelPackage;
+						return hotelPackageByID;
 					})
 				);
 				setIsLoading(false);

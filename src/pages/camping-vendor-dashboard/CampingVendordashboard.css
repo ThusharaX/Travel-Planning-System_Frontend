@@ -3,15 +3,17 @@
 	margin-top: 150px;
 }
 
-.table {
+.tbl {
+	position: fixed;
 	margin-left: 500px;
 	width: 60%;
-	margin-top: -350px;
+	margin-top: -370px;
 }
 
-.btn {
+.button {
+	position: fixed;
 	margin-left: 501px;
-	margin-top: -280px;
+	margin-top: -430px;
 }
 .bottombtn {
 	margin-left: 50px;
@@ -22,20 +24,17 @@
 }
 
 .carddiv {
-	margin-top: -150px;
+	margin-top: -100px;
 }
 
-.searchAdd {
-	margin-top: -47px;
-	margin-left: 1050px;
+.searchInput {
 	position: fixed;
-
-	margin-top: -395px;
+	margin-top: -430px;
 	margin-left: 1100px;
-
-	margin-top: -45px;
-	margin-left: 600px;
 }
 
 .hello {
+	font-size: xx-large;
+	margin-bottom: 30px;
+	color: #4c6fff;
 }

@@ -10,6 +10,8 @@ const HotelPackageEdit = () => {
 		// eslint-disable-next-line no-console
 		// console.log(hotelPackageId);
 		getHotelPackageByID(hotelPackageId);
+		// eslint-disable-next-line no-console
+		console.log(hotelPackage.condition);
 	}, []);
 
 	const handleSubmit = (e) => {
@@ -70,7 +72,13 @@ const HotelPackageEdit = () => {
 								<select
 									className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									id="condition"
+									// value={hotelPackage.condition}
+									// defaultValue={hotelPackage.condition}
+									defaultValue="default"
 								>
+									<option value="default" disabled>
+										-- Select Condition --
+									</option>
 									<option value="AC">AC</option>
 									<option value="Non-AC">Non-AC</option>
 								</select>

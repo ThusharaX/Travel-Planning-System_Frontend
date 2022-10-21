@@ -1,12 +1,19 @@
 import "../camping-vendor-dashboard/CampingVendordashboard.css";
-import React, { useContext } from "react";
+import React, { useContext, useState, useRef } from "react";
 import CampingPackageContext from "../../contexts/CampingPackageContext";
 import CampingVenderContext from "../../contexts/CampingVenderContext";
 import { Link } from "react-router-dom";
+import { useReactToPrint } from "react-to-print";
 
 const CampingVendorDashboard = () => {
 	const { isLoading, campingPackages, deleteCampingPackage } = useContext(CampingPackageContext);
 	const { getCampingVendor, campingVender } = useContext(CampingVenderContext);
+
+	const [searchTerm, setSearchTerm] = useState("");
+	const componentRef = useRef();
+	const handlePrint = useReactToPrint({
+		content: () => componentRef.current,
+	});
 
 	const id = localStorage.getItem("uID");
 
@@ -68,7 +75,7 @@ const CampingVendorDashboard = () => {
 				</div>
 			</div>
 
-			<div className="table">
+			<div className="tbl">
 				<div className="flex flex-col justify-center h-full">
 					<div className="w-full max-w-5xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
 						<header className="px-5 py-4 border-b border-gray-100">
@@ -103,6 +110,13 @@ const CampingVendorDashboard = () => {
 
 									{campingPackages
 										.filter((elem) => elem.vendorId == id)
+										.filter((val) => {
+											if (searchTerm == "") {
+												return val;
+											} else if (val.packageName.toLowerCase().includes(searchTerm.toLowerCase())) {
+												return val;
+											}
+										})
 										.map((campingPackage) => (
 											// eslint-disable-next-line react/jsx-key
 											<tbody className="text-sm divide-y divide-gray-100">
@@ -167,19 +181,19 @@ const CampingVendorDashboard = () => {
 					</div>
 				</div>
 			</div>
-			<div className="btn">
+			<div className="button">
 				<div>
 					<Link
 						to="/camping-package-create"
 						type="button"
-						className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 w-48 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+						className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 w-48 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-9 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
 					>
-						<button>Add New Package</button>
+						<button className="text-center">Add New Package</button>
 					</Link>
 				</div>
 			</div>
 
-			<div className="searchAdd">
+			<div className="searchInput">
 				<div className="flex justify-center">
 					<div className="flex justify-center">
 						<div className="mb-3 xl:w-96">
@@ -187,9 +201,12 @@ const CampingVendorDashboard = () => {
 								<input
 									type="search"
 									className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-									placeholder="Search"
+									placeholder="Enter Package Name"
 									aria-label="Search"
 									aria-describedby="button-addon3"
+									onChange={(event) => {
+										setSearchTerm(event.target.value);
+									}}
 								></input>
 							</div>
 						</div>

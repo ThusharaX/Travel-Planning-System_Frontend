@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
 	const permissionLevel = localStorage.getItem("permissionLevel");
-	const uID = localStorage.getItem("uID") || null;
 
 	const logout = () => {
 		localStorage.removeItem("authToken");

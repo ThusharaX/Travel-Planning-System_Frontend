@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import AdminContext from "../../contexts/AdminContext";
-import { Link } from "react-router-dom";
 
 const HotelOwnerTable = () => {
 	const { hotelOwners, deleteHotelOwner, getHotelOwnerCount } = useContext(AdminContext);

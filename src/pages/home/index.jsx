@@ -1,26 +1,4 @@
-// import React from "react";
-
-// const Home = () => {
-// 	return (
-// 		<>
-// 			<h1 className="mt-5 text-4xl text-center">Home Page</h1>
-// 		</>
-// 	);
-// };
-
-// export default Home;
-
-import { Fragment } from "react";
-import { Popover, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-
-const navigation = [
-	{ name: "Product", href: "#" },
-	{ name: "Features", href: "#" },
-	{ name: "Marketplace", href: "#" },
-	{ name: "Company", href: "#" },
-];
 
 export default function Home() {
 	return (
@@ -56,14 +34,6 @@ export default function Home() {
 										Get started
 									</Link>
 								</div>
-								{/* <div className="mt-3 sm:mt-0 sm:ml-3">
-									<a
-										href="#"
-										className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg"
-									>
-										Live demo
-									</a>
-								</div> */}
 							</div>
 						</div>
 					</main>

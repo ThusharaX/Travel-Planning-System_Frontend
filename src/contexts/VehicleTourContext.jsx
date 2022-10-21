@@ -31,6 +31,7 @@ export function VehicleTourProvider({ children }) {
 
 	// Add Hotel Package
 	const addVehicle = async (newVehicleTour) => {
+		// eslint-disable-next-line no-console
 		console.log("Owner ID context :" + newVehicleTour.ownerId);
 
 		try {
@@ -71,7 +72,7 @@ export function VehicleTourProvider({ children }) {
 				//navigate("/viewres");
 				// eslint-disable-next-line no-console
 				console.log("updated successfully...");
-				navigate("/vehicle");
+				navigate("/vehicle-profile");
 			})
 			.catch((err) => {
 				// eslint-disable-next-line no-console

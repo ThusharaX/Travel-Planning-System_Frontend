@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import HotelOwnerContext from "../../contexts/HotelOwnerContext";
 
 const HotelOwnerLogin = () => {
-	const { login, isLoggedIn, isLoading, message } = useContext(HotelOwnerContext);
+	const { login } = useContext(HotelOwnerContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -53,11 +53,6 @@ const HotelOwnerLogin = () => {
 							</button>
 						</div>
 						<hr className="mb-6 border-t" />
-						{/* <div className="text-center">
-							<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
-								Forgot Password?
-							</a>
-						</div> */}
 						<div className="text-center">
 							<a
 								className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
