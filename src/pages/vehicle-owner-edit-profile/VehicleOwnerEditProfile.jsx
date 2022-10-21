@@ -1,22 +1,26 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
-import CampingVenderContext from "../../contexts/CampingVenderContext";
+import VehicleOwnerContext from "../../contexts/VehicleOwnerContext";
 
-const CampingVendorEditProfile = () => {
-	const { isLoading, getCampingVendor, setCampingVender, editCampingVendor, campingVender } =
-		useContext(CampingVenderContext);
+const VehicleOwnerEditProfile = () => {
+	const { isLoading, getOneVehicleOwner, setVehicleOwner, EditVehicleOwner, vehicleOwner } =
+		useContext(VehicleOwnerContext);
 
 	const handleChange = (e) => {
-		setCampingVender(e.target.value);
+		setVehicleOwner(e.target.value);
 	};
 
 	const { id } = useParams();
-	getCampingVendor(id);
+	getOneVehicleOwner(id);
+
+	const sid = localStorage.getItem("uID");
+	console.log(sid);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		const newCampingVendor = {
+		const newVehicleOwner = {
 			id: id,
 			companyOwnerName: e.target.companyOwnerName.value,
 			email: e.target.email.value,
@@ -27,12 +31,12 @@ const CampingVendorEditProfile = () => {
 			companyPhone: e.target.companyAddress.value,
 			companyRegisterNumber: e.target.companyRegisterNumber.value,
 		};
-		editCampingVendor(newCampingVendor);
+		EditVehicleOwner(newVehicleOwner);
 	};
 
 	return (
 		<>
-			<h1 className="mt-5 text-4xl text-center">Camping Vendor Edit Profile</h1>
+			<h1 className="mt-5 text-4xl text-center">Vehicle Owner Edit Profile</h1>
 
 			<br></br>
 			<center>
@@ -52,7 +56,7 @@ const CampingVendorEditProfile = () => {
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base border-indigo-500 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 												id="companyOwnerName"
-												value={campingVender.companyOwnerName}
+												value={vehicleOwner.companyName}
 												type="text"
 												aria-describedby="emailHelp123"
 												placeholder="Company Owner Name"
@@ -67,7 +71,7 @@ const CampingVendorEditProfile = () => {
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base border-indigo-500 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 												id="email"
-												value={campingVender.email}
+												value={vehicleOwner.email}
 												type="email"
 												aria-describedby="emailHelp124"
 												placeholder="Email Address"
@@ -84,7 +88,7 @@ const CampingVendorEditProfile = () => {
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base  border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 												id="nic"
-												value={campingVender.nic}
+												value={vehicleOwner.nic}
 												type="text"
 												aria-describedby="emailHelp123"
 												placeholder="NIC"
@@ -100,7 +104,7 @@ const CampingVendorEditProfile = () => {
 											<input
 												className="form-control block  w-80 px-3 py-1.5 text-base border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 												id="contactNumber"
-												value={campingVender.contactNumber}
+												value={vehicleOwner.contactNumber}
 												type="number"
 												aria-describedby="emailHelp124"
 												placeholder="Contact Number"
@@ -117,7 +121,7 @@ const CampingVendorEditProfile = () => {
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base  border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 												id="companyName"
-												value={campingVender.companyName}
+												value={vehicleOwner.companyName}
 												type="text"
 												aria-describedby="emailHelp123"
 												placeholder="Company Name"
@@ -132,7 +136,7 @@ const CampingVendorEditProfile = () => {
 											<input
 												className="form-control block  w-80 px-3 py-1.5 text-base border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 												id="companyAddress"
-												value={campingVender.companyAddress}
+												value={vehicleOwner.companyAddress}
 												type="text"
 												aria-describedby="emailHelp124"
 												placeholder="Company Address"
@@ -149,7 +153,7 @@ const CampingVendorEditProfile = () => {
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base  border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 												id="companyPhone"
-												value={campingVender.companyPhone}
+												value={vehicleOwner.companyPhone}
 												type="text"
 												aria-describedby="emailHelp123"
 												placeholder="Company Phone"
@@ -164,7 +168,7 @@ const CampingVendorEditProfile = () => {
 											<input
 												className="form-control block  w-80 px-3 py-1.5 text-base border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 												id="companyRegisterNumber"
-												value={campingVender.companyRegisterNumber}
+												value={vehicleOwner.companyRegisterNumber}
 												type="text"
 												aria-describedby="emailHelp124"
 												placeholder="Company Register Number"
@@ -192,4 +196,4 @@ const CampingVendorEditProfile = () => {
 		</>
 	);
 };
-export default CampingVendorEditProfile;
+export default VehicleOwnerEditProfile;

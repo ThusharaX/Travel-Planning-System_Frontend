@@ -63,6 +63,7 @@ import {
 	/*Vehicle Owner */
 	VehicleOwnerRegister,
 	VehicleOwnerLogin,
+	VehicleOwnerEditProfile,
 	WhoAreYou,
 
 	/*display page*/
@@ -157,6 +158,7 @@ const AppRoutes = () => {
 					<Route path="/vehicle-create" element={<VehicleCreate />} />
 					<Route path="/vehicle" element={<VehicleList />} />
 					<Route path="/vehicle-profile" element={<Userprofile />} />
+					<Route path="/vehicle-owner-profile-edit/:id" element={<VehicleOwnerEditProfile />} />
 
 					{/*customer*/}
 					<Route path="/customersignup" element={<CustomerSignup />} />

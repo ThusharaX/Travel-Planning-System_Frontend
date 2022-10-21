@@ -58,6 +58,7 @@ import CampingVendorEditProfile from "./camping-vendor-edit-profile";
 import VehicleOwnerRegister from "./vehicle-owner-register";
 import VehicleOwnerLogin from "./vehicle-owner-login";
 import Userprofile from "./vehicleOwner-profile";
+import VehicleOwnerEditProfile from "./vehicle-owner-edit-profile";
 
 import WhoAreYou from "./who-are-you";
 
@@ -125,6 +126,7 @@ export {
 	VehicleOwnerRegister,
 	VehicleOwnerLogin,
 	Userprofile,
+	VehicleOwnerEditProfile,
 	WhoAreYou,
 
 	/*Display page*/

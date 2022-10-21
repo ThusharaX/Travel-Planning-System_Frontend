@@ -3,7 +3,7 @@ import VehicleOwnerAPI from "./api/VehicleOwnerAPI";
 import makeToast from "../components/toast/index";
 
 import Joi from "joi";
-
+import { useEffect } from "react";
 const VehicleOwnerContext = createContext();
 
 export function VehicleOwnerProvider({ children }) {
@@ -114,6 +114,53 @@ export function VehicleOwnerProvider({ children }) {
 			});
 	};
 
+	// get one Vehicle Owner
+	const getOneVehicleOwner = (id) => {
+		useEffect(() => {
+			VehicleOwnerAPI.getOneVehicleOwner(id).then((res) => {
+				setVehicleOwner(res.data);
+			});
+		}, []);
+	};
+
+	// Get all Vehicle Owner
+	useEffect(() => {
+		setIsLoading(true);
+		VehicleOwnerAPI.getAllVehicleOwners().then((response) => {
+			setVehicleOwners(response.data);
+			setIsLoading(false);
+		});
+	}, []);
+
+	// Edit Vehicle Owner
+	const EditVehicleOwner = (values) => {
+		const newVehicleOwner = {
+			companyOwnerName: values.companyOwnerName,
+			email: values.email,
+			nic: values.packageName,
+			contactNumber: values.contactNumber,
+			companyName: values.companyName,
+			companyAddress: values.companyAddress,
+			companyPhone: values.companyPhone,
+			companyRegisterNumber: values.companyRegisterNumber,
+		};
+		VehicleOwnerAPI.editVehicleOwner(values.id, newVehicleOwner)
+			.then((response) => {
+				makeToast({ type: "success", message: "Update Successful" });
+				window.location.href = "/vehicle-profile";
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
+	// Delete Vehicle Owner
+	const deleteVehicleOwner = (id) => {
+		VehicleOwnerAPI.deleteVehicleOwner(id).then(() => {
+			setVehicleOwners(vehicleOwners.filter((vehicleOwner) => vehicleOwner._id !== id));
+		});
+	};
+
 	return (
 		<VehicleOwnerContext.Provider
 			value={{
@@ -127,6 +174,11 @@ export function VehicleOwnerProvider({ children }) {
 				setNicError,
 				nicError,
 				isLoggedIn,
+				getOneVehicleOwner,
+				setVehicleOwner,
+				setVehicleOwners,
+				deleteVehicleOwner,
+				EditVehicleOwner,
 			}}
 		>
 			{children}
