@@ -1,24 +1,24 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import TourGuideContext from "../../contexts/TourGuideContext";
+import React from "react";
+import "./CustomerLogin.css";
+import CustomerContext from "../../contexts/CustomerContext";
+import { useContext } from "react";
 
-const TourGuideLogin = () => {
-	const { isLoading, TourGuideLogin } = useContext(TourGuideContext);
+const CustomerLogin = () => {
+	const { isLoading, CustomerLogin } = useContext(CustomerContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		const newTourGuide = {
+		const newCustomer = {
 			email: e.target.email.value,
 			password: e.target.password.value,
 		};
-
-		TourGuideLogin(newTourGuide);
+		CustomerLogin(newCustomer);
 	};
 
 	return (
 		<>
-			<h1 className="mt-5 text-4xl text-center">Tour Guide Login</h1>
+			<h1 className="mt-5 text-4xl text-center">User Login</h1>
 			<form onSubmit={handleSubmit}>
 				<div className="flex justify-center h-full max-w-4xl mx-auto mt-20 bg-white rounded-lg shadow-xl">
 					<div className=" left bg-primary-blue  rounded-lg">
@@ -30,7 +30,7 @@ const TourGuideLogin = () => {
 							<h4 className="mt-2 text-white">please login to our system</h4>
 						</div>
 						<div className="img ml-3 mt-16">
-							<img class="object-cover w-100 h-56" src="./tourguide.svg" alt="img" />
+							<img class="object-cover w-100 h-56" src="./customer.svg" alt="img" />
 						</div>
 					</div>
 
@@ -68,17 +68,6 @@ const TourGuideLogin = () => {
 									Login
 								</button>
 							</div>
-							<br></br>
-							<div className="text-center">
-								<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
-									Forgot Password?
-								</a>
-							</div>
-							<div className="text-center">
-								<a className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
-									<Link to="/tour-guide-register">Create an Account.</Link>
-								</a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -87,4 +76,4 @@ const TourGuideLogin = () => {
 	);
 };
 
-export default TourGuideLogin;
+export default CustomerLogin;

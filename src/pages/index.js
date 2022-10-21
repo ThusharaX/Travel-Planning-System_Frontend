@@ -58,6 +58,7 @@ import WhoAreYou from "./who-are-you";
 
 // Customer
 import CustomerRegister from "./customer-register";
+import CustomerLogin from "./customer-login";
 
 export {
 	Sample,
@@ -117,4 +118,5 @@ export {
 
 	/*Customer */
 	CustomerRegister,
+	CustomerLogin,
 };
