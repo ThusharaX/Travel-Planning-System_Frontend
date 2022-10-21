@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 import CustomerAPI from "./api/CustomerAPI";
-import { useEffect } from "react";
 import makeToast from "../components/toast/index";
 import Joi from "joi";
 
@@ -39,10 +38,18 @@ export function CustomerProvider({ children }) {
 			.then((response) => {
 				setCustomers([...customers, response.data]);
 				const { error } = SignUpFormSchema.validate(values);
+
+				// BUG FIX
+				if (error) {
+					makeToast({ type: "error", message: error.details[0].message });
+					return;
+				}
+
 				makeToast({ type: "success", message: "Registration Successful" });
 				window.location.href = "/customer-login";
 			})
 			.catch((error) => {
+				// eslint-disable-next-line no-console
 				console.log(error.response.data);
 				if (error.response.data.details == "Email already exists") {
 					setMailError(error.response.data.details);
@@ -91,6 +98,8 @@ export function CustomerProvider({ children }) {
 				customer,
 				CustomerRegister,
 				CustomerLogin,
+				// BUG FIX
+				setCustomer,
 			}}
 		>
 			{children}
