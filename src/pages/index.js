@@ -118,12 +118,10 @@ export {
 	Userprofile,
 	WhoAreYou,
 
-
 	/*Display page*/
 	Displaypage,
 
 	/*Customer */
 	CustomerRegister,
 	CustomerLogin,
-
 };
