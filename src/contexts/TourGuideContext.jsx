@@ -1,6 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import TourGuideAPI from "./api/TourGuideAPI";
-import { useEffect } from "react";
 import makeToast from "../components/toast/index";
 import Joi from "joi";
 
@@ -39,6 +38,7 @@ export function TourGuideProvider({ children }) {
 				window.location.href = "/tour-guide-login";
 			})
 			.catch((err) => {
+				// eslint-disable-next-line no-console
 				console.log(err.response.data);
 				if (err.response.data.details == "Email already exists") {
 					setMailError(err.response.data.details);
@@ -105,6 +105,7 @@ export function TourGuideProvider({ children }) {
 				window.location.href = "/tour-guide-dashboard";
 			})
 			.catch((err) => {
+				// eslint-disable-next-line no-console
 				console.log(err);
 			});
 	};

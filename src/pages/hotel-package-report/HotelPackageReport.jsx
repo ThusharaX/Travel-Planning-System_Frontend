@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import HotelPackageContext from "../../contexts/HotelPackageContext";
-import makeToast from "../../components/toast";
 
 const HotelPackageReport = () => {
-	const { hotelPackagesByHotelOwnerID, deleteHotelPackage, getHotelPackageByHotelOwnerID, isLoading } =
-		useContext(HotelPackageContext);
+	const { hotelPackagesByHotelOwnerID } = useContext(HotelPackageContext);
 
 	const [totalHotelPackages, setTotalHotelPackages] = useState(0);
 	const [totalHotelPackagesCost, setTotalHotelPackagesCost] = useState(0);
@@ -18,8 +16,8 @@ const HotelPackageReport = () => {
 			let totalCost = hotelPackagesByHotelOwnerID.reduce((sum, hotelPackage) => sum + hotelPackage.cost, 0);
 			setTotalHotelPackagesCost(totalCost);
 			// Calculate total of all beds
-			let totalBeds = hotelPackagesByHotelOwnerID.reduce((sum, hotelPackage) => sum + hotelPackage.beds, 0);
-			setTotalBeds(totalBeds);
+			let totalBed = hotelPackagesByHotelOwnerID.reduce((sum, hotelPackage) => sum + hotelPackage.beds, 0);
+			setTotalBeds(totalBed);
 		}
 	}, [hotelPackagesByHotelOwnerID]);
 
