@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 import VehicleOwnerAPI from "./api/VehicleOwnerAPI";
-import makeToast from "../components/toast/index";
 
 import Joi from "joi";
 
@@ -47,14 +46,6 @@ export function VehicleOwnerProvider({ children }) {
 		profilePicture: Joi.string().min(0).message("Profile picture"),
 	});
 
-	// Login Form Validation
-	const LoginFormSchema = Joi.object({
-		email: Joi.string()
-			.email({ tlds: { allow: false } })
-			.message("Email should be valid"),
-		password: Joi.string().min(4).message("Password should be valid"),
-	});
-
 	// Add Vehicle Owner
 	const VehicleOwnerRegister = (values) => {
 		const { error } = SignUpFormSchema.validate(values);
@@ -66,7 +57,7 @@ export function VehicleOwnerProvider({ children }) {
 		VehicleOwnerAPI.vehicleOwnerRegister(values)
 			.then((response) => {
 				setVehicleOwners([...vehicleOwners, response.data]);
-				makeToast({ type: "success", message: "Registration Successful" });
+				alert("Vehicle Owner Registration Successful...!");
 				window.location.href = "/vehicle-owner-login";
 			})
 			.catch((err) => {
@@ -74,11 +65,11 @@ export function VehicleOwnerProvider({ children }) {
 				console.log(err.response.data);
 				if (err.response.data.details == "Email already Exists") {
 					setMailError(err.response.data.details);
-					makeToast({ type: "error", message: "Email already exists" });
+					alert("Email already Exists");
 				}
 				if (err.response.data.details == "NIC already exists") {
 					setNicError(err.response.data.details);
-					makeToast({ type: "error", message: "NIC already exists" });
+					alert("NIC already exists");
 				}
 			});
 	};
@@ -104,7 +95,7 @@ export function VehicleOwnerProvider({ children }) {
 					localStorage.setItem("Email", response.data.email);
 					localStorage.setItem("authToken", response.data.token);
 					localStorage.setItem("permissionLevel", response.data.permissionLevel);
-					makeToast({ type: "success", message: "Login Successful" });
+					alert("Logged In Successful...!!!");
 					window.location.href = "/vehicle-profile";
 					setIsLoggedIn(true);
 					setIsLoggedIn(false);
@@ -112,7 +103,7 @@ export function VehicleOwnerProvider({ children }) {
 			})
 			.catch((err) => {
 				setIsLoading(false);
-				makeToast({ type: "error", message: "Invalid Email or Password" });
+				return alert(err.response.data.details.message);
 			});
 	};
 
