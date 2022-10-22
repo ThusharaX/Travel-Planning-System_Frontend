@@ -36,17 +36,14 @@ export function TourGuideProvider({ children }) {
 		guideCity: Joi.string().min(2).max(20).message("Owner name should be between 2 and 20 characters"),
 		spokenLanguages: Joi.string().min(2).max(20).message("Owner name should be between 2 and 20 characters"),
 		motherTongue: Joi.string().min(2).max(20).message("Owner name should be between 2 and 20 characters"),
-		password: Joi.string().min(4).message("Password should be valid"),	
+		password: Joi.string().min(4).message("Password should be valid"),
 		profilePicture: Joi.string().min(0).message("Profile picture"),
-
-
 	});
 
 	// Toast Message
 
 	// Add Tour Guide
 	const TourGuideRegister = async (values) => {
-
 		const { error } = SignUpFormSchema.validate(values);
 		if (error) {
 			makeToast({ type: "error", message: error.details[0].message });
