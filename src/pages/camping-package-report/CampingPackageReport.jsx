@@ -19,16 +19,6 @@ const CampingPackageReport = () => {
 	let count = 0;
 	let total = 0;
 
-	/*  while(!campingPackages){
-    
-     if(campingPackages.vendorID==id){
-       count=count+1;
-       total=total+(campingPackages.price);
-     }
-   }
-
-   console.log(total);
-   console.log(count)*/
 	campingPackages
 		.filter((elem) => elem.vendorId == id)
 		.map(
