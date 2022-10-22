@@ -77,12 +77,6 @@ export function VehicleOwnerProvider({ children }) {
 	const VehicleOwnerLogin = (values) => {
 		setIsLoading(true);
 
-		const { error } = LoginFormSchema.validate(values);
-		if (error) {
-			makeToast({ type: "error", message: error.details[0].message });
-			return;
-		}
-
 		VehicleOwnerAPI.vehicleOwnerLogin(values)
 			.then((response) => {
 				if (response.data.permissionLevel !== "VEHICLE_OWNER") {

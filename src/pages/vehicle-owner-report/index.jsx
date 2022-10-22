@@ -1,12 +1,14 @@
 import React from "react";
 import VehiclePackageReport from "./VehiclePackageReport";
 
-//import { VehiclePackageProvider } from "../../contexts/VehiclePackageContext";
+import { VehiclePackageProvider } from "../../contexts/VehiclePackageContext";
 
 const index = () => {
 	return (
 		<>
-			<VehiclePackageReport />
+			<VehiclePackageProvider>
+				<VehiclePackageReport />
+			</VehiclePackageProvider>
 		</>
 	);
 };
