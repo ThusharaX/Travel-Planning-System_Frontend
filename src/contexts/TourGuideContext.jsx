@@ -25,12 +25,31 @@ export function TourGuideProvider({ children }) {
 		password: "",
 	});
 
-	const SignUpFormSchema = Joi.object({});
+	const SignUpFormSchema = Joi.object({
+		tourGuideName: Joi.string().min(2).max(20).message("Owner name should be between 2 and 20 characters"),
+		email: Joi.string()
+			.email({ tlds: { allow: false } })
+			.message("Email should be valid"),
+		nic: Joi.string().min(10).max(10).message("NIC should be 10 characters"),
+		contactNumber: Joi.string().min(10).max(10).message("Phone number should be 10 characters"),
+		guideArea: Joi.string().min(2).max(20).message("Owner name should be between 2 and 20 characters"),
+		guideCity: Joi.string().min(2).max(20).message("Owner name should be between 2 and 20 characters"),
+		spokenLanguages: Joi.string().min(2).max(20).message("Owner name should be between 2 and 20 characters"),
+		motherTongue: Joi.string().min(2).max(20).message("Owner name should be between 2 and 20 characters"),
+		password: Joi.string().min(4).message("Password should be valid"),
+		profilePicture: Joi.string().min(0).message("Profile picture"),
+	});
 
 	// Toast Message
 
 	// Add Tour Guide
 	const TourGuideRegister = async (values) => {
+		const { error } = SignUpFormSchema.validate(values);
+		if (error) {
+			makeToast({ type: "error", message: error.details[0].message });
+			return;
+		}
+
 		TourGuideAPI.tourGuideRegister(values)
 			.then((response) => {
 				setTourGuides([...tourGuides, response.data]);
