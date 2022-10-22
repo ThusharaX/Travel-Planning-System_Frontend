@@ -1,38 +1,42 @@
 import React from "react";
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
-import TourGuideContext from "../../contexts/TourGuideContext";
+import VehicleOwnerContext from "../../contexts/VehicleOwnerContext";
 
-const TourGuideEditProfile = () => {
-	const { isLoading, getOneTourGuide, tourGuide, TourGuideEdit, setTourGuide } = useContext(TourGuideContext);
+const VehicleOwnerEditProfile = () => {
+	const { isLoading, getOneVehicleOwner, setVehicleOwner, EditVehicleOwner, vehicleOwner } =
+		useContext(VehicleOwnerContext);
 
 	const handleChange = (e) => {
-		setTourGuide(e.target.value);
+		setVehicleOwner(e.target.value);
 	};
 
 	const { id } = useParams();
-	getOneTourGuide(id);
+	getOneVehicleOwner(id);
+
+	const sid = localStorage.getItem("uID");
+	console.log(sid);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		const newTourGuide = {
+		const newVehicleOwner = {
 			id: id,
-			tourGuideName: e.target.tourGuideName.value,
+			companyOwnerName: e.target.companyOwnerName.value,
 			email: e.target.email.value,
 			nic: e.target.nic.value,
-			contactNumber: e.target.contactNumber.value,
-			guideArea: e.target.guideArea.value,
-			guideCity: e.target.guideCity.value,
-			spokenLanguages: e.target.spokenLanguages.value,
-			motherTongue: e.target.motherTongue.value,
+			contactNumber: e.target.nic.value,
+			companyName: e.target.companyName.value,
+			companyAddress: e.target.companyAddress.value,
+			companyPhone: e.target.companyAddress.value,
+			companyRegisterNumber: e.target.companyRegisterNumber.value,
 		};
-		TourGuideEdit(newTourGuide);
+		EditVehicleOwner(newVehicleOwner);
 	};
 
 	return (
 		<>
-			<h1 className="mt-5 text-4xl text-center">Tour Guide Edit Profile</h1>
+			<h1 className="mt-5 text-4xl text-center">Vehicle Owner Edit Profile</h1>
 
 			<br></br>
 			<center>
@@ -45,17 +49,17 @@ const TourGuideEditProfile = () => {
 								<div className="grid grid-cols-2 gap-x-10">
 									<div className="form-group mb-6">
 										<label className="labelClass" htmlFor="fname">
-											Change Tour Guide Name
+											Change Company Owner Name
 										</label>
 
 										<div className="flex ...">
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base border-indigo-500 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-												id="tourGuideName"
-												value={tourGuide.tourGuideName}
+												id="companyOwnerName"
+												value={vehicleOwner.companyName}
 												type="text"
 												aria-describedby="emailHelp123"
-												placeholder="Tour Guide Name"
+												placeholder="Company Owner Name"
 												onChange={handleChange}
 											></input>
 										</div>
@@ -67,10 +71,11 @@ const TourGuideEditProfile = () => {
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base border-indigo-500 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 												id="email"
-												value={tourGuide.email}
+												value={vehicleOwner.email}
 												type="email"
 												aria-describedby="emailHelp124"
 												placeholder="Email Address"
+												onChange={handleChange}
 												readOnly
 											></input>
 										</div>
@@ -83,10 +88,11 @@ const TourGuideEditProfile = () => {
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base  border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 												id="nic"
-												value={tourGuide.nic}
+												value={vehicleOwner.nic}
 												type="text"
 												aria-describedby="emailHelp123"
 												placeholder="NIC"
+												onChange={handleChange}
 												readOnly
 											></input>
 										</div>
@@ -98,7 +104,7 @@ const TourGuideEditProfile = () => {
 											<input
 												className="form-control block  w-80 px-3 py-1.5 text-base border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 												id="contactNumber"
-												value={tourGuide.contactNumber}
+												value={vehicleOwner.contactNumber}
 												type="number"
 												aria-describedby="emailHelp124"
 												placeholder="Contact Number"
@@ -110,30 +116,30 @@ const TourGuideEditProfile = () => {
 
 								<div className="grid grid-cols-2 gap-x-10">
 									<div className="form-group mb-10">
-										<label htmlFor="fname">Change Guide Area</label>
+										<label htmlFor="fname">Change Company Name</label>
 										<div className="flex ...">
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base  border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-												id="guideArea"
-												value={tourGuide.guideArea}
+												id="companyName"
+												value={vehicleOwner.companyName}
 												type="text"
 												aria-describedby="emailHelp123"
-												placeholder="Guide Area"
+												placeholder="Company Name"
 												onChange={handleChange}
 											></input>
 										</div>
 									</div>
 
 									<div className="form-group mb-6">
-										<label htmlFor="fname">Change Guide City</label>
+										<label htmlFor="fname">Change Company Address</label>
 										<div className="flex ...">
 											<input
 												className="form-control block  w-80 px-3 py-1.5 text-base border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-												id="guideCity"
-												value={tourGuide.guideCity}
+												id="companyAddress"
+												value={vehicleOwner.companyAddress}
 												type="text"
 												aria-describedby="emailHelp124"
-												placeholder="Guide City"
+												placeholder="Company Address"
 												onChange={handleChange}
 											></input>
 										</div>
@@ -142,31 +148,32 @@ const TourGuideEditProfile = () => {
 
 								<div className="grid grid-cols-2 gap-x-10">
 									<div className="form-group mb-10">
-										<label htmlFor="fname">Change Spoken Language</label>
+										<label htmlFor="fname">Change Campany Phone</label>
 										<div className="flex ...">
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base  border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-												id="spokenLanguages"
-												value={tourGuide.spokenLanguages}
+												id="companyPhone"
+												value={vehicleOwner.companyPhone}
 												type="text"
 												aria-describedby="emailHelp123"
-												placeholder="Spoken Language"
+												placeholder="Company Phone"
 												onChange={handleChange}
 											></input>
 										</div>
 									</div>
 
 									<div className="form-group mb-6">
-										<label htmlFor="fname">Mother Tongue</label>
+										<label htmlFor="fname">Company Register Number</label>
 										<div className="flex ...">
 											<input
 												className="form-control block  w-80 px-3 py-1.5 text-base border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-												id="motherTongue"
-												value={tourGuide.motherTongue}
+												id="companyRegisterNumber"
+												value={vehicleOwner.companyRegisterNumber}
 												type="text"
 												aria-describedby="emailHelp124"
-												placeholder="Mother Tongue"
+												placeholder="Company Register Number"
 												onChange={handleChange}
+												readOnly
 											></input>
 										</div>
 									</div>
@@ -189,5 +196,4 @@ const TourGuideEditProfile = () => {
 		</>
 	);
 };
-
-export default TourGuideEditProfile;
+export default VehicleOwnerEditProfile;

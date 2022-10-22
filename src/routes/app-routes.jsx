@@ -58,10 +58,12 @@ import {
 	CampingVendorRegister,
 	CampingVendorLogin,
 	CampingVendorDashboard,
+	CampingVendorEditProfile,
 
 	/*Vehicle Owner */
 	VehicleOwnerRegister,
 	VehicleOwnerLogin,
+	VehicleOwnerEditProfile,
 	WhoAreYou,
 
 	/*display page*/
@@ -146,6 +148,7 @@ const AppRoutes = () => {
 					<Route path="/camping-package-create" element={<CampingPackageCreate />} />
 					<Route path="/camping-package-edit/:id" element={<CampingPackageEdit />} />
 					<Route path="/camping-package-report" element={<CampingPackageReport />} />
+					<Route path="/camping-vendor-edit-profile/:id" element={<CampingVendorEditProfile />} />
 
 					<Route path="/camping-package" element={<CampingPackageList />} />
 
@@ -155,6 +158,7 @@ const AppRoutes = () => {
 					<Route path="/vehicle-create" element={<VehicleCreate />} />
 					<Route path="/vehicle" element={<VehicleList />} />
 					<Route path="/vehicle-profile" element={<Userprofile />} />
+					<Route path="/vehicle-owner-profile-edit/:id" element={<VehicleOwnerEditProfile />} />
 
 					{/*customer*/}
 					<Route path="/customersignup" element={<CustomerSignup />} />

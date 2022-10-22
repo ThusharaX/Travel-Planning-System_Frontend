@@ -52,11 +52,13 @@ import CampingPackageReport from "./camping-package-report";
 import CampingVendorRegister from "./camping-vendor-register";
 import CampingVendorLogin from "./camping-vendor-login";
 import CampingVendorDashboard from "./camping-vendor-dashboard";
+import CampingVendorEditProfile from "./camping-vendor-edit-profile";
 
 /*Vehicle Owner */
 import VehicleOwnerRegister from "./vehicle-owner-register";
 import VehicleOwnerLogin from "./vehicle-owner-login";
 import Userprofile from "./vehicleOwner-profile";
+import VehicleOwnerEditProfile from "./vehicle-owner-edit-profile";
 
 import WhoAreYou from "./who-are-you";
 
@@ -118,11 +120,13 @@ export {
 	CampingVendorRegister,
 	CampingVendorLogin,
 	CampingVendorDashboard,
+	CampingVendorEditProfile,
 
 	/* Vehicle Owner*/
 	VehicleOwnerRegister,
 	VehicleOwnerLogin,
 	Userprofile,
+	VehicleOwnerEditProfile,
 	WhoAreYou,
 
 	/*Display page*/
