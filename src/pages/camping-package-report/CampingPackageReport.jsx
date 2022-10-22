@@ -49,8 +49,8 @@ const CampingPackageReport = () => {
 					</div>
 				</div>
 				<div class="ml-10 mr-10 mt-5 overflow-x-96 relative">
-					<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-						<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+					<table className="w-full text-sm text-left text-gray-500 ">
+						<thead class="text-xs  uppercase bg-gray-50  dark:text-gray-400">
 							<tr>
 								<th scope="col" class="py-3 px-6">
 									package Name
@@ -69,7 +69,7 @@ const CampingPackageReport = () => {
 							.filter((elem) => elem.vendorId == id)
 							.map((campingPackage) => (
 								<tbody>
-									<tr class="bg-white ml-5 font-bold border-b dark:bg-gray-800 dark:border-gray-700">
+									<tr className="bg-white ml-5 font-bold border-b ">
 										<td className="px-5">{campingPackage.packageName}</td>
 										<td>{campingPackage.location}</td>
 										<td className="px-6">{campingPackage.price}</td>

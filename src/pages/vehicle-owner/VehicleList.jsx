@@ -11,7 +11,7 @@ const VehicleList = () => {
 				<h1 className="text-center">Loading...</h1>
 			) : (
 				<div className="antialiased bg-gray-100 text-gray-600 h-screen px-4 rounded-2xl">
-					<h1 className="mt-5 text-4xl text-center">Manage Owners</h1>
+					<h1 className="mt-5 text-4xl text-center">Manage Vehicles</h1>
 					<div className="rounded-lg">
 						<br></br>
 						<br></br>
@@ -101,6 +101,15 @@ const VehicleList = () => {
 								</div>
 							</div>
 						</div>
+					</div>
+					<div>
+						<Link
+							to="/vehicle-profile"
+							type="button"
+							className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 w-48 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-9 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+						>
+							<button>Vehicle Owner Dashboard</button>
+						</Link>
 					</div>
 				</div>
 			)}

@@ -21,7 +21,7 @@ const VehicleOwnerLogin = () => {
 			<h1 className="mt-5 text-4xl text-center">Vehicle Owner Login</h1>
 
 			<form onSubmit={handleSubmit}>
-				<div className="flex justify-center h-full max-w-4xl mx-auto mt-20 bg-white rounded-lg shadow-xl">
+				<div className="flex justify-center h-full max-w-4xl mx-auto mt-10 bg-white rounded-lg shadow-xl mb-5">
 					<div className=" left bg-primary-blue  rounded-lg">
 						<div className="mt-32 ml-16 ">
 							<h1 className="text-5xl text-white ">
@@ -31,7 +31,7 @@ const VehicleOwnerLogin = () => {
 							<h4 className="mt-2 text-white">please login to our system</h4>
 						</div>
 						<div className="img ml-3 mt-16">
-							<img class="object-cover w-100 h-56" src="./tourguide.svg" alt="img" />
+							<img class="object-cover w-100 h-56" src="./vehicle.svg" alt="img" />
 						</div>
 					</div>
 

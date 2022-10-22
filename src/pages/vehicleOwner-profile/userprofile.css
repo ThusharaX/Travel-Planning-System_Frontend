@@ -7,29 +7,29 @@
 	position: fixed;
 	margin-left: 500px;
 	width: 60%;
-	margin-top: -490px;
+	margin-top: -450px;
 }
 
 .btn {
 	position: fixed;
 	margin-left: 500px;
-	margin-top: -550px;
+	margin-top: -500px;
 }
 .btn1 {
 	position: fixed;
 	margin-left: 800px;
-	margin-top: -550px;
+	margin-top: -500px;
 }
 .btn2 {
 	position: fixed;
 	margin-left: 1100px;
-	margin-top: -550px;
+	margin-top: -500px;
 }
 .bottombtn {
 	margin-left: 50px;
 }
 .searchAdd {
 	position: fixed;
-	margin-top: -620px;
+	margin-top: -590px;
 	margin-left: 1000px;
 }
