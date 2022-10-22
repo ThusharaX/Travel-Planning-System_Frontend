@@ -76,6 +76,7 @@ import {
 	/* Vehicle Package*/
 	VehiclePackageCreate,
 	VehiclePackageEdit,
+	VehicleReport,
 } from "../pages";
 
 const AppRoutes = () => {
@@ -173,6 +174,7 @@ const AppRoutes = () => {
 					{/*Vehicle Package*/}
 					<Route path="/vehiclepackagecreate" element={<VehiclePackageCreate />} />
 					<Route path="/vehiclepackageedit/:id" element={<VehiclePackageEdit />} />
+					<Route path="/vehicle-package-report" element={<VehicleReport />} />
 				</Routes>
 			</Router>
 		</>

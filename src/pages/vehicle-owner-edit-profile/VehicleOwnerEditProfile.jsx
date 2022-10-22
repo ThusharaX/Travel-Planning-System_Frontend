@@ -25,10 +25,10 @@ const VehicleOwnerEditProfile = () => {
 			companyOwnerName: e.target.companyOwnerName.value,
 			email: e.target.email.value,
 			nic: e.target.nic.value,
-			contactNumber: e.target.nic.value,
+			contactNumber: e.target.contactNumber.value,
 			companyName: e.target.companyName.value,
 			companyAddress: e.target.companyAddress.value,
-			companyPhone: e.target.companyAddress.value,
+			companyPhone: e.target.companyPhone.value,
 			companyRegisterNumber: e.target.companyRegisterNumber.value,
 		};
 		EditVehicleOwner(newVehicleOwner);
@@ -56,11 +56,12 @@ const VehicleOwnerEditProfile = () => {
 											<input
 												className="form-control block w-80 px-3 py-1.5 text-base border-indigo-500 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 												id="companyOwnerName"
-												value={vehicleOwner.companyName}
+												value={vehicleOwner.companyOwnerName}
 												type="text"
 												aria-describedby="emailHelp123"
 												placeholder="Company Owner Name"
 												onChange={handleChange}
+												readonly
 											></input>
 										</div>
 									</div>
@@ -103,8 +104,8 @@ const VehicleOwnerEditProfile = () => {
 										<div className="flex ...">
 											<input
 												className="form-control block  w-80 px-3 py-1.5 text-base border-indigo-500 font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-												id="contactNumber"
-												value={vehicleOwner.contactNumber}
+												id="companyPhone"
+												value={vehicleOwner.companyPhone}
 												type="number"
 												aria-describedby="emailHelp124"
 												placeholder="Contact Number"

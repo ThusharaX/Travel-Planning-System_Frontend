@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import VehicleOwnerAPI from "./api/VehicleOwnerAPI";
+import makeToast from "../components/toast/index";
 
 import Joi from "joi";
 import { useEffect } from "react";
@@ -138,7 +139,7 @@ export function VehicleOwnerProvider({ children }) {
 		VehicleOwnerAPI.editVehicleOwner(values.id, newVehicleOwner)
 			.then((response) => {
 				makeToast({ type: "success", message: "Update Successful" });
-				//window.location.href = "/vehicle-profile";
+				window.location.href = "/vehicle-profile";
 			})
 			.catch((err) => {
 				console.log(err);

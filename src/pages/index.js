@@ -65,6 +65,8 @@ import WhoAreYou from "./who-are-you";
 import VehiclePackageCreate from "./vehicle-package-create";
 import VehiclePackageEdit from "./vehicle-package-edit";
 
+import VehicleReport from "./vehicle-owner-report";
+
 // Customer
 import CustomerRegister from "./customer-register";
 import CustomerLogin from "./customer-login";
@@ -139,4 +141,5 @@ export {
 	/*Vehicle Package */
 	VehiclePackageCreate,
 	VehiclePackageEdit,
+	VehicleReport,
 };
