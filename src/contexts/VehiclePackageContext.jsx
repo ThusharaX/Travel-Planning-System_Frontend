@@ -1,8 +1,8 @@
 import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import VehiclePackageAPI from "./api/VehiclePackageApi";
+import VehiclePackageAPI from "./api/VehiclePackageAPI";
 
-const CampingPackageContext = createContext();
+const VehiclePackageContext = createContext();
 
 export function VehiclePackageProvider({ children }) {
 	const navigate = useNavigate();
@@ -12,10 +12,10 @@ export function VehiclePackageProvider({ children }) {
 	// Camping Package
 	const [vehiclePackage, setVehiclePackage] = useState({
 		ownerId: "id",
-		Packagename: "",
+		packageName: "",
 		persons: "",
 		vehicle: "",
-		duration: "",
+		durantion: "",
 		price: "",
 		description: "",
 	});
@@ -30,12 +30,12 @@ export function VehiclePackageProvider({ children }) {
 
 	// Add Hotel Package
 	const addVehiclePackage = async (newVehiclePackage) => {
-		console.log("Owner ID context :" + newVehiclePackage.vendorId);
+		console.log("Owner ID context :" + newVehiclePackage.ownerId);
 
 		try {
 			setIsLoading(true);
-			const response = await VehiclePackageAPI.createVehiclePackage(newVehiclePackage);
-			setCampingPackages([...vehiclePackages, response.data]);
+			const response = await VehiclePackageAPI.createVehiclePacakge(newVehiclePackage);
+			setVehiclePackages([...vehiclePackages, response.data]);
 			setIsLoading(false);
 			alert("Data added successfully...");
 			navigate("/vehicle-profile");
@@ -49,7 +49,7 @@ export function VehiclePackageProvider({ children }) {
 
 	const getVehiclePackage = (id) => {
 		useEffect(() => {
-			VehiclePackageAPI.getOnePackageData(id).then((res) => {
+			VehiclePackageAPI.getOneVehiclePackage(id).then((res) => {
 				setVehiclePackage(res.data);
 			});
 		}, []);
@@ -58,10 +58,10 @@ export function VehiclePackageProvider({ children }) {
 	// Edit camping Package
 	const editVehiclePackage = (values) => {
 		const newVehiclePackage = {
-			Packagename: values.packageName,
+			packageName: values.packageName,
 			persons: values.persons,
 			vehicle: values.vehicle,
-			duration: values.duration,
+			durantion: values.durantion,
 			price: values.price,
 			description: values.description,
 		};
@@ -93,7 +93,7 @@ export function VehiclePackageProvider({ children }) {
 	};
 
 	return (
-		<CampingPackageContext.Provider
+		<VehiclePackageContext.Provider
 			value={{
 				isLoading,
 				vehiclePackages,
@@ -106,8 +106,8 @@ export function VehiclePackageProvider({ children }) {
 			}}
 		>
 			{children}
-		</CampingPackageContext.Provider>
+		</VehiclePackageContext.Provider>
 	);
 }
 
-export default CampingPackageContext;
+export default VehiclePackageContext;

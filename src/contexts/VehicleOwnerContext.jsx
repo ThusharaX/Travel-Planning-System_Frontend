@@ -2,6 +2,8 @@ import { createContext, useState } from "react";
 import VehicleOwnerAPI from "./api/VehicleOwnerAPI";
 import makeToast from "../components/toast/index";
 
+import Joi from "joi";
+import { useEffect } from "react";
 const VehicleOwnerContext = createContext();
 
 export function VehicleOwnerProvider({ children }) {
@@ -24,8 +26,41 @@ export function VehicleOwnerProvider({ children }) {
 		password: "",
 	});
 
+	const SignUpFormSchema = Joi.object({
+		companyOwnerName: Joi.string().min(2).max(20).message("Owner name should be between 2 and 20 characters"),
+		email: Joi.string()
+			.email({ tlds: { allow: false } })
+			.message("Email should be valid"),
+		nic: Joi.string().min(10).max(10).message("NIC should be 10 characters"),
+		contactNumber: Joi.string().min(10).max(10).message("Phone number should be 10 characters"),
+		password: Joi.string().min(4).message("Password should be valid"),
+
+		companyName: Joi.string().min(2).max(20).message("Hotel name should be between 2 and 20 characters"),
+		companyAddress: Joi.string().min(2).max(20).message("Hotel address should be between 2 and 20 characters"),
+		companyPhone: Joi.string().min(10).max(10).message("Company phone number should be 10 characters"),
+		companyRegisterNumber: Joi.string()
+			.min(2)
+			.max(20)
+			.message("Company registration number should be between 2 and 20 characters"),
+		profilePicture: Joi.string().min(0).message("Profile picture"),
+	});
+
+	// Login Form Validation
+	const LoginFormSchema = Joi.object({
+		email: Joi.string()
+			.email({ tlds: { allow: false } })
+			.message("Email should be valid"),
+		password: Joi.string().min(4).message("Password should be valid"),
+	});
+
 	// Add Vehicle Owner
 	const VehicleOwnerRegister = (values) => {
+		const { error } = SignUpFormSchema.validate(values);
+		if (error) {
+			makeToast({ type: "error", message: error.details[0].message });
+			return;
+		}
+
 		VehicleOwnerAPI.vehicleOwnerRegister(values)
 			.then((response) => {
 				setVehicleOwners([...vehicleOwners, response.data]);
@@ -49,6 +84,13 @@ export function VehicleOwnerProvider({ children }) {
 	// Vehicle Owner Login
 	const VehicleOwnerLogin = (values) => {
 		setIsLoading(true);
+
+		const { error } = LoginFormSchema.validate(values);
+		if (error) {
+			makeToast({ type: "error", message: error.details[0].message });
+			return;
+		}
+
 		VehicleOwnerAPI.vehicleOwnerLogin(values)
 			.then((response) => {
 				if (response.data.permissionLevel !== "VEHICLE_OWNER") {
@@ -72,6 +114,53 @@ export function VehicleOwnerProvider({ children }) {
 			});
 	};
 
+	// get one Vehicle Owner
+	const getOneVehicleOwner = (id) => {
+		useEffect(() => {
+			VehicleOwnerAPI.getOneVehicleOwner(id).then((res) => {
+				setVehicleOwner(res.data);
+			});
+		}, []);
+	};
+
+	// Get all Vehicle Owner
+	useEffect(() => {
+		setIsLoading(true);
+		VehicleOwnerAPI.getAllVehicleOwners().then((response) => {
+			setVehicleOwners(response.data);
+			setIsLoading(false);
+		});
+	}, []);
+
+	// Edit Vehicle Owner
+	const EditVehicleOwner = (values) => {
+		const newVehicleOwner = {
+			companyOwnerName: values.companyOwnerName,
+			email: values.email,
+			nic: values.packageName,
+			contactNumber: values.contactNumber,
+			companyName: values.companyName,
+			companyAddress: values.companyAddress,
+			companyPhone: values.companyPhone,
+			companyRegisterNumber: values.companyRegisterNumber,
+		};
+		VehicleOwnerAPI.editVehicleOwner(values.id, newVehicleOwner)
+			.then((response) => {
+				makeToast({ type: "success", message: "Update Successful" });
+				//window.location.href = "/vehicle-profile";
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
+	// Delete Vehicle Owner
+	const deleteVehicleOwner = (id) => {
+		VehicleOwnerAPI.deleteVehicleOwner(id).then(() => {
+			setVehicleOwners(vehicleOwners.filter((vehicleOwner) => vehicleOwner._id !== id));
+		});
+	};
+
 	return (
 		<VehicleOwnerContext.Provider
 			value={{
@@ -85,6 +174,11 @@ export function VehicleOwnerProvider({ children }) {
 				setNicError,
 				nicError,
 				isLoggedIn,
+				getOneVehicleOwner,
+				setVehicleOwner,
+				setVehicleOwners,
+				deleteVehicleOwner,
+				EditVehicleOwner,
 			}}
 		>
 			{children}

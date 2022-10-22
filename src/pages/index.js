@@ -52,13 +52,18 @@ import CampingPackageReport from "./camping-package-report";
 import CampingVendorRegister from "./camping-vendor-register";
 import CampingVendorLogin from "./camping-vendor-login";
 import CampingVendorDashboard from "./camping-vendor-dashboard";
+import CampingVendorEditProfile from "./camping-vendor-edit-profile";
 
 /*Vehicle Owner */
 import VehicleOwnerRegister from "./vehicle-owner-register";
 import VehicleOwnerLogin from "./vehicle-owner-login";
 import Userprofile from "./vehicleOwner-profile";
+import VehicleOwnerEditProfile from "./vehicle-owner-edit-profile";
 
 import WhoAreYou from "./who-are-you";
+
+import VehiclePackageCreate from "./vehicle-package-create";
+import VehiclePackageEdit from "./vehicle-package-edit";
 
 // Customer
 import CustomerRegister from "./customer-register";
@@ -115,11 +120,13 @@ export {
 	CampingVendorRegister,
 	CampingVendorLogin,
 	CampingVendorDashboard,
+	CampingVendorEditProfile,
 
 	/* Vehicle Owner*/
 	VehicleOwnerRegister,
 	VehicleOwnerLogin,
 	Userprofile,
+	VehicleOwnerEditProfile,
 	WhoAreYou,
 
 	/*Display page*/
@@ -128,4 +135,8 @@ export {
 	/*Customer */
 	CustomerRegister,
 	CustomerLogin,
+
+	/*Vehicle Package */
+	VehiclePackageCreate,
+	VehiclePackageEdit,
 };

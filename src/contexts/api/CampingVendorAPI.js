@@ -26,7 +26,7 @@ class CampingVendorAPI {
 
 	//Edit Camping Package
 
-	static editCampingVendor(id, newCampingPackage) {
+	static editCampingVendor(id, newCampingVendor) {
 		return axios.put(`${BASE_URL}/camping-vendor/${id}`, newCampingVendor, requestConfigJson);
 	}
 
