@@ -22,7 +22,7 @@ export default function Home() {
 								<span className="block text-indigo-600 xl:inline">world</span>
 							</h1>
 							<p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-								Compare prices & save money with <strong>Travel Planner</strong>. We compare millions of hotels and car
+								Compare prices & save money with <strong>Holiday Lanka</strong>. We compare millions of hotels and car
 								rentals to find you the best deals.
 							</p>
 							<div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
